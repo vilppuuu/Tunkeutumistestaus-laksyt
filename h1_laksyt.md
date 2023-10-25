@@ -8,11 +8,11 @@ Hutchins et al 2011: Intelligence-Driven Computer Network Defense Informed by An
 ### a) Ratkaise Over The Wire: Bandit kolme ensimmäistä tasoa (0-2).
 
 - Level 0 alkaa tosiaan ottamalla ssh-yhteys koneeseen, jossa 'peli' sijaitsee, eli yksinkertaisin lienee Linuxissa tai Windowsissa terminaalissa käyttöää ssh:ta. Eli komennolla *ssh bandit0@bandit.labs.overthewire.org -p 2220* päästään yhdistämään, eli tuossa
-näkyy tuo bandit0, joka on käyttäjänimi ja kone johon yhdistetään on @:n jälkeen oleva rimpsu, ja tosiaan -p määritetään portti jota tässä oli ohjeistettu käyttämään oletusportin (22) sijasta. Tämä kun on laitettu terminaaliin, yhteys kysyy salasanaa joka tässä oli turvallisesti määritelty samaksi kuin käyttäjänimi.
+näkyy tuo bandit0, joka on käyttäjänimi ja kone, johon yhdistetään on @:n jälkeen oleva rimpsu, ja tosiaan -p määritetään portti, jota tässä oli ohjeistettu käyttämään oletusportin (22) sijasta. Tämä kun on laitettu terminaaliin, yhteys kysyy salasanaa, joka tässä oli turvallisesti määritelty samaksi kuin käyttäjänimi.
 
 - Level 1 piti löytää salasana readme-nimisestä tiedostosta, joka löytyy koneen johon juuri yhdistimme home directorystä. Komennoilla pwd, ls, ja cat saamme selville hakemiston, siinä sijaitsevat tiedoston ja tiedoston sisällön, joka oli siis salasana seuraavaan leveliin kirjautumiseen.
 
-- Level 2 siis otettiin ssh-yhteys, muuuten samalla tavalla kuin aiemmin, mutta käyttäjällä bandit1 ja edellisessä levelissä löydetyllä salasanalla. Tässä ideana on kaivaa salasana tiedostosta, joka on nimetty "-". Pelkästään cat - ei toimi, koska se lukee - jonain STDIN(?):nä ja odottaa käyttäjältä lisää syötettä. Sen sijaan, jos laittaa tiedoston polun cat komentoon, eli esim cat ./- se lukee sen normaalisti, ja salasanan saa esiin.
+- Level 2 siis otettiin ssh-yhteys, muuuten samalla tavalla kuin aiemmin, mutta käyttäjällä bandit1 ja edellisessä levelissä löydetyllä salasanalla. Tässä ideana on kaivaa salasana tiedostosta, joka on nimetty "-". Pelkästään 'cat -' ei toimi, koska se lukee - jonain STDIN(?):nä ja odottaa käyttäjältä lisää syötettä. Sen sijaan, jos laittaa tiedoston polun cat-komentoon, eli esim cat ./- se lukee sen normaalisti, ja salasanan saa esiin.
 
 ![lvl1](https://github.com/vilppuuu/tunkeutumistestaus/assets/103587907/18769ff3-8bfc-46a1-a631-3a96a783724d)
 
