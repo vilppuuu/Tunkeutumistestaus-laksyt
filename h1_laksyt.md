@@ -5,7 +5,8 @@ Tässä harjoituksessa on tiedustelua ja lämmittelyä. Pääset lukemaan sen ku
 ### x) Lue/katso ja tiivistä. (Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva.)
 
 #### € Santos et al: The Art of Hacking (Video Collection): [..] 4.3 Surveying Essential Tools for Active Reconnaissance. Sisältää porttiskannauksen. 5 videota, yhteensä noin 20 min.
-
+- Ensimmäisessä videossa selitetään mitä aktiivinen tiedustelu oikeastaan on, eli kuten nimestäkin voi arvata siinä suoritetaan aktiivisesti toimenpiteitä kohteeseen (esim. porttiskannausta). Tämä tarkoittaa sitä, että olemme myös havaittavissa, minkä takia aktiivista tiedustelua kannattaa tehdä asteittain.
+- Aktiivisen tiedustelun ensimmäisessä vaiheessa on hyvä pyrkiä varmentamaan passiivisessa tiedusteluvaiheessa kerättyjen tietojen oikeellisuus (esim. mahdolliset avoimet portit). 
 #### Hutchins et al 2011: Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains, chapters Abstract, 3.2 Intrusion Kill Chain.
 
 - Paperin lähtökohtana on, että perinteinen tapa suojautua ei ole enään riittävä, kun uhkana on Advanced Presistent Threat (APT) 'edistynyt pitkäkestoinen uhka'. Tällä käsitteellä tarkoiteaan toimijaa, jolla on osaamista, resursseja, ja halua toteuttaa pitkäkestoisia ja hyvin kohdennettuja hyökkäyksiä kohteisiin, jotka sisältävät erittäin arvokasta tietoa.
