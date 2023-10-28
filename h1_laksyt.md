@@ -34,6 +34,7 @@ näkyy tuo bandit0, joka on käyttäjänimi ja kone, johon yhdistetään on @:n 
 -  Kohtuu helppo ratkaista googlen (reverse) image searchilla, eli image.google.com & search by image, ja drag & drop ladatun kuvan siihen. Antaa tulokseksi Blackpool Toweria, mikä tuntuu matchäävän hyvin.
 
 ### c) Ratkaise PortSwigger Labs: Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data. (Edellyttää ilmaista rekisteröitymistä. Tehtävän voi ratkaista pelkästään selaimen osoitekenttää muokkaamalla.)
+- En saanut ratkaistua, muuten kuin katsomalla vinkin. 
 
 ### d) Asenna Linux virtuaalikoneeseen. Suosittelen joko Kali (viimeisin versio) tai Debian 12-Bookworm.
 
@@ -41,6 +42,7 @@ näkyy tuo bandit0, joka on käyttäjänimi ja kone, johon yhdistetään on @:n 
 
 ### e) Porttiskannaa 1000 tavallisinta tcp-porttia omasta koneestasi (localhost). Analysoi tulokset.
 - Oletuksenani oli, että ei varmaankaan pitäisi löytyä pahemmin avonaisia portteja, kun tuoreeltaan asennettu VM ja käyttis, ja eihän sieltä juuri mitään löytynytkään, paitsi tuo portti 631 ipp (Internet Printing Protocol), joka näemmä on oletuksena auki, jotta tulostuspalveluiden käyttö onnistuisi ilman säätöä.
+  
 ![nmap1](https://github.com/vilppuuu/tunkeutumistestaus/assets/103587907/72bf3932-135b-4fc3-b1e9-2f952b1ae414)
 
 
