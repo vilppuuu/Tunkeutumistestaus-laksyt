@@ -34,8 +34,7 @@ näkyy tuo bandit0, joka on käyttäjänimi ja kone, johon yhdistetään on @:n 
 -  Kohtuu helppo ratkaista googlen (reverse) image searchilla, eli image.google.com & search by image, ja drag & drop ladatun kuvan siihen. Antaa tulokseksi Blackpool Toweria, mikä tuntuu matchäävän hyvin.
 
 ### c) Ratkaise PortSwigger Labs: Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data. (Edellyttää ilmaista rekisteröitymistä. Tehtävän voi ratkaista pelkästään selaimen osoitekenttää muokkaamalla.)
-- En saanut ratkaistua, muuten kuin katsomalla vinkin. 
-
+- En saanut ratkaistua.
 ### d) Asenna Linux virtuaalikoneeseen. Suosittelen joko Kali (viimeisin versio) tai Debian 12-Bookworm.
 
 ![deebian12](https://github.com/vilppuuu/tunkeutumistestaus/assets/103587907/eb70155d-a047-4053-a9e9-8527ec014653)
