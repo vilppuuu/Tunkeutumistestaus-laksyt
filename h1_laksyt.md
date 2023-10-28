@@ -67,3 +67,10 @@ näkyy tuo bandit0, joka on käyttäjänimi ja kone, johon yhdistetään on @:n 
   
 
 j) Vapaaehtoinen: Tee lisää harjoituksia alustoilta, joihin tässä on tutustuttu: PortSwigger Academy, Over the Wire, Challenge.fi. Hakkeroimaan oppii hakkeroimalla.
+
+### Lähteet:
+
+https://www.edureka.co/blog/nmap-tutorial/
+https://www.varonis.com/blog/nmap-commands
+https://www.speedguide.net/ports.php
+
