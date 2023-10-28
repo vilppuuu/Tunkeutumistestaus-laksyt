@@ -47,7 +47,7 @@ näkyy tuo bandit0, joka on käyttäjänimi ja kone, johon yhdistetään on @:n 
 
 
 ### f) Porttiskannaa kaikki koneesi (localhost) tcp-portit. Analysoi tulokset. (Edellisissä kohdissa mainittuja analyyseja ei tarvitse toistaa, voit vain viitata niihin ja keskittyä eroihin).
-- Lisäämällä aiemmassa tehtävässä käytettyyn komentoon määrite -p 1-65535 saadaan skannattua koko tcp-porttiavarauus, mikä ei tässä tapauksessa tarjonnut mitään uutta informaatiota. Huvikseni tein skannasin myös udp-portit, joista löytyi portit 631 (ipp), 5353 (multicast DNS), ja 45681 (määrittelemätön portti, ei myöskään palvelun nimi ei tiedossa, vähän kysymysmerkki miksi auki, en tiedä olisiko jotain virtualboxin juttuja?)
+- Lisäämällä aiemmassa tehtävässä käytettyyn komentoon määrite -p 1-65535 saadaan skannattua koko tcp-porttiavarauus, mikä ei tässä tapauksessa tarjonnut mitään uutta informaatiota. Huvikseni tein skannasin myös udp-portit, joista löytyi portit 631 (ipp), 5353 (multicast DNS), ja 45681 (määrittelemätön portti, palvelun nimi ei tiedossa, vähän kysymysmerkki miksi auki, en tiedä olisiko jotain virtualboxin juttuja?)
   
 ### g) Tee laaja porttiskanaus (nmap -A) omalle koneellesi (localhost), kaikki portit. Selitä, mitä -A tekee. Analysoi tulokset. (Edellisissä kohdissa mainittuja analyyseja ei tarvitse toistaa, voit vain viitata niihin ja keskittyä eroihin.).
 - Tuo -A sallii agressiivisen skannauksen, eli porttiskannauksen tehdään erilaisia skanneja, joilla koitetaan määritellä esimerkiksi käyttöjärjestelmää, avoimissa porteissa olevia palveluita ja niiden versioita, ja lisäksi se ajaa joukon nmapin default-skriptejä, jotka voivat esim. skannata haavoittuvuuksia.
