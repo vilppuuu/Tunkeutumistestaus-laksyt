@@ -58,4 +58,12 @@ näkyy tuo bandit0, joka on käyttäjänimi ja kone, johon yhdistetään on @:n 
  ![nmap2](https://github.com/vilppuuu/tunkeutumistestaus/assets/103587907/4172ad71-fb8e-4b74-9802-03a3ea392ace)
 
 ### i) Kokeile ja esittele jokin avointen lähteiden tiedusteluun sopiva weppisivu tai työkalu. Hyviä esimerkkejä löytyy Bazzel: IntelTechniques: Tools ja Bellingcat: Resources, voit myös käyttää muuta itse valitsemaasi työkalua. Työkalua pitää siis myös kokeilla, pelkkä nimen mainitseminen ei riitä. Pidä esimerkit harmittomina, älä julkaise kenenkään henkilökohtaisia salaisuuksia raportissasi.
+- Valitsin testailuun tuolta inteltechniques-sivustolta löytyvän Domains Search Toolin, johon siis yksinkertaisesti syötetään domain-nimi, jonka pohjalta voidaan hakea kaikenlaista siitä löytyvää tietoa. Testailussa kokeilin siinä haaga-helia.fi -domainia, ja yllättävän paljon löytyi tietoa. Esim. URLscanin suorittamalla sai selville palvelinten ip-osoitteita, niiden käyttöjärjestelmiä, palvelinohjelmistoja, ja palveluntarjojajia.
+
+![domains](https://github.com/vilppuuu/tunkeutumistestaus/assets/103587907/86f266cb-a54b-425c-a1e8-5e8a4541a0a7)
+
+![urlscanhh](https://github.com/vilppuuu/tunkeutumistestaus/assets/103587907/5577c433-95e9-4f3f-ab71-ad6269ce3db5)
+
+  
+
 j) Vapaaehtoinen: Tee lisää harjoituksia alustoilta, joihin tässä on tutustuttu: PortSwigger Academy, Over the Wire, Challenge.fi. Hakkeroimaan oppii hakkeroimalla.
