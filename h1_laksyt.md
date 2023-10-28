@@ -24,7 +24,7 @@ näkyy tuo bandit0, joka on käyttäjänimi ja kone, johon yhdistetään on @:n 
 
 - Level 1 piti löytää salasana readme-nimisestä tiedostosta, joka löytyy koneen johon juuri yhdistimme home directorystä. Komennoilla pwd, ls, ja cat saamme selville hakemiston, siinä sijaitsevat tiedoston ja tiedoston sisällön, joka oli siis salasana seuraavaan leveliin kirjautumiseen.
 
-- Level 2 siis otettiin ssh-yhteys, muuuten samalla tavalla kuin aiemmin, mutta käyttäjällä bandit1 ja edellisessä levelissä löydetyllä salasanalla. Tässä ideana on kaivaa salasana tiedostosta, joka on nimetty "-". Pelkästään 'cat -' ei toimi, koska se lukee - jonain STDIN(?):nä ja odottaa käyttäjältä lisää syötettä. Sen sijaan, jos laittaa tiedoston polun cat-komentoon, eli esim cat ./- se lukee sen normaalisti, ja salasanan saa esiin.
+- Level 2 siis otettiin ssh-yhteys, muuuten samalla tavalla kuin aiemmin, mutta käyttäjällä bandit1 ja edellisessä levelissä löydetyllä salasanalla. Tässä ideana on kaivaa salasana tiedostosta, joka on nimetty -. Yllättäen ei ollut niin yksinkertaista, että olisi laittanu vain 'cat -'. Joutui siis turvautumaan googlen apuun ja sieltä selvisi, että koska se lukee pelkän - jonain STDIN(?):nä ja sen takia jää odottamaan käyttäjältä lisää syötettä. Sen sijaan, jos laittaa tiedoston polun cat-komentoon, eli esim cat ./- se lukee sen normaalisti, ja salasanan saa esiin.
 
 ![lvl1](https://github.com/vilppuuu/tunkeutumistestaus/assets/103587907/18769ff3-8bfc-46a1-a631-3a96a783724d)
 
@@ -73,4 +73,5 @@ j) Vapaaehtoinen: Tee lisää harjoituksia alustoilta, joihin tässä on tutustu
 https://www.edureka.co/blog/nmap-tutorial/
 https://www.varonis.com/blog/nmap-commands
 https://www.speedguide.net/ports.php
+https://stackoverflow.com/questions/42187323/how-to-open-a-dashed-filename-using-terminal
 
