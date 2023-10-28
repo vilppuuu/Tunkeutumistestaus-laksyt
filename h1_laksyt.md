@@ -6,7 +6,10 @@ Tässä harjoituksessa on tiedustelua ja lämmittelyä. Pääset lukemaan sen ku
 
 #### € Santos et al: The Art of Hacking (Video Collection): [..] 4.3 Surveying Essential Tools for Active Reconnaissance. Sisältää porttiskannauksen. 5 videota, yhteensä noin 20 min.
 - Ensimmäisessä videossa selitetään mitä aktiivinen tiedustelu oikeastaan on, eli kuten nimestäkin voi arvata siinä suoritetaan aktiivisesti toimenpiteitä kohteeseen (esim. porttiskannausta). Tämä tarkoittaa sitä, että olemme myös havaittavissa, minkä takia aktiivista tiedustelua kannattaa tehdä asteittain.
-- Aktiivisen tiedustelun ensimmäisessä vaiheessa on hyvä pyrkiä varmentamaan passiivisessa tiedusteluvaiheessa kerättyjen tietojen oikeellisuus (esim. mahdolliset avoimet portit). 
+- Aktiivisen tiedustelun ensimmäisessä vaiheessa on hyvä pyrkiä varmentamaan passiivisessa tiedusteluvaiheessa kerättyjen tietojen oikeellisuus (esim. mahdolliset avoimet portit).
+- Kolmas video käy läpi porttiskannaukseen eri työkaluja: nmap (yleisin ja monikäyttöisin), masscan (nopea, laajoihin skannauksiin), udppprotoscanner (udp-porttejen skannaamiseen, nopea)
+- Nmapin läpikäyntiä: skannaukselle annettavia yleisiä parametrejä mm. -sS (TCP-skannaus, lähettää vain SYN-paketin), -vv (verbose), -T4 (nopeampi skannaus), -A (OS & version detection). Oletuksena nmap skannaa 1000 yleisintä porttia.
+- 
 #### Hutchins et al 2011: Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains, chapters Abstract, 3.2 Intrusion Kill Chain.
 
 - Paperin lähtökohtana on, että perinteinen tapa suojautua ei ole enään riittävä, kun uhkana on Advanced Presistent Threat (APT) 'edistynyt pitkäkestoinen uhka'. Tällä käsitteellä tarkoiteaan toimijaa, jolla on osaamista, resursseja, ja halua toteuttaa pitkäkestoisia ja hyvin kohdennettuja hyökkäyksiä kohteisiin, jotka sisältävät erittäin arvokasta tietoa.
