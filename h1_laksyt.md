@@ -9,7 +9,8 @@ Tässä harjoituksessa on tiedustelua ja lämmittelyä. Pääset lukemaan sen ku
 - Aktiivisen tiedustelun ensimmäisessä vaiheessa on hyvä pyrkiä varmentamaan passiivisessa tiedusteluvaiheessa kerättyjen tietojen oikeellisuus (esim. mahdolliset avoimet portit).
 - Kolmas video käy läpi porttiskannaukseen eri työkaluja: nmap (yleisin ja monikäyttöisin), masscan (nopea, laajoihin skannauksiin), udppprotoscanner (udp-porttejen skannaamiseen, nopea)
 - Nmapin läpikäyntiä: skannaukselle annettavia yleisiä parametrejä mm. -sS (TCP-skannaus, lähettää vain SYN-paketin), -vv (verbose), -T4 (nopeampi skannaus), -A (OS & version detection). Oletuksena nmap skannaa 1000 yleisintä porttia.
-- 
+- Verkkopalveluiden skannaamiseen esitellään EyeWitness-ohjelmaa, joka käy ip-osoitteiden pohjalta verkkosivuja läpi ja kerää tietoja niiden headereistä ja kuvakaappaukset itse sivuista, jotta voidaan valita otollinen kohde.
+- Erilaisten haavoittuvuusskannereiden esittelyä, jaoteltuna verkko- tai web-haavoittuvuksia etsiviin ohjelmiin. Nmapia voi myös toimia kevyenä haavoittuvuusskannerissa, sillä se sisältää joukon skriptejä, joilla voidaan etsiä tiettyjä haavoittuvuuksia.
 #### Hutchins et al 2011: Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains, chapters Abstract, 3.2 Intrusion Kill Chain.
 
 - Paperin lähtökohtana on, että perinteinen tapa suojautua ei ole enään riittävä, kun uhkana on Advanced Presistent Threat (APT) 'edistynyt pitkäkestoinen uhka'. Tällä käsitteellä tarkoiteaan toimijaa, jolla on osaamista, resursseja, ja halua toteuttaa pitkäkestoisia ja hyvin kohdennettuja hyökkäyksiä kohteisiin, jotka sisältävät erittäin arvokasta tietoa.
@@ -38,13 +39,17 @@ näkyy tuo bandit0, joka on käyttäjänimi ja kone, johon yhdistetään on @:n 
 
 ![deebian12](https://github.com/vilppuuu/tunkeutumistestaus/assets/103587907/eb70155d-a047-4053-a9e9-8527ec014653)
 
-
-
 ### e) Porttiskannaa 1000 tavallisinta tcp-porttia omasta koneestasi (localhost). Analysoi tulokset.
+- Oletuksenani oli, että ei varmaankaan pitäisi löytyä pahemmin avonaisia portteja, kun tuoreeltaan asennettu VM ja käyttis, ja eihän sieltä juuri mitään löytynytkään, paitsi tuo portti 631 ipp (Internet Printing Protocol), joka näemmä on oletuksena auki, jotta tulostuspalveluiden käyttö onnistuisi ilman säätöä.
+![nmap1](https://github.com/vilppuuu/tunkeutumistestaus/assets/103587907/72bf3932-135b-4fc3-b1e9-2f952b1ae414)
+
 
 ### f) Porttiskannaa kaikki koneesi (localhost) tcp-portit. Analysoi tulokset. (Edellisissä kohdissa mainittuja analyyseja ei tarvitse toistaa, voit vain viitata niihin ja keskittyä eroihin).
-
+- Lisäämällä aiemmassa tehtävässä käytettyyn komentoon määrite -p 1-65535 saadaan skannattua koko tcp-porttiavarauus, mikä ei tässä tapauksessa tarjonnut mitään uutta informaatiota. Huvikseni tein skannasin myös udp-portit, joista löytyi portit 631 (ipp), 5353 (multicast DNS), ja 45681 (määrittelemätön portti, ei myöskään palvelun nimi ei tiedossa, vähän kysymysmerkki miksi auki, en tiedä olisiko jotain virtualboxin juttuja?)
+  
 ### g) Tee laaja porttiskanaus (nmap -A) omalle koneellesi (localhost), kaikki portit. Selitä, mitä -A tekee. Analysoi tulokset. (Edellisissä kohdissa mainittuja analyyseja ei tarvitse toistaa, voit vain viitata niihin ja keskittyä eroihin.).
-h) Asenna ja käynnistä jokin palvelin (apache, ssh...) koneellesi. Vertaile, miten porttiskannauksen tulos eroaa.
-i) Kokeile ja esittele jokin avointen lähteiden tiedusteluun sopiva weppisivu tai työkalu. Hyviä esimerkkejä löytyy Bazzel: IntelTechniques: Tools ja Bellingcat: Resources, voit myös käyttää muuta itse valitsemaasi työkalua. Työkalua pitää siis myös kokeilla, pelkkä nimen mainitseminen ei riitä. Pidä esimerkit harmittomina, älä julkaise kenenkään henkilökohtaisia salaisuuksia raportissasi.
+- Tuo -A sallii agressiivisen skannauksen, eli porttiskannauksen tehdään erilaisia skanneja, joilla koitetaan määritellä esimerkiksi käyttöjärjestelmää, avoimissa porteissa olevia palveluita ja niiden versioita, ja lisäksi se ajaa joukon nmapin default-skriptejä, jotka voivat esim. skannata haavoittuvuuksia. Tässä tapauksessa tuo -A sai aiempiin skannauksiin lisätietona tuotettua käyttöjärjestelmän ja sen version, ja tcp/ip-stäkin sormenjäljen.
+- 
+### h) Asenna ja käynnistä jokin palvelin (apache, ssh...) koneellesi. Vertaile, miten porttiskannauksen tulos eroaa.
+### i) Kokeile ja esittele jokin avointen lähteiden tiedusteluun sopiva weppisivu tai työkalu. Hyviä esimerkkejä löytyy Bazzel: IntelTechniques: Tools ja Bellingcat: Resources, voit myös käyttää muuta itse valitsemaasi työkalua. Työkalua pitää siis myös kokeilla, pelkkä nimen mainitseminen ei riitä. Pidä esimerkit harmittomina, älä julkaise kenenkään henkilökohtaisia salaisuuksia raportissasi.
 j) Vapaaehtoinen: Tee lisää harjoituksia alustoilta, joihin tässä on tutustuttu: PortSwigger Academy, Over the Wire, Challenge.fi. Hakkeroimaan oppii hakkeroimalla.
