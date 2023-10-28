@@ -49,8 +49,12 @@ näkyy tuo bandit0, joka on käyttäjänimi ja kone, johon yhdistetään on @:n 
 - Lisäämällä aiemmassa tehtävässä käytettyyn komentoon määrite -p 1-65535 saadaan skannattua koko tcp-porttiavarauus, mikä ei tässä tapauksessa tarjonnut mitään uutta informaatiota. Huvikseni tein skannasin myös udp-portit, joista löytyi portit 631 (ipp), 5353 (multicast DNS), ja 45681 (määrittelemätön portti, ei myöskään palvelun nimi ei tiedossa, vähän kysymysmerkki miksi auki, en tiedä olisiko jotain virtualboxin juttuja?)
   
 ### g) Tee laaja porttiskanaus (nmap -A) omalle koneellesi (localhost), kaikki portit. Selitä, mitä -A tekee. Analysoi tulokset. (Edellisissä kohdissa mainittuja analyyseja ei tarvitse toistaa, voit vain viitata niihin ja keskittyä eroihin.).
-- Tuo -A sallii agressiivisen skannauksen, eli porttiskannauksen tehdään erilaisia skanneja, joilla koitetaan määritellä esimerkiksi käyttöjärjestelmää, avoimissa porteissa olevia palveluita ja niiden versioita, ja lisäksi se ajaa joukon nmapin default-skriptejä, jotka voivat esim. skannata haavoittuvuuksia. Tässä tapauksessa tuo -A sai aiempiin skannauksiin lisätietona tuotettua käyttöjärjestelmän ja sen version, ja tcp/ip-stäkin sormenjäljen.
-- 
+- Tuo -A sallii agressiivisen skannauksen, eli porttiskannauksen tehdään erilaisia skanneja, joilla koitetaan määritellä esimerkiksi käyttöjärjestelmää, avoimissa porteissa olevia palveluita ja niiden versioita, ja lisäksi se ajaa joukon nmapin default-skriptejä, jotka voivat esim. skannata haavoittuvuuksia.
+- Tässä tapauksessa tuo -A sai aiempiin skannauksiin lisätietona tuotettua käyttöjärjestelmän ja sen version, ja tcp/ip-stäkin sormenjäljen.
 ### h) Asenna ja käynnistä jokin palvelin (apache, ssh...) koneellesi. Vertaile, miten porttiskannauksen tulos eroaa.
+- Asentelin tässä huvikseni SSH:n, nginx:n, ja Samban, ja yllätys yllätys kun näiden asennusten jälkeen suoritetaan porttiskannaus, niin palveluiden käyttämät portit löytyvät (22=SSH, 80/HTTP=nginx, 145 & 445 Samba).
+
+ ![nmap2](https://github.com/vilppuuu/tunkeutumistestaus/assets/103587907/4172ad71-fb8e-4b74-9802-03a3ea392ace)
+
 ### i) Kokeile ja esittele jokin avointen lähteiden tiedusteluun sopiva weppisivu tai työkalu. Hyviä esimerkkejä löytyy Bazzel: IntelTechniques: Tools ja Bellingcat: Resources, voit myös käyttää muuta itse valitsemaasi työkalua. Työkalua pitää siis myös kokeilla, pelkkä nimen mainitseminen ei riitä. Pidä esimerkit harmittomina, älä julkaise kenenkään henkilökohtaisia salaisuuksia raportissasi.
 j) Vapaaehtoinen: Tee lisää harjoituksia alustoilta, joihin tässä on tutustuttu: PortSwigger Academy, Over the Wire, Challenge.fi. Hakkeroimaan oppii hakkeroimalla.
