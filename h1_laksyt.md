@@ -14,8 +14,9 @@ Tässä harjoituksessa on tiedustelua ja lämmittelyä. Pääset lukemaan sen ku
 #### Hutchins et al 2011: Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains, chapters Abstract, 3.2 Intrusion Kill Chain.
 
 - Paperin lähtökohtana on, että perinteinen tapa suojautua ei ole enään riittävä, kun uhkana on Advanced Presistent Threat (APT) 'edistynyt pitkäkestoinen uhka'. Tällä käsitteellä tarkoiteaan toimijaa, jolla on osaamista, resursseja, ja halua toteuttaa pitkäkestoisia ja hyvin kohdennettuja hyökkäyksiä kohteisiin, jotka sisältävät erittäin arvokasta tietoa.
-- Ratkaisuna tähän ehdotetaan 'intelligence-driven computer network defence' -strategiaa, joka sisältää analyysin hyökkääjien kyvykkyyksistä, päämääristä, toimintatavasta, ja heikkouksista. Tässä mallissa tunkeutumisyritykset eivät ole yksittäisiä tapauksia, vaan niitä tarkastellaan osana hyökkääjien kokoajan edistyvää jatkumoa.
-- 
+- Hyökkäysten kehitys edellyttää myös suojautumisstrategioiden kehittämistä. Paperissa esitetään 'intelligence-driven computer network defence' -strategiaa, joka sisältää analyysin hyökkääjien kyvykkyyksistä, päämääristä, toimintatavasta, ja heikkouksista. Tässä mallissa tunkeutumisyritykset eivät ole yksittäisiä tapauksia, vaan niitä tarkastellaan osana hyökkääjien kokoajan edistyvää jatkumoa.
+- Tähän strategiaan pohjautuen esitetään tämä kybertappoketju -malli, jossa siis hyökkäys on jaoteltu seitsemään eri vaiheeseen (tiedustelu, aseistus, toimitus, exploittaaminen, asennus, command & control, tavoitellut toimet kohteessa).
+  
 ### a) Ratkaise Over The Wire: Bandit kolme ensimmäistä tasoa (0-2).
 
 - Level 0 alkaa tosiaan ottamalla ssh-yhteys koneeseen, jossa 'peli' sijaitsee, eli yksinkertaisin lienee Linuxissa tai Windowsissa terminaalissa käyttöää ssh:ta. Eli komennolla *ssh bandit0@bandit.labs.overthewire.org -p 2220* päästään yhdistämään, eli tuossa
