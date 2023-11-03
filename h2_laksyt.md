@@ -22,8 +22,8 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
   
 - Olin jo ladannut tuon Githubista SecList.zipin (https://github.com/danielmiessler/SecLists) katsottuani tuon Still Fuzzing Faster (U fool) -esityksen, kun se siellä mainittiin ja linkki löytyi esityksen lopusta. Eli täytyi vain tuon common.txt etsiä sieltä laittaa sen polku tuohon komentoon.
 -  Komennossa siis -w määrittelee käytettävän sanalistan, ja -u urlin, jota vastaan tuota sanalistaa ajetaan.
--  
-		![fuzz](https://i.imgur.com/Tq4tv0f.png)
+  
+ 	![fuzz](https://i.imgur.com/Tq4tv0f.png)
 
 -  Tämä tulos ei varsinaisesti ole kovin hyödyllinen, koska se on vajaa 5000 riviä pitkä, joten tarvitaan keino filtteröidä sitä.
 - ffuf:issa tuloksia voidaan filteröidä ainakin HTTP-statuksen (-fc), koon (-fs), sanojen (-fw), rivien (-lf), ja keston (-ft) mukaan.
