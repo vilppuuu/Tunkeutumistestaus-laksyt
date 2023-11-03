@@ -14,6 +14,7 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
 	
  - Harjoituksen ideana on löytää piilotettuja hakemistoja web-palvelimelta, jotta tätä olisi mitenkään järkevä toteuttaa tarvitaan siihen työkalu, jolla prosessi voidaan automatisoida. Tällä kurssilla käytetty ja suositeltu työkalu on fuff, jota voidaan hakemistojen etsimisen lisäksi käyttää myös esim. virtuaalihostien etsimiseen, käyttäjien ja salasanojen syöttämiseen ja muuhun.
 - Aloitin harjoituksen lataamalla harjoitusmaalin ja fuff:in ohjeen mukaisesti, paitsi fuff:ista löytyi githubista uudempi versio (2.1), kun kävin siellä kurkkaamassa (https://github.com/ffuf/ffuf/releases/tag/v2.1.0), jonka siis latasin.
+  
 	![fuff](https://i.imgur.com/Zj81xv9.png) 
 		
 	![test](https://i.imgur.com/NkYl0Kx.png)
@@ -27,7 +28,8 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
 - Kokeillaan nyt filtteröidä vaikkapa tuon koon perusteella, eli aiemmin ajettuun komentoon lisätään -fs 132, jolloin suodatetaan 132 tavua pitkät vastaukset pois tuloksista. Näin saatiin siis suodatettua 'false positivet' pois tuloksista, ja jäljelle jäi meitä kiinnostava tieto, eli tässä tapauksessa admin-niminen hakemisto. Sama tulos tulisi myös, jos tuloksia filteröidään rivien (-fl 10), tai sanojen (-fw 6) perusteella.
 - Harjoituksen toisessa osuudessa täytyi ladata uusi harjoitus ja laittaa se päälle samalla tapaa kuin ensimmäinenkin, jonka jälkeen sieltä pitäisi saada löydettyä admin ja versionhallintaan liittyvät hakemistot.
 - Looginen tapa aloittaa näiden etsiminen oli tietysti ajaa sama komento kun aiemminkin ja tuloksesta, ja tarkastella tuottaako se mitään. No tuottihan se eli seuraavaksi tarvitsee arvioida paras keino flitteröidä false positivet pois. Kun tuloksia tarkasteli, niin vilisi aika paljon 154 tavun kokoisia vastauksia, joten jos ne filtteröisi pois niin paljastuisiko jotain, eli lisätään -fs 154 aikaisempaan komentoon. Sieltähän löytyi etsityt hakemistot, eli wp-admin ja gitin hakemistoja, sekä yksi gitin redirecti.
-		![fs154](https://i.imgur.com/Q4C78B0.png)
+  
+	![fs154](https://i.imgur.com/Q4C78B0.png)
 
 - #### b) Fuffme. Asenna [Ffufme harjoitusmaali](https://terokarvinen.com/2023/fuffme-web-fuzzing-target-debian/) paikallisesti omalle koneellesi. Ratkaise tehtävät (kaikki paitsi ei "Content Discovery - Pipes")
 - Aloitin tehtävän lataamalla docker.io:n aptista sekä kloonaamalla tuon fuffme-hakemiston gitillä. ohjeen mukaisesti.  Tämän jälkeen laitoin Dockerin rullaamaan fuffme:n asennusta, mikä meni läpi sujuvasti. Tämän jälkeen koitin tuota ohjeestä lötyvää docker run -komentoa, joka tuotti seuraavan virheen:
