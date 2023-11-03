@@ -11,6 +11,6 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
 	- Harjoituksen ideana on löytää piilotettuja hakemistoja web-palvelimelta, jotta tätä olisi mitenkään järkevä toteuttaa tarvitaan siihen työkalu, jolla prosessi voidaan automatisoida.
 		- Tällä kurssilla käytetty ja suositeltu työkalu on fuff, jota voidaan hakemistojen etsimisen lisäksi käyttää myös esim. virtuaalihostien etsimiseen, käyttäjien ja salasanojen syöttämiseen ja muuhun.
 	- Aloitin harjoituksen lataamalla ja käynnistämällä harjoitusmaalin, sekä ffuf:in, ja testaamalla niiden toimivuuden.
-		[https://i.imgur.com/is7WnN9.png]() 
-		[https://i.imgur.com/NkYl0Kx.png]()
+		[](https://i.imgur.com/is7WnN9.png) 
+		[](https://i.imgur.com/NkYl0Kx.png)
 	- 
