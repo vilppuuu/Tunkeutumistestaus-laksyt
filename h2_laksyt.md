@@ -5,8 +5,9 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
 #### x) Lue/katso ja tiivistä. (Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva.)
    
  - Hoikkala "joohoi" 2020: [Still Fuzzing Faster (U fool)](https://www.youtube.com/watch?v=mbmsT3AhwWU). In HelSec Virtual meetup #1. (about 1 hour)
-    - Lyon 2009: Nmap Network Scanning: Chapter 15. Nmap Reference Guide:
-        - [Port Scanning Basics](https://nmap.org/book/man-port-scanning-basics.html) (opettele, mitä tarkoittavat: open, closed, filtered; muuten vain silmäily)
+	-
+ - Lyon 2009: Nmap Network Scanning: Chapter 15. Nmap Reference Guide:
+	- [Port Scanning Basics](https://nmap.org/book/man-port-scanning-basics.html) (opettele, mitä tarkoittavat: open, closed, filtered; muuten vain silmäily)
 	        - Kun TCP-portteja skannataan yleisimmin käytetään SYN-skannausta, ja riippuen vastauksesta skanniin portit jaotelaan kuuteen eri tilaan: *open, closed, filtered, unfiltered, open|filtered, or closed|filtered*.
 	        - Portin ollessa open skannaukseen saadaan ACK-vastaus, mikä tarkoittaa että portissa on palvelu, johon voitaisiin yhdistää. Portin ollessa closed SYN-sanomaan tulee RST-vastaus, eli portti kyllä vastaa mutta siellä ei ole palvelua. Filtered tilassa taas sanomaan ei tule vastausta, koska palomuuri (tai joku muu konfiguraatio, IPS etc.) estää pääsyn portille.
         - [Port Scanning Techniques](https://nmap.org/book/man-port-scanning-techniques.html) (opettele, mitä ovat: -sS -sT -sU; muuten vain silmäily)
