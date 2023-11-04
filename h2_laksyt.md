@@ -47,7 +47,7 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
 	 ![neli](https://i.imgur.com/kvVBVaZ.png)
 - Param Mining
 	- Tässä etsitään sopivaa parametriä datalle, joten tarvitaan ensinäkin eri sanalista hakuun, joka oli tehtävän ohjeissa parameters.txt, mutta itse kaivoin tuolta SecLististä sellaisen kuin burp-parameter-names, joka myös ajoi asian. Lisäksi itse komento muuttuu hieman, kun siihen tulee FUZZ=1 pelkän FUZZ:in sijaan. Kun tuon listan ajaa läpi löytyy debug-parametri, jonka voi syöttää tuon osoiteriville tuon data?:n jälkeen, jolloin päästään kyseiselle sivulle.
-		[vii](https://i.imgur.com/AoSMnAA.png)
+		![vii](https://i.imgur.com/AoSMnAA.png)
 - Rate Limited
 	- Tämä harjoitus itseasiassa vastaa kysymykseen, mikä itselläni heräsi katsoessani tuota joohoin Still Fuzzing Faster than (U Fool) -esitystä, sillä ymmärtääkseni edes vähänkään sinnepäin konffattu web-palvelin antaa jonkinlaista bannia, jos laitat sinne 5000 requestia sekunnissa. Ffuf:issa siis saa määriteltyä ensinäkin monta requestia (-p) se lähettää per sekunti, ja kuinka monesta 'threadista' (-t, säie, suomeksi??) niitä lähetetään samanaikaisesti. 
 	- Tässä harjoituksessa siis palvelimelta tulee http 429-koodia (too many requests) vastaukseksi, kun komentoa koitetaan ajaa samalla tavalla kuin aiemmissa tehtävissä. Tulokset on myös filteröity http-status-koodien mukaan (-mc), eli vain 200 & 429 vastaukset näkyvät.
