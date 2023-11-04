@@ -1,11 +1,14 @@
 ### H2 Läksyt - Sniff-n-Scan
 
-Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit valvomaan hyökkäystyökalujen toimintaa snifferillä, ja tutustut Wiresharkiin. Wireshark osaa myös analysoida paketit automaattisesti. Weppiin murtautumista auttaa suomalainen, fuzzereiden huipulle noussut ffuf. Harjoitusmaalien asentamisesta kokeillaan paikallisia binäärejä (by yours truly) ja Dockeria._
+Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit valvomaan hyökkäystyökalujen toimintaa snifferillä, ja tutustut Wiresharkiin. Wireshark osaa myös analysoida paketit automaattisesti. Weppiin murtautumista auttaa suomalainen, fuzzereiden huipulle noussut ffuf. Harjoitusmaalien asentamisesta kokeillaan paikallisia binäärejä (by yours truly) ja Dockeria.
 
 #### x) Lue/katso ja tiivistä. (Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva.
    
 **Hoikkala "joohoi" 2020: [Still Fuzzing Faster (U fool)](https://www.youtube.com/watch?v=mbmsT3AhwWU). In HelSec Virtual meetup #1. (about 1 hour)**
-	-
+	- Alussa nopea info siitä mihin fuff:ia oikeastaan käytetään, eli mitä syötteitä annetaan (salasanat, käyttäjät, yleiset tiedostopolut ja parametrit etc.), ja millä tapaa näitä käytetään (GET parameterit, headerit, POST data).
+ 	- Eri filtteröionti tapojen läpikäyntiä esim. tiettyjen http-koodien avulla, false positive -tuloksien suodattaminen vastauksen koon, sanamäärän pohjalta.
+  	- Loppu esitys oli oikeastaan demo fuffin käytöstä, jossa käytiin läpi sen eri ominaisuuksia.
+   
 **Lyon 2009: Nmap Network Scanning: Chapter 15. Nmap Reference Guide:
 [Port Scanning Basics](https://nmap.org/book/man-port-scanning-basics.html) (opettele, mitä tarkoittavat: open, closed, filtered; muuten vain silmäily)**
 - Kun TCP-portteja skannataan yleisimmin käytetään SYN-skannausta, ja riippuen vastauksesta skanniin portit jaotelaan kuuteen eri tilaan: *open, closed, filtered, unfiltered, open|filtered, or closed|filtered*.
@@ -88,3 +91,9 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
 **Miksi UDP-skannaus on hankalaa ja epäluotettavaa? Miksi UDP-skannauksen kanssa kannattaa käyttää --reason flagia ja snifferiä? (tässä alakohdassa vain vastaus viitteineen, ei tarvita testiä tietokoneella)**
 - Koska UDP on yhteydetön protokolla siitä puuttuu yhteyden muodostus osio (TCP:ssä 3way handshake), jolloin siinä ei luonnostaa ole yhtä yksinkertaista ja helppoa tapaa määrittää porttien tilaa. Myöskään UDP:ssä ei ole pakettien perille menon varmistamiseksi mitään tapaa, joten jos portti ei vastaa siitä on vaikea päätellä mitään suoraan, koska portti voi olla joko kiinni, palomuurin filtteröimä, tai auki mutta palvelu ei vastaa jostain muusta syystä.
 
+#### Lähteet
+
+https://nmap.org/book/man-port-scanning-basics.html
+https://nmap.org/book/man-port-scanning-techniques.html
+https://en.wikipedia.org/wiki/Ephemeral_port
+https://www.networkcomputing.com/data-centers/network-analysis-tcp-window-size
