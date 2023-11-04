@@ -42,15 +42,20 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
 - Content Discovery With Recursion
 	- Tämäkin oli aika samaa kauraa, paitsi että komentoon lisättiin määrite -recursion, mikä siis seuraa hakuehdot täyttäviä kansioita, niiden alikansioihin, ja näyttää myös ne tuloksissa.
 		![kaks](https://i.imgur.com/ZI6IqBL.png)
-- Content Discovery With File Extensions
-	-  Tässä näytettään tuota -e (extensions), johon siis voidaan määritellä tiedostotyyppi, kuten tässä tapauksessa etsitään lokitiedostoa .log päätteellä.
-		![koli](https://i.imgur.com/odelfuz.png)
 - No 404 Status
-	 - ASD
+	 - Tässä taas käytetään tuota filtteröintiä, eli 404 statuksen sisältävät vastaukset filtteröidään tuloksista pois niiden koon perusteella, eli käytetään -fs 669 (nice).
 	 ![neli](https://i.imgur.com/kvVBVaZ.png)
 - Param Mining
-	- burp
-		[vii](https://i.imgur.com/ssvBYce.png)
+	- Tässä etsitään sopivaa parametriä datalle, joten tarvitaan ensinäkin eri sanalista hakuun, joka oli tehtävän ohjeissa parameters.txt, mutta itse kaivoin tuolta SecLististä sellaisen kuin burp-parameter-names, joka myös ajoi asian. Lisäksi itse komento muuttuu hieman, kun siihen tulee FUZZ=1 pelkän FUZZ:in sijaan. Kun tuon listan ajaa läpi löytyy debug-parametri, jonka voi syöttää tuon osoiteriville tuon data?:n jälkeen, jolloin päästään kyseiselle sivulle.
+		[vii](https://i.imgur.com/AoSMnAA.png)
 - Rate Limited
+	- Tämä harjoitus itseasiassa vastaa kysymykseen, mikä itselläni heräsi katsoessani tuota joohoin Still Fuzzing Faster than (U Fool) -esitystä, sillä ymmärtääkseni edes vähänkään sinnepäin konffattu web-palvelin antaa jonkinlaista bannia, jos laitat sinne 5000 requestia sekunnissa. Ffuf:issa siis saa määriteltyä ensinäkin monta requestia (-p) se lähettää per sekunti, ja kuinka monesta 'threadista' (-t, säie, suomeksi??) niitä lähetetään samanaikaisesti. 
+	- Tässä harjoituksessa siis palvelimelta tulee http 429-koodia (too many requests) vastaukseksi, kun komentoa koitetaan ajaa samalla tavalla kuin aiemmissa tehtävissä. Tulokset on myös filteröity http-status-koodien mukaan (-mc), eli vain 200 & 429 vastaukset näkyvät.
+	- Kun komentoon lisätään -t 5 (oletus 40), ja -p 0.1 lähetetään pyyntöjä siis vain viidestä threadista, ja niiden välillä on 0.1 sekunnin viive, eli haku on huomattavasti hitaampi, mutta se menee läpi, eli takaisin ei tule litaniaa 429:sta, vaan löydetään oracle-niminen hakemisto.
+		![kuu](https://i.imgur.com/6pVeaFH.png)
 - Subdomains - Virtual Host Enumeration
+	-  Tässä etsitään subdomaineja virtual hostien ja pääasiallisen hostien headereitä muokkaamalla (toimintaperiaate jäi kyllä vähän ymmärtämättä itseltäni).
+	- Koska etsitään subdomaineja tarvitaan siihen sopiva sanalista, eli tehtävässä annettiin subdomains.txt, mutta itse taas kaivoin tuolta SecLististä sopivan kuuloisen listan, eli subdomains-top1million-5000.txt -nimisen listan. Lisäksi komentoon tarvitsee määritellä, että etsitään headereistä (-H), ja domain mistä etsitään (Host: "esi.merk.ki").
+	- Hieman yllättävää oli se, että tuolla top5000-listalla ei löytynyt mitään, joten täytyi vaihtaa tuosta samasta listasta top110000, jolla löytyi redhat-niminen alidomain.
+		![see](https://i.imgur.com/R7bXQIB.png)
   
