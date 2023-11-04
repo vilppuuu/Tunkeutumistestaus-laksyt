@@ -7,13 +7,13 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
  - Hoikkala "joohoi" 2020: [Still Fuzzing Faster (U fool)](https://www.youtube.com/watch?v=mbmsT3AhwWU). In HelSec Virtual meetup #1. (about 1 hour)
 	-
  - Lyon 2009: Nmap Network Scanning: Chapter 15. Nmap Reference Guide:
-	- [Port Scanning Basics](https://nmap.org/book/man-port-scanning-basics.html) (opettele, mitä tarkoittavat: open, closed, filtered; muuten vain silmäily)
+ - [Port Scanning Basics](https://nmap.org/book/man-port-scanning-basics.html) (opettele, mitä tarkoittavat: open, closed, filtered; muuten vain silmäily)
 	        - Kun TCP-portteja skannataan yleisimmin käytetään SYN-skannausta, ja riippuen vastauksesta skanniin portit jaotelaan kuuteen eri tilaan: *open, closed, filtered, unfiltered, open|filtered, or closed|filtered*.
 	        - Portin ollessa open skannaukseen saadaan ACK-vastaus, mikä tarkoittaa että portissa on palvelu, johon voitaisiin yhdistää. Portin ollessa closed SYN-sanomaan tulee RST-vastaus, eli portti kyllä vastaa mutta siellä ei ole palvelua. Filtered tilassa taas sanomaan ei tule vastausta, koska palomuuri (tai joku muu konfiguraatio, IPS etc.) estää pääsyn portille.
         - [Port Scanning Techniques](https://nmap.org/book/man-port-scanning-techniques.html) (opettele, mitä ovat: -sS -sT -sU; muuten vain silmäily)
-	        - sS[[#nmap TCP SYN "used to be stealth" scan, -sS (tätä käytetään skannatessa useimmin)]]
-	        - sT (TCP connect) käyttää käyttöjärjestelmän connect system callia muodostaakseen yhteyden. Käytetään yleensä vain, jos SYN-skannaus ei ole mahdollinen, sillä sT on tehottomampi, ja siitä jää enemmän jälkiä sekä se on helpompi havaita.
-	        - sU eli UDP-skannaus voidaan suorittaa samanaikaisesti TCP-skannauksen kanssa. On ongelmallinen luotettavuuden suhteen, koska UDP on yhteydetön protokolla, joten porttien vastauksia on vaikeampi kategorisoida.
+	        - sS, Tässä skannauksessa SYN-paketti lähetetään samoin kuin oltaisiin avaamassa yhteyttä tavallisesti, ja jos siihen tulee ACK-vastaus portti on avoinna, jos taas RST portin voidaan olettaa olevan kiinni, ja jos vastausta ei kuulu lainkaan portti merkataan filtered-tilaan.
+	        - sT, (TCP connect) käyttää käyttöjärjestelmän connect system callia muodostaakseen yhteyden. Käytetään yleensä vain, jos SYN-skannaus ei ole mahdollinen, sillä sT on tehottomampi, ja siitä jää enemmän jälkiä sekä se on helpompi havaita.
+	        - sU, eli UDP-skannaus voidaan suorittaa samanaikaisesti TCP-skannauksen kanssa. On ongelmallinen luotettavuuden suhteen, koska UDP on yhteydetön protokolla, joten porttien vastauksia on vaikeampi kategorisoida.
   		
 	
 #### a) Fuff. Ratkaise [Teron ffuf-haastebinääri](https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/?fromSearch=ffuf#your-turn---challenge). Artikkelista [Find Hidden Web Directories - Fuzz URLs with ffuf](https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/) voi olla apua.
