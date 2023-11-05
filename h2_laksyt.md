@@ -11,9 +11,9 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
  	- Eri filtteröionti tapojen läpikäyntiä esim. tiettyjen http-koodien avulla, false positive -tuloksien suodattaminen vastauksen koon, sanamäärän pohjalta.
   	- Loppu esitys oli oikeastaan demo fuffin käytöstä, jossa käytiin läpi sen eri ominaisuuksia.
    
-**Lyon 2009: Nmap Network Scanning: Chapter 15. Nmap Reference Guide:
+**Lyon 2009: Nmap Network Scanning: Chapter 15. Nmap Reference Guide:**
 
-[Port Scanning Basics](https://nmap.org/book/man-port-scanning-basics.html) (opettele, mitä tarkoittavat: open, closed, filtered; muuten vain silmäily)**
+**[Port Scanning Basics](https://nmap.org/book/man-port-scanning-basics.html) (opettele, mitä tarkoittavat: open, closed, filtered; muuten vain silmäily)**
 - Kun TCP-portteja skannataan yleisimmin käytetään SYN-skannausta, ja riippuen vastauksesta skanniin portit jaotelaan kuuteen eri tilaan: *open, closed, filtered, unfiltered, open|filtered, or closed|filtered*.
 - Portin ollessa open skannaukseen saadaan ACK-vastaus, mikä tarkoittaa että portissa on palvelu, johon voitaisiin yhdistää. Portin ollessa closed SYN-sanomaan tulee RST-vastaus, eli portti kyllä vastaa mutta siellä ei ole palvelua. Filtered tilassa taas sanomaan ei tule vastausta, koska palomuuri (tai joku muu konfiguraatio, IPS etc.) estää pääsyn portille.
   
