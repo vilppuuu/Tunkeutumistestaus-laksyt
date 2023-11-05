@@ -81,7 +81,7 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
       **nmap ping sweep -sn**
       - Mielenkiintoisesti kun suoritan tämän ping sweep skannauksen, niin Wiresharkissa ei näy mitään. Vaikea kyllä keksiä mistä johtuu, kun skannaus kuitenkin nmapissa menee läpi ja normi pingaus näkyy Wiresharkissa. Itseasiassa tuo pingikin näkyy vain ICMPv6 protokollana (eli IPv6 käytössä), eli olisikohan tässä nyt vain joku filtteröinti ongelma mulla Wiresharkissa, vai liittyisikö jotenkin siihen, että skannataan localhostia, ei kyllä nyt kerkeä enempää tutkimaan.
         
-        [sad](https://i.imgur.com/2FHqaTX.png)
+        ![sad](https://i.imgur.com/2FHqaTX.png)
         
       **nmap don't ping -Pn**
         
