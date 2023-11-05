@@ -77,16 +77,22 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
     - Jos tarkastellaan tämän skannauksen eroavaisuuksia SYN-skannauksesta huomataan, että Wiresharkiin on ilmestynyt pari uutta arvoa info-kenttään. Tämä johtunee siitä, että skannaus käyttää käyttöjärjestelmän connect callia skannauksen toteuttamiseen, jolloin olettaisin että käytössä on käyttöjärjestelmän TCP/IP-pinon mukaiset paketit, joiden headerit sisältävät enemmän kenttiä yhteyden parantamiseksi. Esim. kuvassa näkyvä SACK on packet lossia vähentämään kehitetty menetelmä, ja TSval & TSecr ovat aikaleimoja. Myöskin jos tarkastellaan Wiresharkissa sellaista tilannetta, jossa skannatussa portissa on palvelu, niin huomataan, että -sT skannauksessa 3way handshake tehdään loppuun asti, eli kun portti on jo vastannut siihen lähetetään vielä ACK-sanoma.
       ![sTxDD](https://i.imgur.com/0Vzz7A1.png)
       **nmap ping sweep -sn**
+      - tba
       **nmap don't ping -Pn**
-      **nmap version detection -sV (esimerkki yhdestä palvelusta yhdessä portissa riittää)**
-      **nmap output files -oA foo. Miltä tiedostot näyttävät? Mihin kukin tiedostotyyppi sopii?**
+      - tba
+       **nmap version detection -sV (esimerkki yhdestä palvelusta yhdessä portissa riittää)**
+      - tba
+       **nmap output files -oA foo. Miltä tiedostot näyttävät? Mihin kukin tiedostotyyppi sopii?**
+      - tba
       **nmap ajonaikaiset toiminnot (man nmap: runtime interaction): verbosity v/V, help ?, packet tracing p/P, status s (ja moni muu nappi)**
+      - tba
       **Ninjojen tapaan. Piiloutuuko nmap-skannaus hyvin palvelimelta? Vinkkejä: Asenna Apache. Aja nmap-versioskannaus -sV tai -A omaan paikalliseen weppipalvelimeen. Etsi Apachen lokista tätä koskevat rivit. Wiresharkissa "http" on kätevä filtteri, se tulee siihen yläreunan "Apply a display filter..." -kenttään. Nmap-ajon aikana p laittaa packet tracing päälle. Vapaaehtoinen lisäkohta: jääkö Apachen lokiin jokin todiste nmap-versioskannauksesta?**
 	    - Aiemmin kun oli jo asennettu tuo fuffme, jossa siis pyörii ngnix, niin ajattelin sitä pommitella, kun tuolla Wiresharkissakin näkyi kaapattavissa interfaceissa tuo docker, joten valitsin sen, avasin selaimen käväisin siellä fuffme-sivulla, josta sain ip-osoitteen näkyviin Wireshark kaappaukseen. Kysymykseen piiloutuuko nmap skannaus hyvin web-palvelimelta voisin veikata vastaukseksi, että ei piiloudu. Ainakin kun kaapattuja paketteja selaa http-filtteri päällä vastauksina on tullut paljon 405 (not allowed), joten luulenpa että skannaus koittaa tehdä vähän kaikenlaista jännää.
 	       ![assda](https://i.imgur.com/8a46O9k.png)
 	    - Eihän se nmapin -A skannaus kovinkaan huomaamaton tosiaan ollut, kun access-logista löytyy suoraan mainittuna nmap scripting engine.
 	       ![log](https://i.imgur.com/8iLsPse.png)
 **UDP-skannaus. UDP-skannaa paikkalinen kone (-sU). "Mulla olis vitsi UDP:sta, mutta en tiedä menisikö se perille"**
+  	- tba
 
 **Miksi UDP-skannaus on hankalaa ja epäluotettavaa? Miksi UDP-skannauksen kanssa kannattaa käyttää --reason flagia ja snifferiä? (tässä alakohdassa vain vastaus viitteineen, ei tarvita testiä tietokoneella)**
 - Koska UDP on yhteydetön protokolla siitä puuttuu yhteyden muodostus osio (TCP:ssä 3way handshake), jolloin siinä ei luonnostaa ole yhtä yksinkertaista ja helppoa tapaa määrittää porttien tilaa. Myöskään UDP:ssä ei ole pakettien perille menon varmistamiseksi mitään tapaa, joten jos portti ei vastaa siitä on vaikea päätellä mitään suoraan, koska portti voi olla joko kiinni, palomuurin filtteröimä, tai auki mutta palvelu ei vastaa jostain muusta syystä.
