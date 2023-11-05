@@ -1,5 +1,7 @@
 ### H2 Läksyt - Sniff-n-Scan
 
+*Edit: Sunnuntaiaamuna (5.11.2023) klo. 10:25 täytetty c)-kohtaan 'alakohdat' 3-7*
+
 Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit valvomaan hyökkäystyökalujen toimintaa snifferillä, ja tutustut Wiresharkiin. Wireshark osaa myös analysoida paketit automaattisesti. Weppiin murtautumista auttaa suomalainen, fuzzereiden huipulle noussut ffuf. Harjoitusmaalien asentamisesta kokeillaan paikallisia binäärejä (by yours truly) ja Dockeria.
 
 #### x) Lue/katso ja tiivistä. (Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva.
@@ -85,29 +87,38 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
         
       **nmap don't ping -Pn**
         
-      - tba
+      - Mielestäni tulos näyttää ihan tavalliselta SYN skannaukselta, ja niin se vissiin onkin, koska -pn toimii siten, että se skippaa muutoin skannauksissa oletuksena suoritettavan host discoveryn, ja olettaa suoraan että kaikki skannattavat hostit ovat online.
 
         **nmap version detection -sV (esimerkki yhdestä palvelusta yhdessä portissa riittää)**
-      - tba
+        
+      - Kun tarkastellaan tätä skannausta Wiresharkilla skannaus alkaa tavallisella SYN-skannauksella, jolla saadaan selville, että portti on auki, jonka jälkeen sille lähetetään uusi hieman erilainen SYN-paketti, minkä vastauksen perusteella luultavasti tehdään jonkinlaisia päätelmiä, ja tässä tapauksessa suoritettiin 3way handshake loppuun, josta saatiin selville palvelun versio ja käyttöjärjestelmä.
+     
+        ![12414](https://i.imgur.com/RXpwrNP.png)
 
         **nmap output files -oA foo. Miltä tiedostot näyttävät? Mihin kukin tiedostotyyppi sopii?**
-      - tba
+        
+      - Tuolla -oA:lla tuli tuonne kolmea eri tiedostomuotoa (.nmap, .gnmap, .xml), joista ainakin .nmap ja .gnmap näyttivät tulokset luettavassa muodossa, ja .xml:hän on strukturoitua dataa, joten sitä varmaan voi käyttää kaikenlaisessa automatisoidussa vertailussa ja analysoinnissa.
       
       **nmap ajonaikaiset toiminnot (man nmap: runtime interaction): verbosity v/V, help ?, packet tracing p/P, status s (ja moni muu nappi)**
-      - tba
+      
+      - Vähän kerkesin näitä näpytellä, niin statuksella näkyy meneillä oleva skannaus, sen tila prosentteina, kulunut aika, sekä loppuun asti skannattujen hostien määrä. P taas enabloi packet tracingin eli terminaalissa näkyy mihin porttiin ja palveluun pakettejä lähetetään, ja v:llä voidaan lisätä verbosity leveliä, eli kuinka paljon settiä tuloksessa näkyy
         
       **Ninjojen tapaan. Piiloutuuko nmap-skannaus hyvin palvelimelta? Vinkkejä: Asenna Apache. Aja nmap-versioskannaus -sV tai -A omaan paikalliseen weppipalvelimeen. Etsi Apachen lokista tätä koskevat rivit. Wiresharkissa "http" on kätevä filtteri, se tulee siihen yläreunan "Apply a display filter..." -kenttään. Nmap-ajon aikana p laittaa packet tracing päälle. Vapaaehtoinen lisäkohta: jääkö Apachen lokiin jokin todiste nmap-versioskannauksesta?**
         
-	    - Aiemmin kun oli jo asennettu tuo fuffme, jossa siis pyörii ngnix, niin ajattelin sitä pommitella, kun tuolla Wiresharkissakin näkyi kaapattavissa interfaceissa tuo docker, joten valitsin sen, avasin selaimen käväisin siellä fuffme-sivulla, josta sain ip-osoitteen näkyviin Wireshark kaappaukseen. Kysymykseen piiloutuuko nmap skannaus hyvin web-palvelimelta voisin veikata vastaukseksi, että ei piiloudu. Ainakin kun kaapattuja paketteja selaa http-filtteri päällä vastauksina on tullut paljon 405 (not allowed), joten luulenpa että skannaus koittaa tehdä vähän kaikenlaista jännää.
+	    - Aiemmin kun oli jo asennettu tuo fuffme, jossa siis pyörii ngnix, niin ajattelin sitä pommitella, kun tuolla Wiresharkissakin näkyi kaapattavissa interfaceissa tuo docker, joten valitsin sen, avasin selaimen käväisin siellä fuffme-sivulla, josta sain ip-osoitteen näkyviin Wireshark kaappaukseen. Kysymykseen piiloutuuko nmap skannaus hyvin web-palvelimelta voisin veikata vastaukseksi, että ei piiloudu. Ainakin kun kaapattuja paketteja selaa http-filtteri päällä vastauksina on tullut paljon 405 (not allowed), joten luulenpa että skannaus koittaa tehdä vähän kaikenlaista jännää, mistä jää jälki.
+        
 	       ![assda](https://i.imgur.com/8a46O9k.png)
+        
 	    - Eihän se nmapin -A skannaus kovinkaan huomaamaton tosiaan ollut, kun access-logista löytyy suoraan mainittuna nmap scripting engine.
+        
 	       ![log](https://i.imgur.com/8iLsPse.png)
+        
 **UDP-skannaus. UDP-skannaa paikkalinen kone (-sU). "Mulla olis vitsi UDP:sta, mutta en tiedä menisikö se perille"**
   	
    - tba
 
 **Miksi UDP-skannaus on hankalaa ja epäluotettavaa? Miksi UDP-skannauksen kanssa kannattaa käyttää --reason flagia ja snifferiä? (tässä alakohdassa vain vastaus viitteineen, ei tarvita testiä tietokoneella)**
-- Koska UDP on yhteydetön protokolla siitä puuttuu yhteyden muodostus osio (TCP:ssä 3way handshake), jolloin siinä ei luonnostaa ole yhtä yksinkertaista ja helppoa tapaa määrittää porttien tilaa. Myöskään UDP:ssä ei ole pakettien perille menon varmistamiseksi mitään tapaa, joten jos portti ei vastaa siitä on vaikea päätellä mitään suoraan, koska portti voi olla joko kiinni, palomuurin filtteröimä, tai auki mutta palvelu ei vastaa jostain muusta syystä.
+- Koska UDP on yhteydetön protokolla siitä puuttuu yhteyden muodostus osio (TCP:ssä 3way handshake), jolloin siinä ei luonnostaa ole yhtä yksinkertaista ja helppoa tapaa määrittää porttien tilaa. Myöskään UDP:ssä ei ole pakettien perille menon varmistamiseksi mitään tapaa, joten jos portti ei vastaa siitä on vaikea päätellä mitään suoraan, koska portti voi olla joko kiinni, palomuurin filtteröimä, tai auki mutta palvelu ei vastaa jostain muusta syystä. Tästä syystä on siis hyödyllistä käyttää snifferiä, koska kaapatuista paketeista voidaan päätellä enemmän portin tilasta.l
 
 #### Lähteet
 
