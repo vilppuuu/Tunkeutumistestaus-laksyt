@@ -73,17 +73,23 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
 - Kun kaapattua liikennettä tarkastellaan Wiresharkissa ensimmäisenä huomio kiinnittyy siihen, että ruutu on täynnä punaisia ja harmaita rivejä, jos kenttiä tarkastellaan vasemmalta oikealle saadaan ensinäkin selville lähettäjän ja vastaanottajan ip-osoite (localhost molemmissa), käytetty protokolla (TCP), pakettien koko tavuina, ja sen jälkeen tietoa itse paketista, joka on tässä tapauksessa se mikä meitä kiinnostaa. Jos nyt valitaan sattumanvaraisesti yksi harmaa rivi ja tarkastellaan tuota info-kohtaa, niin siitä saamme selvillee ensinäkin lähde- ja kohdeportit, jotka ovat tässä SRC: 51620 ja DST: 1417. Tuosta lähdeportin numerosta voimme päätellä, että se on ns. dynaaminen portti (portit 49152-65535), ja taas kohdeportti kuulunee jollekkin palvelulle (Timbuktu Pro Windows), minkä voimme päätellä alhaisesta porttinumerosta (ja siitä, että suoritimme skannauksen 1000:lle yleisimmälle portille). Seuraavana rivillä näkyy SYN, eli kyseessä on SYN-paketti, ja Seq=0 kertoo, että se on tämän TCP-yhteyden ensimmäinen paketti. Seuraava Win=1024 kertoo sallitun TCP-ikkunan koon, eli kuinka paljon dataa voidaan siirtää, ennenkuin tarvitaan ACK takaisin (ikkunan koko neuvotellaan dynaamisesti tässä tcp 3way handshaken yhteydessä). Len=0 taas kertoo, että paketilla ei tässä tapauksessa ole muuta sisältöä, kuin headerit, ja MSS=1460 kertoo paketin segmentin maksimikoon.
 - Jos tarkastellaan tähän pakettiin tullutta vastausta, niin lähde- ja kohdeportit ovat kääntyneet toisinpäin (sama ip:eille yleensä), vastauksessa on RST -ja ACK-liput, eli yhteys suljetaan ja viestitään, koska portissa ei ole mitään palvelua, ja että edellinen paketti tuli perille. Seq on saanut arvokseen 1, koska tämä on yhteyden seuraava paketti ja tcp-ikkuna on näemmä 0 (varmaankin koska yhteys suljetaan), ja paketin sisältö on kooltaan 0, koska viestimisessä käytetään pelkästään headereitä.
 	![syn1417](https://i.imgur.com/wLJp1TU.png)
-	**nmap TCP connect scan -sT**
+
+  **nmap TCP connect scan -sT**
     - Jos tarkastellaan tämän skannauksen eroavaisuuksia SYN-skannauksesta huomataan, että Wiresharkiin on ilmestynyt pari uutta arvoa info-kenttään. Tämä johtunee siitä, että skannaus käyttää käyttöjärjestelmän connect callia skannauksen toteuttamiseen, jolloin olettaisin että käytössä on käyttöjärjestelmän TCP/IP-pinon mukaiset paketit, joiden headerit sisältävät enemmän kenttiä yhteyden parantamiseksi. Esim. kuvassa näkyvä SACK on packet lossia vähentämään kehitetty menetelmä, ja TSval & TSecr ovat aikaleimoja. Myöskin jos tarkastellaan Wiresharkissa sellaista tilannetta, jossa skannatussa portissa on palvelu, niin huomataan, että -sT skannauksessa 3way handshake tehdään loppuun asti, eli kun portti on jo vastannut siihen lähetetään vielä ACK-sanoma.
       ![sTxDD](https://i.imgur.com/0Vzz7A1.png)
+      
       **nmap ping sweep -sn**
       - tba
       **nmap don't ping -Pn**
+        
       - tba
-       **nmap version detection -sV (esimerkki yhdestä palvelusta yhdessä portissa riittää)**
+
+        **nmap version detection -sV (esimerkki yhdestä palvelusta yhdessä portissa riittää)**
       - tba
-       **nmap output files -oA foo. Miltä tiedostot näyttävät? Mihin kukin tiedostotyyppi sopii?**
+
+        **nmap output files -oA foo. Miltä tiedostot näyttävät? Mihin kukin tiedostotyyppi sopii?**
       - tba
+      
       **nmap ajonaikaiset toiminnot (man nmap: runtime interaction): verbosity v/V, help ?, packet tracing p/P, status s (ja moni muu nappi)**
       - tba
       **Ninjojen tapaan. Piiloutuuko nmap-skannaus hyvin palvelimelta? Vinkkejä: Asenna Apache. Aja nmap-versioskannaus -sV tai -A omaan paikalliseen weppipalvelimeen. Etsi Apachen lokista tätä koskevat rivit. Wiresharkissa "http" on kätevä filtteri, se tulee siihen yläreunan "Apply a display filter..." -kenttään. Nmap-ajon aikana p laittaa packet tracing päälle. Vapaaehtoinen lisäkohta: jääkö Apachen lokiin jokin todiste nmap-versioskannauksesta?**
@@ -92,7 +98,8 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
 	    - Eihän se nmapin -A skannaus kovinkaan huomaamaton tosiaan ollut, kun access-logista löytyy suoraan mainittuna nmap scripting engine.
 	       ![log](https://i.imgur.com/8iLsPse.png)
 **UDP-skannaus. UDP-skannaa paikkalinen kone (-sU). "Mulla olis vitsi UDP:sta, mutta en tiedä menisikö se perille"**
-  	- tba
+  	
+   - tba
 
 **Miksi UDP-skannaus on hankalaa ja epäluotettavaa? Miksi UDP-skannauksen kanssa kannattaa käyttää --reason flagia ja snifferiä? (tässä alakohdassa vain vastaus viitteineen, ei tarvita testiä tietokoneella)**
 - Koska UDP on yhteydetön protokolla siitä puuttuu yhteyden muodostus osio (TCP:ssä 3way handshake), jolloin siinä ei luonnostaa ole yhtä yksinkertaista ja helppoa tapaa määrittää porttien tilaa. Myöskään UDP:ssä ei ole pakettien perille menon varmistamiseksi mitään tapaa, joten jos portti ei vastaa siitä on vaikea päätellä mitään suoraan, koska portti voi olla joko kiinni, palomuurin filtteröimä, tai auki mutta palvelu ei vastaa jostain muusta syystä.
