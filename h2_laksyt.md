@@ -49,17 +49,21 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
 - #### b) Fuffme. Asenna [Ffufme harjoitusmaali](https://terokarvinen.com/2023/fuffme-web-fuzzing-target-debian/) paikallisesti omalle koneellesi. Ratkaise tehtävät (kaikki paitsi ei "Content Discovery - Pipes")
 - Aloitin tehtävän lataamalla docker.io:n aptista sekä kloonaamalla tuon fuffme-hakemiston gitillä. ohjeen mukaisesti.  Tämän jälkeen laitoin Dockerin rullaamaan fuffme:n asennusta, mikä meni läpi sujuvasti. Tämän jälkeen koitin tuota ohjeestä lötyvää docker run -komentoa, joka tuotti seuraavan virheen:
   ```Error response from daemon: pull access denied for fuffme, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.```
--  Tätä hetken pähkäiltyäni ja randomilla komentoja hakkailtuani avasin taas ohjeen, ja sieltähän löytyi troubleshooting- kohta, jossa mainittiin Apachen aiheuttavan ongelman palvelun kanssa, koska yhtä porttia voi kuunnella vain yksi Daemon kerrallaan. Mistä tulikin mieleeni, että tällä koneellahan on asennettuna nginx, jolla myös tuo samainen portti 80 käytössä, eli poistin sen ja testasin uudestaan tuota docker run -komentoa, ja palvelu lähti toimimaan. 
-	 ![dockrun](https://i.imgur.com/Q4C78B0.png)
+-  Tätä hetken pähkäiltyäni ja randomilla komentoja hakkailtuani avasin taas ohjeen, ja sieltähän löytyi troubleshooting- kohta, jossa mainittiin Apachen aiheuttavan ongelman palvelun kanssa, koska yhtä porttia voi kuunnella vain yksi Daemon kerrallaan. Mistä tulikin mieleeni, että tällä koneellahan on asennettuna nginx, jolla myös tuo samainen portti 80 käytössä, eli poistin sen ja testasin uudestaan tuota docker run -komentoa, ja palvelu lähti toimimaan.
+	 ![dockrun](https://i.imgur.com/U77G3qB.png)
+
 - Basic Content Discovery
 	- Tämä tehtävä oli käytännössä sama, kuin ylempänä jo tehty Teron tehtävä, joten ei samoja kommentteja toiste.
 		![yks](https://i.imgur.com/wBiWyLO.png)
+
 - Content Discovery With Recursion
 	- Tämäkin oli aika samaa kauraa, paitsi että komentoon lisättiin määrite -recursion, mikä siis seuraa hakuehdot täyttäviä kansioita, niiden alikansioihin, ja näyttää myös ne tuloksissa.
 		![kaks](https://i.imgur.com/ZI6IqBL.png)
+
 - No 404 Status
 	 - Tässä taas käytetään tuota filtteröintiä, eli 404 statuksen sisältävät vastaukset filtteröidään tuloksista pois niiden koon perusteella, eli käytetään -fs 669 (nice).
 	 ![neli](https://i.imgur.com/kvVBVaZ.png)
+
 - Param Mining
 	- Tässä etsitään sopivaa parametriä datalle, joten tarvitaan ensinäkin eri sanalista hakuun, joka oli tehtävän ohjeissa parameters.txt, mutta itse kaivoin tuolta SecLististä sellaisen kuin burp-parameter-names, joka myös ajoi asian. Lisäksi itse komento muuttuu hieman, kun siihen tulee FUZZ=1 pelkän FUZZ:in sijaan. Kun tuon listan ajaa läpi löytyy debug-parametri, jonka voi syöttää tuon osoiteriville tuon data?:n jälkeen, jolloin päästään kyseiselle sivulle.
 		![vii](https://i.imgur.com/AoSMnAA.png)
@@ -68,6 +72,7 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
 	- Tässä harjoituksessa siis palvelimelta tulee http 429-koodia (too many requests) vastaukseksi, kun komentoa koitetaan ajaa samalla tavalla kuin aiemmissa tehtävissä. Tulokset on myös filteröity http-status-koodien mukaan (-mc), eli vain 200 & 429 vastaukset näkyvät.
 	- Kun komentoon lisätään -t 5 (oletus 40), ja -p 0.1 lähetetään pyyntöjä siis vain viidestä threadista, ja niiden välillä on 0.1 sekunnin viive, eli haku on huomattavasti hitaampi, mutta se menee läpi, eli takaisin ei tule litaniaa 429:sta, vaan löydetään oracle-niminen hakemisto.
 		![kuu](https://i.imgur.com/6pVeaFH.png)
+
 - Subdomains - Virtual Host Enumeration
 	-  Tässä etsitään subdomaineja virtual hostien ja pääasiallisen hostien headereitä muokkaamalla (toimintaperiaate jäi kyllä vähän ymmärtämättä itseltäni).
 	- Koska etsitään subdomaineja tarvitaan siihen sopiva sanalista, eli tehtävässä annettiin subdomains.txt, mutta itse taas kaivoin tuolta SecLististä sopivan kuuloisen listan, eli subdomains-top1million-5000.txt -nimisen listan. Lisäksi komentoon tarvitsee määritellä, että etsitään headereistä (-H), ja domain mistä etsitään (Host: "esi.merk.ki").
