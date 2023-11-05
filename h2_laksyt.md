@@ -38,6 +38,9 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
 
 -  Tämä tulos ei varsinaisesti ole kovin hyödyllinen, koska se on vajaa 5000 riviä pitkä, joten tarvitaan keino filtteröidä sitä. Ffuf:issa tuloksia voidaan filteröidä ainakin HTTP-statuksen (-fc), koon (-fs), sanojen (-fw), rivien (-lf), ja keston (-ft) mukaan. Tässä tapauksessa luultavasti järkevin tapa filtteröidä on koon mukaan, kun kaikki samanlaiset vastaukset tuntuvat olevan kooltaan 132 tavua, mutta sanojen tai rivienkin perusteella voisi toimia.
 - Kokeillaan nyt filtteröidä vaikkapa tuon koon perusteella, eli aiemmin ajettuun komentoon lisätään -fs 132, jolloin suodatetaan 132 tavua pitkät vastaukset pois tuloksista. Näin saatiin siis suodatettua 'false positivet' pois tuloksista, ja jäljelle jäi meitä kiinnostava tieto, eli tässä tapauksessa admin-niminen hakemisto. Sama tulos tulisi myös, jos tuloksia filteröidään rivien (-fl 10), tai sanojen (-fw 6) perusteella.
+  
+  ![132](https://i.imgur.com/Fgvn4yE.png)
+  
 - Harjoituksen toisessa osuudessa täytyi ladata uusi harjoitus ja laittaa se päälle samalla tapaa kuin ensimmäinenkin, jonka jälkeen sieltä pitäisi saada löydettyä admin ja versionhallintaan liittyvät hakemistot.
 - Looginen tapa aloittaa näiden etsiminen oli tietysti ajaa sama komento kun aiemminkin, ja tarkastella tuottaako se mitään mielenkiintoista. No tuottihan se eli seuraavaksi tarvitsee arvioida paras keino flitteröidä false positivet pois. Kun tuloksia tarkasteli, niin vilisi aika paljon 154 tavun kokoisia vastauksia, joten jos ne filtteröisi pois niin paljastuisiko jotain, eli lisätään -fs 154 aikaisempaan komentoon. Sieltähän löytyi etsityt hakemistot, eli wp-admin ja gitin hakemistoja, sekä yksi gitin redirecti.
   
