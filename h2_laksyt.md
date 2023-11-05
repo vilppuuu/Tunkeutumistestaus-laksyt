@@ -51,6 +51,7 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
 - Aloitin tehtävän lataamalla docker.io:n aptista sekä kloonaamalla tuon fuffme-hakemiston gitillä. ohjeen mukaisesti.  Tämän jälkeen laitoin Dockerin rullaamaan fuffme:n asennusta, mikä meni läpi sujuvasti. Tämän jälkeen koitin tuota ohjeestä lötyvää docker run -komentoa, joka tuotti seuraavan virheen:
   ```Error response from daemon: pull access denied for fuffme, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.```
 -  Tätä hetken pähkäiltyäni ja randomilla komentoja hakkailtuani avasin taas ohjeen, ja sieltähän löytyi troubleshooting- kohta, jossa mainittiin Apachen aiheuttavan ongelman palvelun kanssa, koska yhtä porttia voi kuunnella vain yksi Daemon kerrallaan. Mistä tulikin mieleeni, että tällä koneellahan on asennettuna nginx, jolla myös tuo samainen portti 80 käytössä, eli poistin sen ja testasin uudestaan tuota docker run -komentoa, ja palvelu lähti toimimaan.
+
 	 ![dockrun](https://i.imgur.com/U77G3qB.png)
 
 - Basic Content Discovery
