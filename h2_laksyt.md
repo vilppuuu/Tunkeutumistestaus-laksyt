@@ -7,9 +7,10 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
 #### x) Lue/katso ja tiivistä. (Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva.
    
 **Hoikkala "joohoi" 2020: [Still Fuzzing Faster (U fool)](https://www.youtube.com/watch?v=mbmsT3AhwWU). In HelSec Virtual meetup #1. (about 1 hour)**
-	- Alussa nopea info siitä mihin fuff:ia oikeastaan käytetään, eli mitä syötteitä annetaan (salasanat, käyttäjät, yleiset tiedostopolut ja parametrit etc.), ja millä tapaa näitä käytetään (GET parameterit, headerit, POST data).
- 	- Eri filtteröionti tapojen läpikäyntiä esim. tiettyjen http-koodien avulla, false positive -tuloksien suodattaminen vastauksen koon, sanamäärän pohjalta.
-  	- Loppu esitys oli oikeastaan demo fuffin käytöstä, jossa käytiin läpi sen eri ominaisuuksia.
+
+- Alussa nopea info siitä mihin fuff:ia oikeastaan käytetään, eli mitä syötteitä annetaan (salasanat, käyttäjät, yleiset tiedostopolut ja parametrit etc.), ja millä tapaa näitä käytetään (GET parameterit, headerit, POST data).
+- Eri filtteröionti tapojen läpikäyntiä esim. tiettyjen http-koodien avulla, false positive -tuloksien suodattaminen vastauksen koon, sanamäärän pohjalta.
+- Loppu esitys oli oikeastaan demo fuffin käytöstä, jossa käytiin läpi sen eri ominaisuuksia.
    
 **Lyon 2009: Nmap Network Scanning: Chapter 15. Nmap Reference Guide:**
 
