@@ -130,6 +130,8 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
   	
    - tba
 
+     ![asdasd](https://i.imgur.com/Jj0lKpw.png)
+
 **Miksi UDP-skannaus on hankalaa ja epäluotettavaa? Miksi UDP-skannauksen kanssa kannattaa käyttää --reason flagia ja snifferiä? (tässä alakohdassa vain vastaus viitteineen, ei tarvita testiä tietokoneella)**
 - Koska UDP on yhteydetön protokolla siitä puuttuu yhteydenmuodostusosio (TCP:ssä 3way handshake), jolloin siinä ei luonnostaa ole yhtä yksinkertaista ja helppoa tapaa määrittää porttien tilaa. Myöskään UDP:ssä ei ole pakettien perille menon varmistamiseksi mitään tapaa, joten jos portti ei vastaa siitä on vaikea päätellä mitään suoraan, koska portti voi olla joko kiinni, palomuurin filtteröimä, tai auki mutta palvelu ei vastaa jostain muusta syystä. Tästä syystä on siis hyödyllistä käyttää snifferiä, koska kaapatuista paketeista voidaan päätellä enemmän portin tilasta.
 
