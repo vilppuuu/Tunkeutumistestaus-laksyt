@@ -11,9 +11,9 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 
 #### a) Asenna Kali virtuaalikoneeseen
 
-<p>Kerkesin tämän tehdä jo kurssin alussa, ja prosessi ei nyt muistaakseni ollut niin ihmeellinen, että sitä olisi tarpeen käydä uudestaan läpi askel askeleelta. Alkajaisiksi latasin tuon uusimman version Kalista Virtualboxille (https://www.kali.org/get-kali/#kali-virtual-machines), jonka jälkeen purin ladatun zipin, ja klikkasin kansiosta löytyvää Kali Linux Virtualbox Machine Definition -tiedostoa, minkä jälkeen Kali Linux ilmestyi VirtualBoxin näkymään. </p>
+<p>Kerkesin tämän tehdä jo kurssin alussa, ja prosessi ei nyt muistaakseni ollut niin ihmeellinen, että sitä olisi tarpeen käydä uudestaan läpi askel askeleelta. Alkajaisiksi latasin tuon uusimman version Kalista Virtualboxille (https://www.kali.org/get-kali/#kali-virtual-machines), jonka jälkeen purin ladatun zipin, ja klikkasin kansiosta löytyvää Kali Linux Virtualbox Machine Definition -tiedostoa, minkä jälkeen Kali Linux ilmestyi VirtualBoxin näkymään.</p>
 
-<p>Tästä sitten normaali käynnistys ja varmaan perus enterin hakkaamista, kunnes päästiin kirjautumisruutuun eli tarvittiin salasana ja käyttäjänimi, jotka jouduin googlettamaan, ja ne olivat niinkin ovelat kuin kali & kali (nämä olisivat olleet myös näkyvissä Machine Descriptionissa VirtualBoxissa). Muistaakseni perus update & upgraden lisäksi ainakin näppiksen layouttia piti vaihtaa, että käytöstä tuli yhtään mitään, ja taisin VirtualBoxin asetuksista myös käydä laittamassa lisää RAM:ia ja Video Memoryä. </p>
+<p>Tästä sitten normaali käynnistys ja varmaan perus enterin hakkaamista, kunnes päästiin kirjautumisruutuun eli tarvittiin salasana ja käyttäjänimi, jotka jouduin googlettamaan, ja ne olivat niinkin ovelat kuin kali & kali (nämä olisivat olleet myös näkyvissä Machine Descriptionissa VirtualBoxissa). Muistaakseni perus update & upgraden lisäksi ainakin näppiksen layouttia piti vaihtaa, että käytöstä tuli yhtään mitään, ja taisin VirtualBoxin asetuksista myös käydä laittamassa lisää RAM:ia ja Video Memoryä.</p>
 
 
 
