@@ -94,6 +94,7 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
       
       **nmap ping sweep -sn**
       - Mielenkiintoisesti kun suoritan tämän ping sweep skannauksen, niin Wiresharkissa ei näy mitään. Vaikea kyllä keksiä mistä johtuu, kun skannaus kuitenkin nmapissa menee läpi ja normi pingaus näkyy Wiresharkissa. Itseasiassa tuo pingikin näkyy vain ICMPv6 protokollana (eli IPv6 käytössä), eli olisikohan tässä nyt vain joku filtteröinti ongelma mulla Wiresharkissa, ei kyllä nyt kerkeä enempää tutkimaan.
+      - Edit: 6.11.2023. Eli tunnilla tosiaan selvisikin, että tämä johtuu siitä, että skannauksen kohteena on localhost. Kun lisätään verbosityä komentoon (*sudo nmap -sn localhost -vv*) tuloksessa näkyy, että Raw Packets Sent: 0, eli nmap ei lähetä mitään tällä skannauksella localhostille, jolloin ei tietty Wiresharkissakaan näy mitään.
         
         ![sad](https://i.imgur.com/2FHqaTX.png)
         
@@ -123,7 +124,7 @@ Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit 
         
 	    - Eihän se nmapin -A skannaus kovinkaan huomaamaton tosiaan ollut, kun access-logista löytyy suoraan mainittuna nmap scripting engine.
         
-	       ![log](https://i.imgur.com/8iLsPse.png)
+	       ![log](https://i.imgur.com/brGe2gN.png)
         
 **UDP-skannaus. UDP-skannaa paikkalinen kone (-sU). "Mulla olis vitsi UDP:sta, mutta en tiedä menisikö se perille"**
   	
