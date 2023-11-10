@@ -32,9 +32,11 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 
 **Kalin ja Metasploitablen välillä on host-only network, niin että porttiskannatessa ym. koneet on eristetty intenetistä, mutta ne saavat yhteyden toisiinsa**
 
-- Tässä
-      ![hostonly](https://i.imgur.com/yJEh8jK.png)
-
-<p></p>
+- Tässä siis laitetaan molemmissa koneissa tuo Host-only adapteri tulille, ja irroitetaan NAT-adapteri, jolloin ne ovat samassa verkossa, ja ilman pääsyä interwebziin.
+  
+  ![hostadapter](https://i.imgur.com/RasDJxy.png)
+  
+  ![hostonly](https://i.imgur.com/yJEh8jK.png)
+ 
 
 **Osoita eri komennoilla, että Internet-yhteys katkeaa: 'ping 1.1.1.1', 'ping www.google.com', 'curl www.google.com'**
