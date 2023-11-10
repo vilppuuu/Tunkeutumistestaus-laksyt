@@ -9,6 +9,8 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 
 *Nyrkkeilysäkki ei kuulu. Etsi hakukoneesta kotitehtäväraportti, jossa Kali ja Metasploitable on asennettu samaan verkkooon VirtualBoxiin; sekä testaamalla osoitettu, että koneet on saatu irti Internetistä. Tällaiset tehtävät ovat olleet jonain vuonna esimerkiksi nimillä "Nyrkkeilysäkki" ja "Ei kuulu".*
 
+<p>Googlesta löytyi Sami Kulonpään ratkaisu Nyrkkeilysäkki -tehtävään syksyltä 2021 (https://kulonpaa.com/?p=87), jossa siis VirtualBoxin asetuksissa Metasploitable-koneelta otetaan tuosta default NAT-verkkoadapterista 'piuha irti', jolloin sillä ei enää ole pääsyä interwebsiin. Tämän jälkeen otetaan käyttöön toinen adapteri, joka on 'Host-only adapter', jolla siis voidaan simuloida lähiverkkoa, joista koneella ei ole pääsyä internettiin, mutta ne voivat viestiä keskenään. </p>
+
 #### a) Asenna Kali virtuaalikoneeseen
 
 <p>Kerkesin tämän tehdä jo kurssin alussa, ja prosessi ei nyt muistaakseni ollut niin ihmeellinen, että sitä olisi tarpeen käydä uudestaan läpi askel askeleelta. Alkajaisiksi latasin tuon uusimman version Kalista Virtualboxille (https://www.kali.org/get-kali/#kali-virtual-machines), jonka jälkeen purin ladatun zipin, ja klikkasin kansiosta löytyvää Kali Linux Virtualbox Machine Definition -tiedostoa, minkä jälkeen Kali Linux ilmestyi VirtualBoxin näkymään.</p>
@@ -26,5 +28,7 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 **Kali saa yhteyden Internettiin, mutta sen voi laittaa pois päältä**
 
 **Kalin ja Metasploitablen välillä on host-only network, niin että porttiskannatessa ym. koneet on eristetty intenetistä, mutta ne saavat yhteyden toisiinsa**
+
+<p></p>
 
 **Osoita eri komennoilla, että Internet-yhteys katkeaa: 'ping 1.1.1.1', 'ping www.google.com', 'curl www.google.com'**
