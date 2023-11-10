@@ -9,7 +9,7 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 
 *Nyrkkeilysäkki ei kuulu. Etsi hakukoneesta kotitehtäväraportti, jossa Kali ja Metasploitable on asennettu samaan verkkooon VirtualBoxiin; sekä testaamalla osoitettu, että koneet on saatu irti Internetistä. Tällaiset tehtävät ovat olleet jonain vuonna esimerkiksi nimillä "Nyrkkeilysäkki" ja "Ei kuulu".*
 
-<p>Googlesta löytyi Sami Kulonpään ratkaisu Nyrkkeilysäkki -tehtävään syksyltä 2021 (https://kulonpaa.com/?p=87), jossa siis VirtualBoxin asetuksissa Metasploitable-koneelta otetaan tuosta default NAT-verkkoadapterista 'piuha irti', jolloin sillä ei enää ole pääsyä interwebsiin. Tämän jälkeen otetaan käyttöön toinen adapteri, joka on 'Host-only adapter', jolla siis voidaan simuloida lähiverkkoa, joista koneella ei ole pääsyä internettiin, mutta ne voivat viestiä keskenään. </p>
+<p>Googlesta löytyi Sami Kulonpään ratkaisu Nyrkkeilysäkki -tehtävään syksyltä 2021 (https://kulonpaa.com/?p=87), jossa siis VirtualBoxin asetuksissa Metasploitable-koneelta otetaan tuosta default NAT-verkkoadapterista 'piuha irti', jolloin sillä ei enää ole pääsyä interwebsiin. Tämän jälkeen otetaan käyttöön toinen adapteri, joka on 'Host-only adapter', jolla siis voidaan simuloida lähiverkkoa, joista koneella ei ole pääsyä internettiin, mutta ne voivat viestiä keskenään. Kun sama temppu tehdään tuolle Kali koneelle tuloksena on juurikin edellä mainittu tilanne, ja probleema on solved. </p>
 
 #### a) Asenna Kali virtuaalikoneeseen
 
@@ -27,7 +27,13 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 
 **Kali saa yhteyden Internettiin, mutta sen voi laittaa pois päältä**
 
+- Tuota aiempaa ohjetta mukaillen otin siis tuon Host-only adapterin käyttöön Kalille, ja tuosta defaultti NAT-adapterista piuhan irti, jolloin koneella ei siis pääsyä internettiin, mutta yhteys Metasploitable koneeseen onnistuu. Kun halutaan päästä takaisin internettiin tehdään päinvastoin, eli irroitetaan VirtualBoxin Network -asetuksista piuha Host-only -adapterista, ja kytketään piuha kiinni NAT-asetuksiin, jolloin internettiin yhdistäminen onnistuu.
+      ![interwebz](https://i.imgur.com/zUbJfmy.png)
+
 **Kalin ja Metasploitablen välillä on host-only network, niin että porttiskannatessa ym. koneet on eristetty intenetistä, mutta ne saavat yhteyden toisiinsa**
+
+- Tässä
+      ![hostonly](https://i.imgur.com/yJEh8jK.png)
 
 <p></p>
 
