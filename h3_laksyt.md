@@ -19,7 +19,7 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 
 #### b) Asenna Metasploitable 2 virtuaalikoneeseen
 
-<p>Tässäkään ei varsinaisesti ollut mitään ihmeellistä, eli aloitin lataamalla tuon ![Metasploitable 2 VM:n](https://sourceforge.net/projects/metasploitable/), ja purkamalla sen. Tämän jälkeen VirtualBoxista New machine -> Type: Linux, Version: Other Linux (64-bit) -> RAM:it + CPU:t -> Virtual Hard Diskiin valitetaan käytettävän olemassa olevaa tiedostoa, johon siis laitetaan tuolta aiemmin puretusta kansiosta tuo Metasploitable, jonka jälkeen next ja finish, ja kone voidaan käynnistää.</p>
+<p>Tässäkään ei varsinaisesti ollut mitään ihmeellistä, eli aloitin lataamalla tuon Metasploitable 2 VM:n(https://sourceforge.net/projects/metasploitable/), ja purkamalla sen. Tämän jälkeen VirtualBoxista New machine -> Type: Linux, Version: Other Linux (64-bit) -> RAM:it + CPU:t -> Virtual Hard Diskiin valitetaan käytettävän olemassa olevaa tiedostoa, johon siis laitetaan tuolta aiemmin puretusta kansiosta tuo Metasploitable, jonka jälkeen next ja finish, ja kone voidaan käynnistää.</p>
 
 #### c) Tee koneille virtuaaliverkko, jossa:
 
