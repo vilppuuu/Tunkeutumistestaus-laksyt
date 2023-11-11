@@ -28,11 +28,12 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 **Kali saa yhteyden Internettiin, mutta sen voi laittaa pois päältä**
 
 - Tuota aiempaa ohjetta mukaillen otin siis tuon Host-only adapterin käyttöön Kalille, ja tuosta defaultti NAT-adapterista piuhan irti, jolloin koneella ei siis pääsyä internettiin, mutta yhteys Metasploitable koneeseen onnistuu. Kun halutaan päästä takaisin internettiin tehdään päinvastoin, eli irroitetaan VirtualBoxin Network -asetuksista piuha Host-only -adapterista, ja kytketään piuha kiinni NAT-asetuksiin, jolloin internettiin yhdistäminen onnistuu.
+
       ![interwebz](https://i.imgur.com/zUbJfmy.png)
 
 **Kalin ja Metasploitablen välillä on host-only network, niin että porttiskannatessa ym. koneet on eristetty intenetistä, mutta ne saavat yhteyden toisiinsa**
 
-- Tässä siis laitetaan molemmissa koneissa tuo Host-only adapteri tulille, ja irroitetaan NAT-adapteri, jolloin ne ovat samassa verkossa, ja ilman pääsyä interwebziin.
+- Tässä siis laitetaan molemmissa koneissa tuo Host-only adapteri tulille, ja irroitetaan NAT-adapteri, jolloin ne ovat samassa verkossa, ja ilman pääsyä interwebziin. Kuten kuvista näkyy pingit eivät mene läpi muualle, kuin noihin 192.168 alkuisiin osoitteisiin, jotka siis kuuluvat yksityisiin ip-avaruuksiin (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) joita ei reititetä internettiin.
   
   ![hostadapter](https://i.imgur.com/RasDJxy.png)
   
@@ -40,3 +41,5 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
  
 
 **Osoita eri komennoilla, että Internet-yhteys katkeaa: 'ping 1.1.1.1', 'ping www.google.com', 'curl www.google.com'**
+
+![curlping](https://i.imgur.com/VvnRJkL.png)
