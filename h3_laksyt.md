@@ -46,11 +46,11 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 
 #### d) Etsi Metasploitable porttiskannaamalla (db_nmap -sn). Tarkista selaimella, että löysit oikean IP:n - Metasploitablen weppipalvelimen etusivulla lukee Metasploitable. Katso, ettei skannauspaketteja vuoda Internetiin - kannattaa irrottaa koneet netistä skannatessa.
 
-<p>Alkuun täytyy käynnistää tuo Metasploit, mikä tapahtuu ensiksi käynnistämällä sen tarvitsema tietokanta: postgresql, jonka jälkeen käynnistetään tuoa msfdb, ja käynnistetään msf-konsoli, josta porttiskannauskomento voidaan ajaa. Suorittamalla tuo -sn, eli ping sweep -skannaus saadaan selville, että siellä tosiaankin on kone päällä, sen MAC-osoite, ja verkkokortin valmistaja, mutta ei paljon muuta. Kun selaimella vielä testataan tuota ip:tä, niin varmistutaan siellä todellakin olevan tuo metasploitable-kone, jolloin voidaa aloittaa laajemmat toimet.</p>
+<p>Alkuun täytyy käynnistää tuo Metasploit, mikä tapahtuu ensiksi käynnistämällä sen tarvitsema tietokanta: postgresql, jonka jälkeen käynnistetään tuoa msfdb, ja käynnistetään msf-konsoli, josta porttiskannauskomento voidaan ajaa. Suorittamalla tuo -sn, eli ping sweep -skannaus tässä meidän hostiverkossa (192.168.56.0/24) löydetään sieltä tosiaan tuo Metasploitable osoitteesta, joka loppuu .103, joka voidaan siis vielä testata selaimella. Noista kahdesta muusta osoitteesta ei oikeastaan tarvitse välittää, sillä tuo .1 on tietty DGW, ja tuo .100 on VirtualBoxin tähän verkkoon luoma DHCP (löytyy VB:n Network Managerista, Host-only Networks kohdan alta). </p>
 
 ![msfdb](https://i.imgur.com/v8b6Upq.png)
 
-![metass](https://i.imgur.com/jCmcJhS.png)
+![metass](https://i.imgur.com/K7M9b2p.png)
 
 
 #### e) Porttiskannaa Metasploitable huolellisesti (db_nmap -A -p0-). Analysoi tulos. Kerro myös ammatillinen mielipiteesi (uusi, vanha, tavallinen, erikoinen), jos jokin herättää ajatuksia.
@@ -58,8 +58,6 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 <p>Avoimia portteja, ja niissä olevia palveluita löytyi melkoinen määrä, mikä on melko epätavallista, kun otetaan huomioon että skannasimme vain yhden IP:n. Kun palveluita ja niiden versioita hieman tutkii, niin huomataan, että useat niistä ovat vanhoja ja haavoittuvia versioita esim. OpenSSH 4.7p1 & Apache 2.2.8 ovat tällaisiä. Myös jo ihan pelkistä palveluista löytyy mielenkiintoa herättäviä tapauksia esim. porteissa 512, 513, 514 on auki palvelut nimillä exec, login, ja shell, mikä kuulostaa kohtalaisen lupaavalta. Tai portissa 1542 nmap olevan bindhsellin nmap kertoo suoraan olevan 'Metasploitable root shell'. Sitten tuolta löytyy myös noita sertejä, jotka on salattu 1024 bittisellä sha1WithRSAEncryption algoritmillä, mikä ei nyt nopean googlen perusteella ole mikään turvallisin vaihtoehto, ja myöskin nykyään noiden pituudeksi taidetaan suositellaan minimissään 2048 bittiä. </p>
 
 ![nmapA](https://i.imgur.com/9MuTZH7.png)
-
-
 
 #### f) Murtaudu Metasploitablen VsFtpd-palveluun Metasploitilla (search vsftpd, use 0, set RHOSTS - varmista osoite huolella, exploit, id)
 
