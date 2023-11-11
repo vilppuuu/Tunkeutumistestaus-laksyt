@@ -29,7 +29,7 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 
 - Tuota aiempaa ohjetta mukaillen otin siis tuon Host-only adapterin käyttöön Kalille, ja tuosta defaultti NAT-adapterista piuhan irti, jolloin koneella ei siis pääsyä internettiin, mutta yhteys Metasploitable koneeseen onnistuu. Kun halutaan päästä takaisin internettiin tehdään päinvastoin, eli irroitetaan VirtualBoxin Network -asetuksista piuha Host-only -adapterista, ja kytketään piuha kiinni NAT-asetuksiin, jolloin internettiin yhdistäminen onnistuu.
 
-      ![interwebz](https://i.imgur.com/zUbJfmy.png)
+  ![interwebz](https://i.imgur.com/zUbJfmy.png)
 
 **Kalin ja Metasploitablen välillä on host-only network, niin että porttiskannatessa ym. koneet on eristetty intenetistä, mutta ne saavat yhteyden toisiinsa**
 
