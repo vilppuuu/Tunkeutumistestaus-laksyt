@@ -43,3 +43,32 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 **Osoita eri komennoilla, että Internet-yhteys katkeaa: 'ping 1.1.1.1', 'ping www.google.com', 'curl www.google.com'**
 
 ![curlping](https://i.imgur.com/VvnRJkL.png)
+
+#### d) Etsi Metasploitable porttiskannaamalla (db_nmap -sn). Tarkista selaimella, että löysit oikean IP:n - Metasploitablen weppipalvelimen etusivulla lukee Metasploitable. Katso, ettei skannauspaketteja vuoda Internetiin - kannattaa irrottaa koneet netistä skannatessa.
+
+<p>Alkuun täytyy käynnistää tuo Metasploit, mikä tapahtuu ensiksi käynnistämällä sen tarvitsema tietokanta: postgresql, jonka jälkeen käynnistetään tuoa msfdb, ja käynnistetään msf-konsoli, josta porttiskannauskomento voidaan ajaa. Suorittamalla tuo -sn, eli ping sweep -skannaus saadaan selville, että siellä tosiaankin on kone päällä, sen MAC-osoite, ja verkkokortin valmistaja, mutta ei paljon muuta. Kun selaimella vielä testataan tuota ip:tä, niin varmistutaan siellä todellakin olevan tuo metasploitable-kone, jolloin voidaa aloittaa laajemmat toimet.</p>
+
+![msfdb](https://i.imgur.com/v8b6Upq.png)
+
+![metass](https://i.imgur.com/jCmcJhS.png)
+
+
+####e) Porttiskannaa Metasploitable huolellisesti (db_nmap -A -p0-). Analysoi tulos. Kerro myös ammatillinen mielipiteesi (uusi, vanha, tavallinen, erikoinen), jos jokin herättää ajatuksia.
+
+
+#### f) Murtaudu Metasploitablen VsFtpd-palveluun Metasploitilla (search vsftpd, use 0, set RHOSTS - varmista osoite huolella, exploit, id)
+
+
+#### g) Parempi sessio. Tee vsftpd-hyökkäyksestä saadusta sessiosta parempi. (Voit esimerkiksi päivittää sen meterpreter-sessioksi, laittaa tty:n toimimaan tai tehdä uuden käyttäjän ja ottaa yhteyden jollain tavallisella protokollalla)
+
+
+#### h) Etsi, tutki ja kuvaile jokin hyökkäys ExploitDB:sta. (Tässä harjoitustehtävässä pitää hakea ja kuvailla hyökkäys, itse hyökkääminen jää vapaaehtoiseksi lisätehtäväksi)
+
+
+#### i) Etsi, tutki ja kuvaile hyökkäys 'searchsploit' -komennolla. Muista päivittää. (Tässä harjoitustehtävässä pitää hakea ja kuvailla hyökkäys, itse hyökkääminen jää vapaaehtoiseksi lisätehtäväksi. Valitse eri hyökkäys kuin edellisessä kohdassa.)
+
+
+#### j) Kokeile vapaavalintaista haavoittuvuusskanneria johonkin Metasploitablen palveluun. (Esim. nikto, wpscan, openvas, nessus, nucleus tai joku muu)
+
+
+#### k) Kokeile jotain itsellesi uutta työkalua, joka mainittiin x-kohdan läpikävelyohjeessa.
