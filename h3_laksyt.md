@@ -111,6 +111,9 @@ msf6 exploit(unix/ftp/vsftpd_234_backdoor) > exploit
 
 #### i) Etsi, tutki ja kuvaile hyökkäys 'searchsploit' -komennolla. Muista päivittää. (Tässä harjoitustehtävässä pitää hakea ja kuvailla hyökkäys, itse hyökkääminen jää vapaaehtoiseksi lisätehtäväksi. Valitse eri hyökkäys kuin edellisessä kohdassa.)
 
+- Eli tuota searchsploit-komentoa voidaan ajaa tuossa msf-konsolissa, ja lisätä siihen eri hakuehtoja, kuten vaikkapa hakusana otsikoista (-t), tai se voidaan esimerkiksi yhdistää nmap-skannauksen xml-tiedostoon, jolloin se etsii sen tuloksien perusteella.
+- 
+
 
 #### j) Kokeile vapaavalintaista haavoittuvuusskanneria johonkin Metasploitablen palveluun. (Esim. nikto, wpscan, openvas, nessus, nucleus tai joku muu)
 
