@@ -53,7 +53,12 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 ![metass](https://i.imgur.com/jCmcJhS.png)
 
 
-####e) Porttiskannaa Metasploitable huolellisesti (db_nmap -A -p0-). Analysoi tulos. Kerro myös ammatillinen mielipiteesi (uusi, vanha, tavallinen, erikoinen), jos jokin herättää ajatuksia.
+#### e) Porttiskannaa Metasploitable huolellisesti (db_nmap -A -p0-). Analysoi tulos. Kerro myös ammatillinen mielipiteesi (uusi, vanha, tavallinen, erikoinen), jos jokin herättää ajatuksia.
+
+<p>Avoimia portteja, ja niissä olevia palveluita löytyi melkoinen määrä, mikä on melko epätavallista, kun otetaan huomioon että skannasimme vain yhden IP:n. Kun palveluita ja niiden versioita hieman tutkii, niin huomataan, että useat niistä ovat vanhoja ja haavoittuvia versioita esim. OpenSSH 4.7p1 & Apache 2.2.8 ovat tällaisiä. Myös jo ihan pelkistä palveluista löytyy mielenkiintoa herättäviä tapauksia esim. porteissa 512, 513, 514 on auki palvelut nimillä exec, login, ja shell, mikä kuulostaa kohtalaisen lupaavalta. Tai portissa 1542 nmap olevan bindhsellin nmap kertoo suoraan olevan 'Metasploitable root shell'. Sitten tuolta löytyy myös noita sertejä, jotka on salattu 1024 bittisellä sha1WithRSAEncryption algoritmillä, mikä ei nyt nopean googlen perusteella ole mikään turvallisin vaihtoehto, ja myöskin nykyään noiden pituudeksi taidetaan suositellaan minimissään 2048 bittiä. </p>
+
+![nmapA](https://i.imgur.com/9MuTZH7.png)
+
 
 
 #### f) Murtaudu Metasploitablen VsFtpd-palveluun Metasploitilla (search vsftpd, use 0, set RHOSTS - varmista osoite huolella, exploit, id)
