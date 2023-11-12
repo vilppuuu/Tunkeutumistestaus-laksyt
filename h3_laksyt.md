@@ -100,7 +100,16 @@ msf6 exploit(unix/ftp/vsftpd_234_backdoor) > exploit
 
 #### g) Parempi sessio. Tee vsftpd-hyökkäyksestä saadusta sessiosta parempi. (Voit esimerkiksi päivittää sen meterpreter-sessioksi, laittaa tty:n toimimaan tai tehdä uuden käyttäjän ja ottaa yhteyden jollain tavallisella protokollalla)
 
-- 
+- Tosiaankin tässä, kun meillä on tuon edellisen hyökkäyksen sessio vielä auki voimme päivittää shellin johonkin meille parempaan vaihtoehtoon.
+- Päätin tässä kokeilla muuttaa tuon meterpreter-sessioksi, mikä alkaa laittamalla tuo kyseinen sessio taustalle painamalla ctrl+Z, jonka jälkeen voimme etsiä 'shell_to_meterpreter'.
+- Tämän jälkeen voimme laittaa *use post/multi/manage/shell_to_meterpreter* (tai vaan use 0), jonka jälkeen täytyy vielä valita sessio, johon tuota käytetäään mikä tässä tapauksessa on helppoa, koska meillä on vain yksi sessio, eli voimme laittaa *set SESSION 1* ja ajaa tämän komennolla *run*.
+
+  ![voila](https://i.imgur.com/00iwzKT.png)
+
+- Tämän jälkeen voimme avata uuden session, joka käyttää meterpreteriä komennolla *sessions -i 2*.
+- Nyt olemme meterpreter-sessiossa, ja voimme jatkaa pirullisia toimiamme helpommin ja monipuolisemmin, ja lisäksi olemme vielä vaikeammin havaittavissa koska meterpreter pyörii koneen RAM-muistissa.
+
+  ![metepreter](https://i.imgur.com/T6gdx5Y.png)
 
 
 #### h) Etsi, tutki ja kuvaile jokin hyökkäys ExploitDB:sta. (Tässä harjoitustehtävässä pitää hakea ja kuvailla hyökkäys, itse hyökkääminen jää vapaaehtoiseksi lisätehtäväksi)
@@ -161,3 +170,4 @@ msf6 >
 - https://www.exploit-db.com/searchsploit
 - https://www.geeksforgeeks.org/how-to-install-metasploitable-2-in-virtualbox/
 - https://null-byte.wonderhowto.com/how-to/scan-for-vulnerabilities-any-website-using-nikto-0151729/
+- https://infosecwriteups.com/metasploit-upgrade-normal-shell-to-meterpreter-shell-2f09be895646
