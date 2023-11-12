@@ -14,7 +14,7 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 
 *Vapaavalintainen läpikävely 0xdf tai ippsec (Kannattaa valita helppo; esim "Base Points: Easy")*
 
-- 
+- https://0xdf.gitlab.io/2022/11/26/htb-redpanda.html
 
 *Nyrkkeilysäkki ei kuulu. Etsi hakukoneesta kotitehtäväraportti, jossa Kali ja Metasploitable on asennettu samaan verkkooon VirtualBoxiin; sekä testaamalla osoitettu, että koneet on saatu irti Internetistä. Tällaiset tehtävät ovat olleet jonain vuonna esimerkiksi nimillä "Nyrkkeilysäkki" ja "Ei kuulu".*
 
@@ -139,3 +139,16 @@ msf6 >
   ![nikto](https://i.imgur.com/iH6vj12.png)
 
 #### k) Kokeile jotain itsellesi uutta työkalua, joka mainittiin x-kohdan läpikävelyohjeessa.
+
+- Tuossa 0xdf:n Red Panda läpikävelyssä käytettiin Feroxbusteria, jolla voidaan sanalistoja käyttämällä etsiä piilotettuja hakemistoja web-palvelimelta (samaan tapaan kuin fuff:ila).
+- Itseasiassa nopean tutustumisen perusteella näyttäisi siltä, että yleisimmät käyttötapaukset tässä ovat toteutettavissa myös fuff:ill, eli haku tiedostopäätteiden perusteella, headereistä, ja rekursiivinen skannaus. Tuossa on myös edistyneempiä ominaisuuksia, mutta en nyt ajan puutteen vuoksi kerkeä niihin paremmin tutustumaan.
+- Skannauksen suorittaminen tuolla Feroxbusterilla on melko samanlainen FUFF:in kanssa, eli määritellään kohde URL, käytettävä sanalista, ja muut parametrit. Itse päätin tässä käyttää -x php,class parametriä, joka siis etsii tiedostopäätteen mukaan php-tiedostoja, ja sanalistan valitsin myös sen mukaan.
+  
+  ```feroxbuster -u http://192.168.56.103:80 -x php,class -w /usr/share/seclists/Discovery/Web-Content/PHP.fuzz.txt```
+  
+  ![ferox](https://i.imgur.com/3lpEuuT.png)
+
+- Skannauksella löytyi jokunen ihan mielenkiintoinen tulos, eli esim. phpMyAdmin-kirjautumissivu, sekä DVWA (Damn Vulnerably Web App) kirjautumissivu, jossa iloisesti kerrotaan admin-tunnus ja salasana.
+
+  ![dvwa](https://i.imgur.com/AqqMYaX.png)
+  
