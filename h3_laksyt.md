@@ -155,9 +155,9 @@ msf6 >
 
 #### Lähteet
 
-https://learning.oreilly.com/library/view/mastering-kali-linux/9781801819770/Text/Chapter_10.xhtml#_idParaDest-250
-https://github.com/epi052/feroxbuster#readme
-https://gist.github.com/fabionoth/ba46407d9cd03144150225715697c47f
-https://www.exploit-db.com/searchsploit
-https://www.geeksforgeeks.org/how-to-install-metasploitable-2-in-virtualbox/
-https://null-byte.wonderhowto.com/how-to/scan-for-vulnerabilities-any-website-using-nikto-0151729/
+- https://learning.oreilly.com/library/view/mastering-kali-linux/9781801819770/Text/Chapter_10.xhtml#_idParaDest-250
+- https://github.com/epi052/feroxbuster#readme
+- https://gist.github.com/fabionoth/ba46407d9cd03144150225715697c47f
+- https://www.exploit-db.com/searchsploit
+- https://www.geeksforgeeks.org/how-to-install-metasploitable-2-in-virtualbox/
+- https://null-byte.wonderhowto.com/how-to/scan-for-vulnerabilities-any-website-using-nikto-0151729/
