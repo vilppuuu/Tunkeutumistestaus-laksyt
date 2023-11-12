@@ -171,3 +171,4 @@ msf6 >
 - https://www.geeksforgeeks.org/how-to-install-metasploitable-2-in-virtualbox/
 - https://null-byte.wonderhowto.com/how-to/scan-for-vulnerabilities-any-website-using-nikto-0151729/
 - https://infosecwriteups.com/metasploit-upgrade-normal-shell-to-meterpreter-shell-2f09be895646
+- https://www.offsec.com/metasploit-unleashed/meterpreter-basics/
