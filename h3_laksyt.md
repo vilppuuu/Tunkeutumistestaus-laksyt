@@ -55,7 +55,8 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 
 #### d) Etsi Metasploitable porttiskannaamalla (db_nmap -sn). Tarkista selaimella, että löysit oikean IP:n - Metasploitablen weppipalvelimen etusivulla lukee Metasploitable. Katso, ettei skannauspaketteja vuoda Internetiin - kannattaa irrottaa koneet netistä skannatessa.
 
-<p>Alkuun täytyy käynnistää tuo Metasploit, mikä tapahtuu ensiksi käynnistämällä sen tarvitsema tietokanta: postgresql, jonka jälkeen käynnistetään tuoa msfdb, ja käynnistetään msf-konsoli, josta porttiskannauskomento voidaan ajaa. Suorittamalla tuo -sn, eli ping sweep -skannaus tässä meidän hostiverkossa (192.168.56.0/24) löydetään sieltä tosiaan tuo Metasploitable osoitteesta, joka loppuu .103, joka voidaan siis vielä testata selaimella. Noista kahdesta muusta osoitteesta ei oikeastaan tarvitse välittää, sillä tuo .1 on tietty DGW, ja tuo .100 on VirtualBoxin tähän verkkoon luoma DHCP (löytyy VB:n Network Managerista, Host-only Networks kohdan alta). </p>
+- Alkuun täytyy käynnistää tuo Metasploit, mikä tapahtuu ensiksi käynnistämällä sen tarvitsema tietokanta: postgresql, jonka jälkeen käynnistetään tuoa msfdb, ja käynnistetään msf-konsoli, josta porttiskannauskomento voidaan ajaa.
+- Suorittamalla tuo -sn, eli ping sweep -skannaus tässä meidän hostiverkossa (192.168.56.0/24) löydetään sieltä tosiaan tuo Metasploitable osoitteesta, joka loppuu .103, joka voidaan siis vielä testata selaimella. Noista kahdesta muusta osoitteesta ei oikeastaan tarvitse välittää, sillä tuo .1 on tietty DGW, ja tuo .100 on VirtualBoxin tähän verkkoon luoma DHCP (löytyy VB:n Network Managerista, Host-only Networks kohdan alta).
 
 ![msfdb](https://i.imgur.com/v8b6Upq.png)
 
@@ -80,7 +81,7 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 
 ![searchh](https://i.imgur.com/JrmxKsr.png)
 
-- Seuraavaksi otetaan tuo löydetty exploitti käyttöön, asetetaan kohdekohdeen ip rhostiksi, ja oma ip chostiksi. Tässä ei nyt lisätty mitään payloadia, eli mitään kohteessa ajettavaa koodia (esim. etäkäyttötyökalua), vaan käytetään default terminaalia, ja kun ollaan asetukset on kohdillaan voidaan painaa exploit.
+- Seuraavaksi otetaan tuo löydetty exploitti käyttöön, asetetaan kohdekohdeen ip rhostiksi, ja oma ip chostiksi. Tässä ei nyt lisätty mitään payloadia, eli mitään kohteessa ajettavaa koodia (esim. etäkäyttötyökalua), vaan käytetään default terminaaleja, ja kun asetukset on kohdillaan voidaan painaa exploit.
 
 ```
 msf6 > use exploit/unix/ftp/vsftpd_234_backdoor
