@@ -111,11 +111,31 @@ msf6 exploit(unix/ftp/vsftpd_234_backdoor) > exploit
 
 #### i) Etsi, tutki ja kuvaile hyökkäys 'searchsploit' -komennolla. Muista päivittää. (Tässä harjoitustehtävässä pitää hakea ja kuvailla hyökkäys, itse hyökkääminen jää vapaaehtoiseksi lisätehtäväksi. Valitse eri hyökkäys kuin edellisessä kohdassa.)
 
-- Eli tuota searchsploit-komentoa voidaan ajaa tuossa msf-konsolissa, ja lisätä siihen eri hakuehtoja, kuten vaikkapa hakusana otsikoista (-t), tai se voidaan esimerkiksi yhdistää nmap-skannauksen xml-tiedostoon, jolloin se etsii sen tuloksien perusteella.
-- 
+- Eli tuota searchsploit-komentoa voidaan ajaa tuossa msf-konsolissa, ja lisätä siihen eri hakuehtoja, kuten vaikkapa hakusana otsikoista (-t), CVE-arvolla (--cve), tai se voidaan esimerkiksi yhdistää nmap-skannauksen xml-tiedostoon, jolloin se etsii sen tuloksien perusteella.
+- Kun sopiva hyökkäys löytyy esim. hakusanan avulla, voidaan siitä etsiä lisätietoa -p parametrillä ja käyttämällä sen arvona tuota exploit-db:n numeroa.
+```
+msf6 > searchsploit -p 33379
+[*] exec: searchsploit -p 33379
+
+  Exploit: Apache Tomcat 3.2 - 404 Error Page Cross-Site Scripting
+      URL: https://www.exploit-db.com/exploits/33379
+     Path: /usr/share/exploitdb/exploits/multiple/remote/33379.txt
+    Codes: N/A
+ Verified: True
+File Type: ASCII text
+msf6 > 
+
+```
+- Tässä tapauksessa etsin Apache hakusanalla, ja sieltä löytyi tuollainen uudelleenohjauksen mahdollistava hyökkäys.
+- Eli yksinkertaisesti muokkaamalla 'subfolderin' urlia, niin että siinä on kaksi kauttaviivaa yhden sijaan, ja urlin lopusta otetaan kauttaviiva pois saadaan ohjelma suorittamaan uudelleenohjaus.
+- Toteutustapa sinäänsä taas harvinaisen simppeli, mutta vaatii tietysti pääsyn ja oikeuksia kohdekoneelle.
 
 
 #### j) Kokeile vapaavalintaista haavoittuvuusskanneria johonkin Metasploitablen palveluun. (Esim. nikto, wpscan, openvas, nessus, nucleus tai joku muu)
 
+- Valitsin tässä tuon Nikton, jolla siis skannataan web-palvelimia, ja se olikin jo valmiiksi asennettu Kaliin.
+- Skannauksen suorittaminen ei varsinaisesti ollut mitään rakettitiedettä, eli komennolla *nikto -h 192.168.56.103* suoritettiin oletusskannaus tuolle Metasploitable koneelle, joka etsii ainakin palvelinohjelmiston, version, oletushakemistojen- ja tiedostojen, security headereitten, ja php-scriptien perusteella haavoittuvuuksia kohteesta.
+- Kohteesta löytyi vino pino kaikenlaisia haavoittuvuuksia, ja tuossa Nikton tuloksessa näkyy olevan suoria linkkejä niiden hyödyntämiseen.
+  ![nikto](https://i.imgur.com/iH6vj12.png)
 
 #### k) Kokeile jotain itsellesi uutta työkalua, joka mainittiin x-kohdan läpikävelyohjeessa.
