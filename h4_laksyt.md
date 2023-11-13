@@ -33,7 +33,7 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
 - Tämän sai toimimaan myös lokaalisti vaihtamalla tuon Zapin Main Proxyn ip-osoitteen käyttämään koneen sisäverkon ip:tä (asetus löytyy valikosta *Tools -> Options -> Network*), ja asettamalla sen myös selaimeen.
 
-[proxy](https://i.imgur.com/4ZqwgDk.png)
+![proxy](https://i.imgur.com/4ZqwgDk.png)
 
 ![proxy1](https://i.imgur.com/rVxFzSb.png)
 
