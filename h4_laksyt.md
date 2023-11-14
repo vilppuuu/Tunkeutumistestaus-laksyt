@@ -28,7 +28,7 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 #### a) Totally Legit Sertificate. Asenna OWASP ZAP, generoi CA-sertifikaatti ja asenna se selaimeesi. Laita ZAP proxyksi selaimeesi. Osoita, että hakupyynnöt ilmestyvät ZAP:n käyttöliittymään. (Ei toimi localhost:lla ilman Foxyproxya)
 
 - Tuo Zaproxy löytyi ainakin Kalille suoraan paketinhallinnasta (versio 2.14.0), joten sieltä laittelin vaan: *sudo apt install zaproxy* ja käynnistin sen, ja näemmä Javakin löytyi valmiina Kalista, koska homma lähti toimimaan.
-- Tämän jälkeen voidaan proxy käydä lisäämässä selaimeen, ja Zaproxyn default osoite löytyy ohjelman alareunsta tai asetuksista ÄLocal Servers/Proxies* alta. Firefoxiin proxyn saa lisättyä, kun avaa Settings.valikon, ja kirjoittaa hakukenttään proxy ja avaa sieltä settings-kohdan, johon voidaan täyttää käyttämämme proxy ja valita se myös https-proxyksi.
+- Tämän jälkeen voidaan proxy käydä lisäämässä selaimeen, ja Zaproxyn default osoite löytyy ohjelman alareunsta tai asetuksista *Local Servers/Proxies* alta. Firefoxiin proxyn saa lisättyä, kun avaa Settings-valikon, ja kirjoittaa hakukenttään proxy ja avaa sieltä settings-kohdan, johon voidaan täyttää käyttämämme proxy ja valita se myös https-proxyksi.
   
   ![zap](https://i.imgur.com/GC4sTK7.png)
 
