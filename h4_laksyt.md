@@ -27,18 +27,15 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
   
 #### a) Totally Legit Sertificate. Asenna OWASP ZAP, generoi CA-sertifikaatti ja asenna se selaimeesi. Laita ZAP proxyksi selaimeesi. Osoita, että hakupyynnöt ilmestyvät ZAP:n käyttöliittymään. (Ei toimi localhost:lla ilman Foxyproxya)
 
-- Tuo zaproxy löytyi ainakin Kalille suoraan paketinhallinnasta (versio 2.14.0), joten sieltä laittelin vaan: *sudo apt install zaproxy* ja käynnistin sen, ja näemmä Javakin löytyi valmiina Kalista, koska homma lähti toimimaan.
+- Tuo Zaproxy löytyi ainakin Kalille suoraan paketinhallinnasta (versio 2.14.0), joten sieltä laittelin vaan: *sudo apt install zaproxy* ja käynnistin sen, ja näemmä Javakin löytyi valmiina Kalista, koska homma lähti toimimaan.
+- Tämän jälkeen voidaan proxy käydä lisäämässä selaimeen, ja Zaproxyn default osoite löytyy ohjelman alareunsta tai asetuksista ÄLocal Servers/Proxies* alta. Firefoxiin proxyn saa lisättyä, kun avaa Settings.valikon, ja kirjoittaa hakukenttään proxy ja avaa sieltä settings-kohdan, johon voidaan täyttää käyttämämme proxy ja valita se myös https-proxyksi.
   
   ![zap](https://i.imgur.com/GC4sTK7.png)
 
-- Tämän sai toimimaan myös lokaalisti vaihtamalla tuon Zapin Main Proxyn ip-osoitteen käyttämään koneen sisäverkon ip:tä (asetus löytyy valikosta *Tools -> Options -> Network*), ja asettamalla sen myös selaimeen.
-
-![proxy](https://i.imgur.com/4ZqwgDk.png)
-
-![proxy1](https://i.imgur.com/rVxFzSb.png)
+![ffproxy](https://i.imgur.com/xPhHaT5.png)
 
 ![httppss](https://i.imgur.com/KxQB5Ko.png)
 
-- Vielä että https toimisi oikein täytyy sitä varten luoda CA-sertifikaatti, ja lisätä se selaimessa luotettuihin serteihin. Uuden sertin luominen Zapissa on simppeliä, eli mennään *Options -> Network -> Server Certificates* ja avautuvassa ikkunassa *Generate* ja sitten tallennetaan haluamaamme paikkaan.
-- Tämän jälkeen luotu serti voidaan tuoda Firefoxiin, joka tapahtuu Firefoxin asetuksissa: *Certificates -> View Certificates -> Import etsitään juuri generoimamme serti ja lisätään se*.
+- Jotta https toimisi täytyy sitä varten luoda CA-sertifikaatti, ja lisätä se selaimessa luotettuihin serteihin. Uuden sertin luominen Zapissa on simppeliä, eli mennään *Options -> Network -> Server Certificates* ja avautuvassa ikkunassa *Save* ja valitsemaamme paikkaan.
+- Tämän jälkeen luotu serti voidaan tuoda Firefoxiin, joka tapahtuu Firefoxin asetuksissa: *Certificates -> View Certificates -> Import* ja etsitään juuri generoimamme serti ja lisätään se, ja raksit ruutuun, että luotamme siihen.
 - 
