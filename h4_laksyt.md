@@ -9,8 +9,14 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 **OWASP 2021: OWASP Top 10:2021**
 
   **A01:2021 – Broken Access Control (IDOR ja path traversal ovat osa tätä)**
+  
+  - Tosiaan rikkinäinen pääsynhallinta päässyt näköjään OWASP:in listalla ykköseksi vuonna 2021. Yksinkertaisesti rikkinäinen pääsynhallinta tarkoittaa tilanteita, joissa käyttäjät/hyökkääjät saavat käyttöoikeuksia palveluihin, sovelluksiin, ja tietoihin poikkeuksellisilla tavoilla.
+  - Yleisiä pääsynhallintaan liittyviä haavoittuvuuksia ovat mm. tarkastusten ohittaminen erinäisin keinoin, API:en huijaaminen eri keinoin, virheet käyttäjäoikeuksissa, elevation of privilege, erilaisten tunnistautumis-tokenien- ja keksien manipuloiminen jne.
+  - Ennaltaehkäisykeinot tätä vastaan ovat käytännössä, että zero trust ja hoida tietoturva täydellisesti. Joitain teknisiä keinojakin tuossa oli lueteltu, kuten laittaa 'rate limitt' API pyynnöille minimoidaan automatisoidut hyökkäystyökalut, ja tilalliset kirjautumis-tokenit tulisi poistaa käytöstä uloskirjautumisen jälkeen, ja tilallisten tokenien tulisi olla lyhytikäisiä.
 
   **A10:2021 – Server-Side Request Forgery (SSRF)**
+
+  - 
 
 **PortSwigget Academy:**
 
