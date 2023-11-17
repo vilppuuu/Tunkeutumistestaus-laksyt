@@ -67,7 +67,7 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
     
     ![asdasd](https://i.imgur.com/hEvimif.png)
 
-    ![https://i.imgur.com/X6U76pu.png](biNgo)
+    ![bINgO](https://i.imgur.com/X6U76pu.png)
 
   2. File path traversal, simple case
 
