@@ -16,7 +16,10 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
   **A10:2021 – Server-Side Request Forgery (SSRF)**
 
-  - 
+  - Tämä oli laitettu listalle, koska se oli noussut ykköseksi käyttäjäkyselyssä. SSRF tarkoittaa siis sitä, että käyttäjä pyytää palvelimelta/web-sovellukselta pääsyä johonkin resurssiin, ja palvelin/web-sovellus ei varmista pyyntöä oikein, jolloin päästään lähettämään pyyntöjä sellaisiin kohteisiin, joiden pitäisi olla saavuttamattomissa (esim. muurin, VPN:n, tai muun ACL:n takana).
+  - Esimerkkejä tällaisista haavoittuvuuksistusista ovat mm. pääsy sensitiivisen datan luo, pääsy metadataan pilvitallennuspalveluissa, sisäiten palvelinten porttiskannaus, DoS, tai jopa RCE.
+  - Ennaltaehkäisyyn tässä ehdotetaan aika perus toimenpiteitä eli mm. verkon segementointia, VPN:ää, ja'deny by default' palomuuri policyjä, mitkä nyt sinällään ovat itsestäänselvyyksiä, mutta niistä saattaa löytyä parannettavaa senkin takia, että arkkitehtuurit alkavat olla aika monimutkaisia useissa ympäristöissä.
+  - Sovelluspuolella taas käyttäjältä tuleva data tulisi validoida ja 'puhdistaa', URL:ien muoto, portti ja lähde tulisi mätsätä ACL:ään, tarpeettomat HTTP-uudelleenohjaukset tulisi poistaa jne.
 
 **PortSwigget Academy:**
 
@@ -38,10 +41,20 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
   
   ![zap](https://i.imgur.com/GC4sTK7.png)
 
-![ffproxy](https://i.imgur.com/xPhHaT5.png)
+![ffproxy](https://i.imgur.com/xPhHaT5.png)kali
 
 ![httppss](https://i.imgur.com/KxQB5Ko.png)
 
 - Jotta https toimisi täytyy sitä varten luoda CA-sertifikaatti, ja lisätä se selaimessa luotettuihin serteihin. Sertin hakeminen/luominen Zapissa on simppeliä, eli mennään *Options -> Network -> Server Certificates* ja avautuvassa ikkunassa *Save* ja valitsemaamme paikkaan.
 - Tämän jälkeen luotu serti voidaan tuoda Firefoxiin, joka tapahtuu Firefoxin asetuksissa: *Certificates -> View Certificates -> Import* ja etsitään juuri generoimamme serti ja lisätään se, ja raksit ruutuun, että luotamme siihen.
-- 
+  
+  ![htttpssss](https://i.imgur.com/GRjfVfl.png)
+
+#### b) Kettumaista. Asenna FoxyProxy Standard Firefox Addon, ja lisää ZAP proxyksi siihen.
+
+- Perus laajennuksen asentaminen selaimeen, eli oikeasta ylänurkasta palapelikuvaketta -> Hakuun Foxyproxy -> Klikataan add, jonka jälkeen se asentuu ja se voidaan avata samaaa palapelikuvaketta klikkaamalla.
+- FoxyProxyn asetuksiin konffataan tuo Zap sinne ja enabloidaan nuo profiilit.
+  
+  ![fxyprx](https://i.imgur.com/yvyJTZn.png)
+
+  #### c) PortSwigger Labs. Ratkaise tehtävät. Selitä ratkaisusi: mitä palvelimella tapahtuu, mitä eri osat tekevät, miten hyökkäys löytyi, mistä vika johtuu. (Voi käyttää ZAPia, vaikka malliratkaisut käyttävät harjoitusten tekijän maksullista ohjelmaa)
