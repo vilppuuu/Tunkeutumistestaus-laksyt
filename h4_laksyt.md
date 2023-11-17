@@ -61,9 +61,9 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
   1. Insecure direct object references
 
-  - Tuossa labran kuvauksessa mainitaan, että palvelun chat-lokit tallentuvat suoraan palvelimelle, ja niihin ne käyttävät staattisia osoitteita, joten looginen aloituspaikka oli lähteä tutkailemaan miltä se näyttää. Avataan siis tuo chat, ja lähetetään sinne joku viesti, jonka jälkeen 'trankskriptio' siitä voidaaan hakea painamalla View transcript, ja kun samaan aikaan katsomme selaimen developer-työkaluilla (f12) network-välilehteä näemme, että sieltä lähetetään http GET-pyyntö osoitteeseen, josta lokit haetaan.
-  - Osoitteen lopusta '3.txt' voidaan myös tehdä sellainen oletus, että lokissa ei ihan hirveästi tavaraa ole, kun itse lähetimme sinne kaksi viestiä, joten meidän kannattanee kokeilla muuttaa osoitekenttään tuohon loppuun '1.txt' ja katsoa tuottaako se mitään.
-  - No sieltähän löytyi keskustelu, jossa joku oli kadottanut salasanansa, ja ystävällinen chat-henkilö sen hänelle sielä antoi takaisin, eli olisiko kyseessä Carlos ja hänen salasanansa. Testataan kirjautua tunnuksella Carlos ja chatistä löytyneellä salasanalla, ja bingobangobongo.
+    - Tuossa labran kuvauksessa mainitaan, että palvelun chat-lokit tallentuvat suoraan palvelimelle, ja niihin ne käyttävät staattisia osoitteita, joten looginen aloituspaikka oli lähteä tutkailemaan miltä se näyttää. Avataan siis tuo chat, ja lähetetään sinne joku viesti, jonka jälkeen 'trankskriptio' siitä voidaaan hakea painamalla View transcript, ja kun samaan aikaan katsomme selaimen developer-työkaluilla (f12) network-välilehteä näemme, että sieltä lähetetään http GET-pyyntö osoitteeseen, josta lokit haetaan.
+    - Osoitteen lopusta '3.txt' voidaan myös tehdä sellainen oletus, että lokissa ei ihan hirveästi tavaraa ole, kun itse lähetimme sinne kaksi viestiä, joten meidän kannattanee kokeilla muuttaa osoitekenttään tuohon loppuun '1.txt' ja katsoa tuottaako se mitään.
+    - No sieltähän löytyi keskustelu, jossa joku oli kadottanut salasanansa, ja ystävällinen chat-henkilö sen hänelle sielä antoi takaisin, eli olisiko kyseessä Carlos ja hänen salasanansa. Testataan kirjautua tunnuksella Carlos ja chatistä löytyneellä salasanalla, ja bingobangobongo.
     
     ![asdasd](https://i.imgur.com/hEvimif.png)
 
@@ -71,9 +71,15 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
   2. File path traversal, simple case
 
-  3. File path traversal, traversal sequences blocked with absolute path bypass
+     - Tähän vastaus löytyi myös samaan tapaan kuin aiempaankin tehtävän, eli vihjeen mukaan tuotekuvien näyttäminen mahdollistaa 'path traversalin', joten taas looginen tapa aloittaa on dev-tools ja network-välilehti auki mennä katsomaan miltä tuo tuotekuvan pyytäminen näyttää. Tuo pyynnön filename-kohta näyttää siltä, että se varmaankin on haavoittuvainen tälle hyökkäykselle, joten voimme kokeilla muuttaa siihen vaikkapa *../../../etc/passwd*, joka siis menee unix-systeemissä ensiksi root-hakemistoon ja sieltä etc/passwd-tiedostoon, jos tätä ei ole suojattu mitenkään, ja kappas kummaa eipä ollutkaan.
+
+       `GET https://0a31009704e5882880868a5b0091008c.web-security-academy.net/image?filename=21.jpg`
+
+       ![124345](https://i.imgur.com/uwpXxL5.png)
+
+  4. File path traversal, traversal sequences blocked with absolute path bypass
      
-  4. File path traversal, traversal sequences stripped non-recursively
+  5. File path traversal, traversal sequences stripped non-recursively
 
 
 
