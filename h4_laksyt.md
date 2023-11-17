@@ -71,9 +71,11 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
   2. File path traversal, simple case
 
-     - Tähän vastaus löytyi myös samaan tapaan kuin aiempaankin tehtävän, eli vihjeen mukaan tuotekuvien näyttäminen mahdollistaa 'path traversalin', joten taas looginen tapa aloittaa on dev-tools ja network-välilehti auki mennä katsomaan miltä tuo tuotekuvan pyytäminen näyttää. Tuo pyynnön filename-kohta näyttää siltä, että se varmaankin on haavoittuvainen tälle hyökkäykselle, joten voimme kokeilla muuttaa siihen vaikkapa *../../../etc/passwd*, joka siis menee unix-systeemissä ensiksi root-hakemistoon ja sieltä etc/passwd-tiedostoon, jos tätä ei ole suojattu mitenkään, ja kappas kummaa eipä ollutkaan.
+     - Tähän vastaus löytyi myös samaan tapaan kuin aiempaankin tehtävän, eli vihjeen mukaan tuotekuvien näyttäminen mahdollistaa 'path traversalin', joten taas looginen tapa aloittaa on dev-tools ja network-välilehti auki mennä katsomaan miltä tuo tuotekuvan pyytäminen näyttää. 
 
        `GET https://0a31009704e5882880868a5b0091008c.web-security-academy.net/image?filename=21.jpg`
+
+     - Tuo pyynnön filename-kohta näyttää siltä, että se varmaankin on haavoittuvainen tälle hyökkäykselle, joten voimme kokeilla muuttaa siihen vaikkapa *../../../etc/passwd*, joka siis menee unix-systeemissä ensiksi root-hakemistoon ja sieltä etc/passwd-tiedostoon, jos tätä ei ole suojattu mitenkään, ja kappas kummaa eipä ollutkaan.
 
        ![124345](https://i.imgur.com/uwpXxL5.png)
 
