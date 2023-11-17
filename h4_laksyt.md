@@ -58,3 +58,23 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
   ![fxyprx](https://i.imgur.com/yvyJTZn.png)
 
   #### c) PortSwigger Labs. Ratkaise tehtävät. Selitä ratkaisusi: mitä palvelimella tapahtuu, mitä eri osat tekevät, miten hyökkäys löytyi, mistä vika johtuu. (Voi käyttää ZAPia, vaikka malliratkaisut käyttävät harjoitusten tekijän maksullista ohjelmaa)
+
+  1. Insecure direct object references
+
+  - Tuossa labran kuvauksessa mainitaan, että palvelun chat-lokit tallentuvat suoraan palvelimelle, ja niihin ne käyttävät staattisia osoitteita, joten looginen aloituspaikka oli lähteä tutkailemaan miltä se näyttää. Avataan siis tuo chat, ja lähetetään sinne joku viesti, jonka jälkeen 'trankskriptio' siitä voidaaan hakea painamalla View transcript, ja kun samaan aikaan katsomme selaimen developer-työkaluilla (f12) network-välilehteä näemme, että sieltä lähetetään http GET-pyyntö osoitteeseen, josta lokit haetaan.
+  - Osoitteen lopusta '3.txt' voidaan myös tehdä sellainen oletus, että lokissa ei ihan hirveästi tavaraa ole, kun itse lähetimme sinne kaksi viestiä, joten meidän kannattanee kokeilla muuttaa osoitekenttään tuohon loppuun '1.txt' ja katsoa tuottaako se mitään.
+  - No sieltähän löytyi keskustelu, jossa joku oli kadottanut salasanansa, ja ystävällinen chat-henkilö sen hänelle sielä antoi takaisin, eli olisiko kyseessä Carlos ja hänen salasanansa. Testataan kirjautua tunnuksella Carlos ja chatistä löytyneellä salasanalla, ja bingobangobongo.
+    
+    ![asdasd](https://i.imgur.com/hEvimif.png)
+
+    ![https://i.imgur.com/X6U76pu.png](biNgo)
+
+  2. File path traversal, simple case
+
+  3. File path traversal, traversal sequences blocked with absolute path bypass
+     
+  4. File path traversal, traversal sequences stripped non-recursively
+
+
+
+
