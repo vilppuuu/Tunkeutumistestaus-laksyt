@@ -123,3 +123,14 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
    
    ![1234124](https://i.imgur.com/sKFMEfM.png)
 
+#### k) Asenna Webgoat 2023.4
+
+- Webgoat on siis web-sovellus harjoitusmaali, jossa on Java-pohjaisia haavoittuvuuksia joka lähtöön.
+- Päätin asentaa tuon docker-kontin, kun se nyt varmaankin on helpoin tapa. Eli kopioin seurasin WebGoatin sivuilta (https://owasp.org/www-project-webgoat/) downloads-kohdan alta löytyvää linkkiä, josta löytyi komennot docker-imagen lataamiseen ja käynnistämiseen. Asennuksessa ja käynnistämisessä ei sinällään mitään ongelmaa, paitsi että asennnuksen jälkeen WebGoat ei suostunut aukeamaan Zaproxyllä.
+  
+   ![tllls](https://i.imgur.com/TVzDkvB.png)
+
+- Kokeilin virheilmoituksen urlissa mainittua Java policyjen lataamista ja päivittämistä (curl -L -b "oraclelicense=a" http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip), mutta ei tuottanut tulosta ainakaan heti. Tämän jälkeen tilteissä vähän käynnistelin uudestaan Zapia ja Firefoxia, ja kokeilin pelkällä http tuota WebGoatin osoitetta, mikä jostain syystä toimi ja tämän jälkeen osoitekenttäänkin päivittyi https(??), ei järkeä.
+
+   ![asdasda](https://i.imgur.com/8Dxq1Xd.png)
+   
