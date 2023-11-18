@@ -57,7 +57,7 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 #### b) Kettumaista. Asenna FoxyProxy Standard Firefox Addon, ja lisää ZAP proxyksi siihen.
 
 - Perus laajennuksen asentaminen selaimeen, eli oikeasta ylänurkasta palapelikuvaketta -> Hakuun Foxyproxy -> Klikataan add, jonka jälkeen se asentuu ja se voidaan avata samaaa palapelikuvaketta klikkaamalla.
-- FoxyProxyn asetuksiin konffataan tuo Zap sinne ja enabloidaan nuo profiilit.
+- FoxyProxyn asetuksiin konffataan tuo Zap sinne ja enabloidaan nuo profiilit, jonka jälkeen voidaan testata toimiiko proxy myös localhostilla.
   
   ![fxyprx](https://i.imgur.com/yvyJTZn.png)
 
