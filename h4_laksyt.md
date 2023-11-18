@@ -84,6 +84,10 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
        ![124345](https://i.imgur.com/uwpXxL5.png)
 
   #### f) File path traversal, traversal sequences blocked with absolute path bypass
+
+- En tiedä miksi tämä ei näy tuolla Zapin pääikkunassa, vaan ainoastaan tässä jäte hudissa, jota en osaa käyttää xD. Tuohon filenamen kohdalle varmaan pitäisi muokkailla jotenkin sitä etc/passwd, jotta saisi ratkaistua...
+
+  ![asdas](https://i.imgur.com/WHxqLYE.png)
      
   #### g) File path traversal, traversal sequences stripped non-recursively
 
@@ -142,6 +146,10 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 ![asda](https://i.imgur.com/m1ZG5NA.png)
 
 **Insecure Direct Object References (4)**
+1. Authenticate First, Abuse Authorization Later
+   - En nyt taas ihan ymmärrä mitä tässä haetaan? Siis varmaan tuohon pyyntöön noiden usernamen & passwordin jälkeen koittaisin lisätä vaikka role=admin (ei tapahdu mitään?).
+
+     ![asdasd](https://i.imgur.com/1PzOAPa.png)
 
 **Missing Function Level Access Control (3)**
 
@@ -154,6 +162,9 @@ Insecure Login (1)
 #### o) (A10) Server-side Request Forgery (WebGoat 2023.4)
 Server-Side Request Forgery (2)
 
+![tom](https://i.imgur.com/UySNU6R.png)
+
 #### p) Client side (WebGoat 2023.4)
 Bypass front-end restrictions (2)
-   
+
+   ![asdas](https://i.imgur.com/a05wuDX.png)
