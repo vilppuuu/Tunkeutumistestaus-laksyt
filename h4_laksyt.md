@@ -105,3 +105,21 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
 ![ripcarlos](https://i.imgur.com/8GpaqJi.png)
 
+#### i) Reflected XSS into HTML context with nothing encoded
+
+- Tarkoituksena on päästä suorittamaan omaa skriptiä web-sovelluksen hakutoimintoa hyväksikäyttäen. Alkuun taas Zap auki ja etsitään tuo suorittamamme pyyntö.
+
+  `GET https://0ad400c303de825c803aa891004200d9.web-security-academy.net/?search=123 HTTP/1.1`
+  
+- Jos siis tästä tuota *search=* ei ole suojattu mitenkään voidaan siihen sijoittaa omaa skriptiä, ja lähettää pyyntö ja saadaan url, josta tuo luomamme skripti ajetaan käyttäjällä. Tässä tapauksessa tuohon laitettiin, vain *<script>alert()</script>*.
+
+  ![asd12341](https://i.imgur.com/JY0poOV.png)
+
+ #### j) Stored XSS into HTML context with nothing encoded
+
+ - Tässä sama idea kuin aiemmassa tehtävässä paitsi, että haitallinen skripti sijoitetaan kommenttikenttään ja se näkyy kaikille sivun avaaville. Eli taas kun etsimme tuon jättämämme kommentin http-requestin Zapista ja löydämme sieltä *comment=* -kohdan, johon voimme taas syöttää script-tagien sisään settiä.
+
+   ![asda](https://i.imgur.com/AgVs2Xt.png)
+   
+   ![1234124](https://i.imgur.com/sKFMEfM.png)
+
