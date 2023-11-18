@@ -97,4 +97,11 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
   ![asdasdad](https://i.imgur.com/qFIKSzq.png)
 
+- Kun katsotaan vastausta tähän meidän väärentämäämme pyyntöön voidaan sen htlm:stä löytää kohta, mistä poistetaan käyttäjä carlos. Seuraavaksi siis lisätään tuo tuohon meidän aiemmin lähettämämme väärennetyn pyynnön perään, niin käyttäjän carlos pitäisi poistua keskuudestamme, ja sehän toimi ja labra on ratkaistu.
+
+  `<span>carlos - </span>
+  <a href="/admin/delete?username=carlos">Delete</a>
+  `
+
+![ripcarlos](https://i.imgur.com/8GpaqJi.png)
 
