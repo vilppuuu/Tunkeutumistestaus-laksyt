@@ -130,7 +130,7 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
   
    ![tllls](https://i.imgur.com/TVzDkvB.png)
 
-- Kokeilin virheilmoituksen urlissa mainittua Java policyjen lataamista ja päivittämistä (curl -L -b "oraclelicense=a" http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip), mutta ei tuottanut tulosta ainakaan heti. Tämän jälkeen tilteissä vähän käynnistelin uudestaan Zapia ja Firefoxia, ja kokeilin pelkällä http tuota WebGoatin osoitetta, mikä toimi ja tämän jälkeen osoitekenttäänkin päivittyi https(??), ei järkeä.
+- Kokeilin virheilmoituksen urlissa mainittua Java policyjen lataamista ja päivittämistä (curl -L -b "oraclelicense=a" http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip), mutta ei tuottanut tulosta ainakaan heti. Tämän jälkeen tilteissä vähän käynnistelin uudestaan Zapia ja Firefoxia, ja kokeilin pelkällä http tuota WebGoatin osoitetta, mikä toimi ja tämän jälkeen osoitekenttäänkin päivittyi https(??), ei järkeä. Tai miksi toi tls-handshake yhtäkkiä alkaisi toimimaan, ei kai siinä järjestyksellä voi olla väliä.
 
    ![asdasda](https://i.imgur.com/8Dxq1Xd.png)
    
