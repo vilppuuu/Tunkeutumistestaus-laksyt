@@ -133,4 +133,27 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 - Kokeilin virheilmoituksen urlissa mainittua Java policyjen lataamista ja päivittämistä (curl -L -b "oraclelicense=a" http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip), mutta ei tuottanut tulosta ainakaan heti. Tämän jälkeen tilteissä vähän käynnistelin uudestaan Zapia ja Firefoxia, ja kokeilin pelkällä http tuota WebGoatin osoitetta, mikä toimi ja tämän jälkeen osoitekenttäänkin päivittyi https(??), ei järkeä. Tai miksi toi tls-handshake yhtäkkiä alkaisi toimimaan, ei kai siinä järjestyksellä voi olla väliä.
 
    ![asdasda](https://i.imgur.com/8Dxq1Xd.png)
+
+#### m) (A1) Broken Access Control (WebGoat 2023.4)
+**Hijack a session (1)**
+
+-Ei kyllä nyt soita kelloja, et mitä tästä pitäis saadad irti.
+
+![asda](https://i.imgur.com/m1ZG5NA.png)
+
+**Insecure Direct Object References (4)**
+
+**Missing Function Level Access Control (3)**
+
+**Spoofing an Authentication Cookie (1)**
+
+#### n) (A7) Identity & Auth Failure (WebGoat 2023.4)
+Authentication Bypasses (1)
+Insecure Login (1)
+
+#### o) (A10) Server-side Request Forgery (WebGoat 2023.4)
+Server-Side Request Forgery (2)
+
+#### p) Client side (WebGoat 2023.4)
+Bypass front-end restrictions (2)
    
