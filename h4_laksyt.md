@@ -59,29 +59,31 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
   #### c) PortSwigger Labs. Ratkaise tehtävät. Selitä ratkaisusi: mitä palvelimella tapahtuu, mitä eri osat tekevät, miten hyökkäys löytyi, mistä vika johtuu. (Voi käyttää ZAPia, vaikka malliratkaisut käyttävät harjoitusten tekijän maksullista ohjelmaa)
 
-  1. Insecure direct object references
+  #### d) Insecure direct object references
 
-    - Tuossa labran kuvauksessa mainitaan, että palvelun chat-lokit tallentuvat suoraan palvelimelle, ja niihin ne käyttävät staattisia osoitteita, joten looginen aloituspaikka oli lähteä tutkailemaan miltä se näyttää. Avataan siis tuo chat, ja lähetetään sinne joku viesti, jonka jälkeen 'trankskriptio' siitä voidaaan hakea painamalla View transcript, ja kun samaan aikaan katsomme selaimen developer-työkaluilla (f12) network-välilehteä näemme, että sieltä lähetetään http GET-pyyntö osoitteeseen, josta lokit haetaan.
-    - Osoitteen lopusta '3.txt' voidaan myös tehdä sellainen oletus, että lokissa ei ihan hirveästi tavaraa ole, kun itse lähetimme sinne kaksi viestiä, joten meidän kannattanee kokeilla muuttaa osoitekenttään tuohon loppuun '1.txt' ja katsoa tuottaako se mitään.
-    - No sieltähän löytyi keskustelu, jossa joku oli kadottanut salasanansa, ja ystävällinen chat-henkilö sen hänelle sielä antoi takaisin, eli olisiko kyseessä Carlos ja hänen salasanansa. Testataan kirjautua tunnuksella Carlos ja chatistä löytyneellä salasanalla, ja bingobangobongo.
+ - Tuossa labran kuvauksessa mainitaan, että palvelun chat-lokit tallentuvat suoraan palvelimelle, ja niihin ne käyttävät staattisia osoitteita, joten looginen aloituspaikka oli lähteä tutkailemaan miltä se näyttää. Avataan siis tuo chat, ja lähetetään sinne joku viesti, jonka jälkeen 'trankskriptio' siitä voidaaan hakea painamalla View transcript, ja kun samaan aikaan katsomme selaimen developer-työkaluilla (f12) network-välilehteä näemme, että sieltä lähetetään http GET-pyyntö osoitteeseen, josta lokit haetaan.
+ - Osoitteen lopusta '3.txt' voidaan myös tehdä sellainen oletus, että lokissa ei ihan hirveästi tavaraa ole, kun itse lähetimme sinne kaksi viestiä, joten meidän kannattanee kokeilla muuttaa osoitekenttään tuohon loppuun '1.txt' ja katsoa tuottaako se mitään.
+ - No sieltähän löytyi keskustelu, jossa joku oli kadottanut salasanansa, ja ystävällinen chat-henkilö sen hänelle sielä antoi takaisin, eli olisiko kyseessä Carlos ja hänen salasanansa. Testataan kirjautua tunnuksella Carlos ja chatistä löytyneellä salasanalla, ja bingobangobongo.
     
     ![asdasd](https://i.imgur.com/hEvimif.png)
 
     ![bINgO](https://i.imgur.com/X6U76pu.png)
 
-  2. File path traversal, simple case
+  #### e) File path traversal, simple case
 
-     - Tähän vastaus löytyi myös samaan tapaan kuin aiempaankin tehtävän, eli vihjeen mukaan tuotekuvien näyttäminen mahdollistaa 'path traversalin', joten taas looginen tapa aloittaa on dev-tools ja network-välilehti auki mennä katsomaan miltä tuo tuotekuvan pyytäminen näyttää. 
+  - Tähän vastaus löytyi myös samaan tapaan kuin aiempaankin tehtävän, eli vihjeen mukaan tuotekuvien näyttäminen mahdollistaa 'path traversalin', joten taas looginen tapa aloittaa on avata selaimessa dev-tools ja network-välilehti ja mennä katsomaan miltä tuo tuotekuvan pyytäminen näyttää. 
 
        `GET https://0a31009704e5882880868a5b0091008c.web-security-academy.net/image?filename=21.jpg`
 
-     - Tuo pyynnön filename-kohta näyttää siltä, että se varmaankin on haavoittuvainen tälle hyökkäykselle, joten voimme kokeilla muuttaa siihen vaikkapa *../../../etc/passwd*, joka siis menee unix-systeemissä ensiksi root-hakemistoon ja sieltä etc/passwd-tiedostoon, jos tätä ei ole suojattu mitenkään, ja kappas kummaa eipä ollutkaan.
+  - Tuo pyynnön filename-kohta näyttää siltä, että se varmaankin on haavoittuvainen tälle hyökkäykselle, joten voimme kokeilla muuttaa siihen vaikkapa *../../../etc/passwd*, joka siis menee unix-systeemissä ensiksi root-hakemistoon ja sieltä etc/passwd-tiedostoon, jos tätä vastaan ei ole suojaduttu mitenkään, ja kappas kummaa eipä ollutkaan.
 
        ![124345](https://i.imgur.com/uwpXxL5.png)
 
-  4. File path traversal, traversal sequences blocked with absolute path bypass
+  #### f) File path traversal, traversal sequences blocked with absolute path bypass
      
-  5. File path traversal, traversal sequences stripped non-recursively
+  #### g) File path traversal, traversal sequences stripped non-recursively
+
+  #### h) Basic SSRF against the local server
 
 
 
