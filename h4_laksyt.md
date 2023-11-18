@@ -28,6 +28,10 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
   **Server-side template injection**
   
   **Server-side request forgery (SSRF)**
+
+  - Kuten haavoittuvuuden nimestäkin voi päätellä SSRF:n toimintaperiaate on sellainen, että palvelimelle lähetetään väärennetty pyyntö, jossa viitataan johonkin sisäiseen resurssiin, ja koska pyyntö tulee palvelimen kautta ohittaa se normaalit pääsynhallintatoimet.
+  - Yleisiä tapoja käyttää tätä on käyttää sisäisiä ip-osoitteita ja localhostia väärennetyissä pyynnöissä.
+
   
   **Cross-site scripting**
 
@@ -84,7 +88,13 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
   #### g) File path traversal, traversal sequences stripped non-recursively
 
   #### h) Basic SSRF against the local server
+  
+- Ideana tässä on hyväksikäyttää API-pyyntöä, joka tarkastaa tuotteen saatavuuden hakemalla dataa sisäisestä järjestelmästä. Aloitetaan siis sillä, että mennään jollekkin tuotesivulle ja klikataan tuota 'Check stock' -painiketta, ja sen jälkeen etsitään kyseinen pyyntö Zapista ja tarkastellaan sitä.
 
+  ![api](https://i.imgur.com/PWnF9dv.png)
 
+- Tässä meitä kiinnostava kohta on tuoa stockApi -pyyntö, jota muokkaamalla voisimme saada pääsyn sisäisiin resursseihin. Eli m2 tähän pyyntöön, ja avautuvasta listasta valitaan *Open/Resend with Request Editor*, jolloin kyseistä kohtaa päästään muokkaamaan ja lähettämään väärennetty pyyntö.
+
+  ![asdasdad](https://i.imgur.com/qFIKSzq.png)
 
 
