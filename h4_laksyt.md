@@ -88,8 +88,18 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 - En tiedä miksi tämä ei näy tuolla Zapin pääikkunassa, vaan ainoastaan tässä jäte hudissa, jota en osaa käyttää xD. Tuohon filenamen kohdalle varmaan pitäisi muokkailla jotenkin sitä etc/passwd, jotta saisi ratkaistua...
 
   ![asdas](https://i.imgur.com/WHxqLYE.png)
+
+- Edit: Su 19.11 Sain tosiaan yllä olevalla tavalla ratkaistua, kun vaan vähän paremmilla hermoilla etsin sieltä Zapista tuota pyyntöä ja Open/Resend with Request Editor muokkasin tuonne filenameen tuon /etc/passwd.
+
+  ![asdasd](https://i.imgur.com/nbgVE5g.png)
      
-  #### g) File path traversal, traversal sequences stripped non-recursively
+  #### File path traversal, traversal sequences stripped non-recursively
+
+-
+
+  #### g) Server-side template injection with information disclosure via user-supplied objects (Tämä on merkitty hieman vaikeammaksi, jätä viimeiseksi jos näyttää hankalalta)
+
+- 
 
   #### h) Basic SSRF against the local server
   
