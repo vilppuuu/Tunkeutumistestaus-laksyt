@@ -89,7 +89,7 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
   ![asdas](https://i.imgur.com/WHxqLYE.png)
 
-- Edit: **Su 19.11.** Sain tosiaan yllä olevalla tavalla ratkaistua, kun vaan vähän paremmilla hermoilla etsin sieltä Zapista tuota pyyntöä ja Open/Resend with Request Editor muokkasin tuonne filenameen tuon /etc/passwd.
+- **Edit: Su 19.11.** Sain tosiaan yllä olevalla tavalla ratkaistua, kun vaan vähän paremmilla hermoilla etsin sieltä Zapista tuota pyyntöä ja Open/Resend with Request Editor muokkasin tuonne filenameen tuon /etc/passwd.
 
   ![asdasd](https://i.imgur.com/nbgVE5g.png)
      
@@ -163,6 +163,8 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
    - En nyt taas ihan ymmärrä mitä tässä haetaan? Siis varmaan tuohon pyyntöön noiden usernamen & passwordin jälkeen koittaisin lisätä vaikka role=admin (ei tapahdu mitään?).
 
      ![asdasd](https://i.imgur.com/1PzOAPa.png)
+
+     ![ASD143124](https://i.imgur.com/kOIdCxv.png)
 
 **Missing Function Level Access Control (3)**
 
