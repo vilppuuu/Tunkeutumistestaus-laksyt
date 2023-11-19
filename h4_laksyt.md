@@ -170,12 +170,23 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
      ![asdasd](https://i.imgur.com/1PzOAPa.png)
 
-   - 
+
+   - **Edit: Su 19.11** Jatkuu yhtä hyvällä menestyksellä kuin eilen, eli tuossahan tarvitut infot näkyy, mutta ei hyväksy :(.
+     
      ![ASD143124](https://i.imgur.com/kOIdCxv.png)
+
+   - Seuraavassa kohdassa tuon edellisen kohdan userId:tä käyttäen löytyi tuo profiili.  
+
+     ![asdadsa](https://i.imgur.com/iVNFeWG.png)
 
 **Missing Function Level Access Control (3)**
 
+- Ei kyllä irtoa tuolta mitään.
+
 **Spoofing an Authentication Cookie (1)**
+
+- 
+
 
 #### n) (A7) Identity & Auth Failure (WebGoat 2023.4)
 Authentication Bypasses (1)
