@@ -24,8 +24,14 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 **PortSwigget Academy:**
 
   **Access control vulnerabilities and privilege escalation (IDOR on osa tätä)**
+
+  - Pääsynhallinta rajaa kellä/millä on oikeudet suorittaa toimia tai päästä käsiksi resursseihin. Web-sovelluksista puhuttaessa pääsynhallinnan keinoja ovat autentikointi ja session hallinta.
+  - Pääsynhallintaa tarvitaan monessa kerroksessa, eli estämään ylöspäin tai sivuttain tapahtuva liikkuminen, ja myös kontekstin mukaan (esim. toimintoja ei voida tehdä väärässä järjestyksessä).
+  - Yleisiä keinoja minimoida pääsynhallinnan haavoittuvuuksia ovat mm. 'deny by default' -policyt resursseihin ja myöskin jo lähdekooditasolla, testaamalla ja auditoimalla toiminnot, jotta voidaan varmistua niiden oikeasta toiminnallisuudesta.
   
   **Server-side template injection**
+
+  - kali
   
   **Server-side request forgery (SSRF)**
 
@@ -164,6 +170,7 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
      ![asdasd](https://i.imgur.com/1PzOAPa.png)
 
+   - 
      ![ASD143124](https://i.imgur.com/kOIdCxv.png)
 
 **Missing Function Level Access Control (3)**
