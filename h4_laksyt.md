@@ -89,13 +89,14 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
   ![asdas](https://i.imgur.com/WHxqLYE.png)
 
-- Edit: Su 19.11 Sain tosiaan yllä olevalla tavalla ratkaistua, kun vaan vähän paremmilla hermoilla etsin sieltä Zapista tuota pyyntöä ja Open/Resend with Request Editor muokkasin tuonne filenameen tuon /etc/passwd.
+- Edit: **Su 19.11.** Sain tosiaan yllä olevalla tavalla ratkaistua, kun vaan vähän paremmilla hermoilla etsin sieltä Zapista tuota pyyntöä ja Open/Resend with Request Editor muokkasin tuonne filenameen tuon /etc/passwd.
 
   ![asdasd](https://i.imgur.com/nbgVE5g.png)
      
   #### File path traversal, traversal sequences stripped non-recursively
 
--
+- **Edit: Su 19.11.** Taas sunnuntaina tuoreilla hermoilla, niin tämäkin tuli ratkaistua, elikä perusidea sama kuin ylemmässä tehtävässä, paitsi että tässä tuota vastaan oli suojauduttu, joten se täytyi ohittaa. Kun viitis lukaista tuolla tehtäväsivulla linkiteyn [What is path traversal?](https://portswigger.net/web-security/file-path-traversal#what-is-path-traversal) -artikkelin, niin sieltä löytyi pari kikkaa.
+- 
 
   #### g) Server-side template injection with information disclosure via user-supplied objects (Tämä on merkitty hieman vaikeammaksi, jätä viimeiseksi jos näyttää hankalalta)
 
