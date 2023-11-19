@@ -96,7 +96,9 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
   #### File path traversal, traversal sequences stripped non-recursively
 
 - **Edit: Su 19.11.** Taas sunnuntaina tuoreilla hermoilla, niin tämäkin tuli ratkaistua, elikä perusidea sama kuin ylemmässä tehtävässä, paitsi että tässä tuota vastaan oli suojauduttu, joten se täytyi ohittaa. Kun viitis lukaista tuolla tehtäväsivulla linkiteyn [What is path traversal?](https://portswigger.net/web-security/file-path-traversal#what-is-path-traversal) -artikkelin, niin sieltä löytyi pari kikkaa.
-- 
+- Siellä tosiaan mainitaan keino, että laitetaan tuplana nuo *../* tuhon polkuun, jolloin jos sieltä yhden poistuu, niin pitäisi toimia normaalisti.
+
+  ![12414aASD](https://i.imgur.com/F3iBAo1.png)
 
   #### g) Server-side template injection with information disclosure via user-supplied objects (Tämä on merkitty hieman vaikeammaksi, jätä viimeiseksi jos näyttää hankalalta)
 
@@ -141,7 +143,7 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 #### k) Asenna Webgoat 2023.4
 
 - Webgoat on siis web-sovellus harjoitusmaali, jossa on Java-pohjaisia haavoittuvuuksia joka lähtöön.
-- Päätin asentaa tuon docker-kontin, kun se nyt varmaankin on helpoin tapa. Eli kopioin seurasin WebGoatin sivuilta (https://owasp.org/www-project-webgoat/) downloads-kohdan alta löytyvää linkkiä, josta löytyi komennot docker-imagen lataamiseen ja käynnistämiseen. Asennuksessa ja käynnistämisessä ei sinällään mitään ongelmaa, paitsi että asennnuksen jälkeen WebGoat ei suostunut aukeamaan Zaproxyllä.
+- Päätin asentaa tuon docker-kontin, kun se nyt varmaankin on helpoin tapa. Eli seurasin WebGoatin sivuilta (https://owasp.org/www-project-webgoat/) downloads-kohdan alta löytyvää linkkiä, josta löytyi komennot docker-imagen lataamiseen ja käynnistämiseen. Asennuksessa ja käynnistämisessä ei sinällään mitään ongelmaa, paitsi että asennnuksen jälkeen WebGoat ei suostunut aukeamaan Zaproxyllä.
   
    ![tllls](https://i.imgur.com/TVzDkvB.png)
 
@@ -152,7 +154,7 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 #### m) (A1) Broken Access Control (WebGoat 2023.4)
 **Hijack a session (1)**
 
--Ei kyllä nyt soita kelloja, et mitä tästä pitäis saadad irti.
+- Ei kyllä nyt soita kelloja, et mitä tästä pitäis saadad irti.
 
 ![asda](https://i.imgur.com/m1ZG5NA.png)
 
