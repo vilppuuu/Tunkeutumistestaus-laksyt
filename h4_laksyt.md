@@ -31,7 +31,7 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
   
   **Server-side template injection**
 
-  - kali
+  - 
   
   **Server-side request forgery (SSRF)**
 
