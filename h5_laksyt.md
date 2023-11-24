@@ -12,7 +12,7 @@
 **OWASP 2017: A1:2017-Injection**
 
 - 2017 injektiohyökkäykset olivat sijalla yksi tuolla OWASP:in top10-listalla, ja tässä taulussa esitellään ne pääpiirteissään.
-- Ensimmäisenä mainitaan se tosiasia, että käytännössä aina kun voidaan syöttää dataa, siinä on myös mahdollisuus injektiolle. Näitä injektiohaavoittuvaisuuksia löytyy etenkin 'legacy-koodista', ja myös erilaisita tietokantahauista, sekä muista tiedonsyöttö/haku -metodeista.
+- Ensimmäisenä mainitaan se tosiasia, että käytännössä aina kun voidaan syöttää dataa, siinä on myös mahdollisuus injektiolle. Näitä injektiohaavoittuvaisuuksia löytyy etenkin 'legacy-koodista', ja erilaisita tietokantahauista, sekä muista tiedonsyöttö/haku -metodeista.
 - Seurauksten vakavuus injektiohyökkäyksissä vaihtelee, ja se on riippuvainen siitä kuinka kriittistä kohteena oleva data on.
 - Yleisesti ottaen sovellus on haavoittuvainen injektiolle, jos siihen syötettyä dataa ei validoida, filtteröidä, tai 'siivota' mitenkään. Tai jos ohjelma salii erilaisten hakujen suorittamisen konteksista riippumatta.
 
@@ -20,7 +20,15 @@
 *Kaikki muut luvut paitsi ei "Blind SQL injection"
 Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection cheat sheet*
 
+- SQL-injektiossa hyökkääjä käyttää sovelluksen tietokantahakuja 'epärehdillä' tavalla päästäkseen käsiksi tietoihin, jotka normaaleissa olosuhteissa olisivat saavuttamattomissa (esim. salasanat, käyttäjätiedot etc.). Joissain tapauksissa SQL-injektio voi johtaa palvelimen tai muun infran vaarantumiseen, ja se voi myös mahdollistaa palvelunestohyökkäyksiä.
+- Useimmat SQL-injektiot suoritetaan *SELECT*-kyselyn *WHERE*-osassa, jonka muokkaamisesta artikkelissa on muutama esimerkkikikka.
+- 
+
 **Vapaaehtoinen: Karvinen 2019: MitmProxy on Kali and Xubuntu – attack and testing (Nykyisin asennus 'sudo apt-get install mitmproxy')**
+
+- Seurasin Teron [ohjetta](https://terokarvinen.com/2019/05/22/mitmproxy-on-kali-and-xubuntu-attack-and-testing/?fromSearch=mitmproxy), ja asennuksessa ei ollut mitään sen ihmeellisempää. Täytyy kattoa, jos kerkeää ton kanssa leikkimään enemmän vielä tässä myöhemmin.
+
+  ![mitm](https://i.imgur.com/WOEfHPv.png)
 
 ### a) CRUD. Tee uusi PostgreSQL-tietokanta ja demonstroi sillä create, read, update, delete (CRUD). Keksi taulujen ja kenttien nimet itse. Taulujen nimet monikossa, kenttien nimet yksikössä, molemmat englanniksi.
 
