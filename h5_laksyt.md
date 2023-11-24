@@ -41,6 +41,17 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
 
 #### d) SQL injection vulnerability allowing login bypass
 
+- Huvin, urheilun sekä Zapin oksettavan GUI:n takia päätin kokeilla käyttää tuota mitmproxyä tässä, ja jotta siitä tulisi jotain kaivoin siihen jonkinlaisen [cheatsheetin](https://quickref.me/mitmproxy.html). Tehtävänannon mukaan pitäisi päästä kirjautumaan sisään adminina, niin jokseenkin järkevä paikka aloittaa on varmaankin tehdä kirjautumisyritys selaimella, ja pysäyttää se proxyyn. Mitmproxyssä i:tä (intersept) painamalla voidaan toglettaa tuo päälle, ja sen jälkeen e:llä (edit) muokata tuota pysäyttämäämme pyyntöä.
+
+    ![asdasd](https://i.imgur.com/YnFPYKJ.png)
+
+- Tuosta siis valitaan muokattava kohta, joka siis tässä tapauksessa oli tuo URLEncoded form, jonka jälkeen se avautuu tekstieditorissa ja sitä voidaan muokata. Tässä vaiheessa meni vähän arvalla tämä ratkaisu, eli koska tuossa aiemmassa Portswiggerin SQL-injektio materiaalissa oli esimerkkinä käytännössä sama skenaario. Siinä käyttäjänimen perään lisättiin **'--**, mikä siis SQL:ssä tarkoittaa kommenttia, joten tuo kyselyn loppuosa eli salasanan kysyminen jäisi siitä kokonaan pois.
+- Kun pyynnön muokkaus Mitmproxyssä sen lähettäminen onnistuu ensin tallentamalla se esciä painamalla, ja sen jälkeen q q takaisin flow-ikkunaan, ja a flow-ikkunassa, joka lähettää pyynnön. 
+
+    ![asdasdsadas](https://i.imgur.com/EmmEIR9.png)
+
+    ![asdasasdasddsa](https://i.imgur.com/mClc9Tw.png)
+  
 #### e) SQL injection attack, querying the database type and version on Oracle
 
 #### f) SQL injection attack, querying the database type and version on MySQL and Microsoft
