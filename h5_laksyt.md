@@ -26,7 +26,8 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
 
 **Vapaaehtoinen: Karvinen 2019: MitmProxy on Kali and Xubuntu – attack and testing (Nykyisin asennus 'sudo apt-get install mitmproxy')**
 
-- Seurasin Teron [ohjetta](https://terokarvinen.com/2019/05/22/mitmproxy-on-kali-and-xubuntu-attack-and-testing/?fromSearch=mitmproxy), ja asennuksessa ei ollut mitään sen ihmeellisempää. Täytyy kattoa, jos kerkeää ton kanssa leikkimään enemmän vielä tässä myöhemmin.
+- Seurasin Teron [ohjetta](https://terokarvinen.com/2019/05/22/mitmproxy-on-kali-and-xubuntu-attack-and-testing/?fromSearch=mitmproxy), ja asennuksessa ei ollut mitään sen ihmeellisempää. Täytyy kattoa, jos kerkeää ton kanssa leikkimään enemmän vielä tässä myöhemmin. Sertin asentamiseen löytyi nopealla googlellla [ohje](https://docs.mitmproxy.org/stable/concepts-certificates/) mitm-proxyn dokumentaatiosta, eli ~/.mitmproxy -kansiosta löytyy tuo tarvittava ca.cert -tiedosto, joka voidaan viedä selaimeen.
+- 
 
   ![mitm](https://i.imgur.com/WOEfHPv.png)
 
