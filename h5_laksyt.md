@@ -41,18 +41,29 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
 
 #### d) SQL injection vulnerability allowing login bypass
 
-- Huvin, urheilun sekä Zapin oksettavan GUI:n takia päätin kokeilla käyttää tuota mitmproxyä tässä, ja jotta siitä tulisi jotain kaivoin siihen jonkinlaisen [cheatsheetin](https://quickref.me/mitmproxy.html). Tehtävänannon mukaan pitäisi päästä kirjautumaan sisään adminina, niin jokseenkin järkevä paikka aloittaa on varmaankin tehdä kirjautumisyritys selaimella, ja pysäyttää se proxyyn. Mitmproxyssä i:tä (intercept) painamalla voidaan toglettaa tuo päälle, ja sen jälkeen e:llä (edit) muokata tuota pysäyttämäämme pyyntöä.
+- Huvin ja urheilun vuoksi päätin kokeilla käyttää tuota mitmproxyä tässä, ja jotta siitä tulisi jotain kaivoin siihen jonkinlaisen [cheatsheetin](https://quickref.me/mitmproxy.html), ja [ohjeen](https://docs.mitmproxy.org/stable/mitmproxytutorial-modifyrequests/) pyyntöjen muokkaamiseen. Tehtävänannon mukaan pitäisi päästä kirjautumaan sisään adminina, niin jokseenkin järkevä paikka aloittaa on varmaankin tehdä kirjautumisyritys selaimella, ja pysäyttää se proxyyn. Mitmproxyssä i:tä (intercept) painamalla ja lisäämällä siihen ehto (laitoin tässä login siihen) voidaan liikennettä kaapata, ja sen jälkeen e:llä (edit) muokata pyyntöä.
 
     ![asdasd](https://i.imgur.com/YnFPYKJ.png)
 
-- Tuosta siis valitaan muokattava kohta, joka siis tässä tapauksessa oli tuo URLEncoded form, jonka jälkeen se avautuu tekstieditorissa ja sitä voidaan muokata. Tässä vaiheessa meni vähän arvalla tämä ratkaisu, eli koska tuossa aiemmassa Portswiggerin SQL-injektio materiaalissa oli esimerkkinä käytännössä sama skenaario. Siinä käyttäjänimen perään lisättiin **'--**, mikä siis SQL:ssä tarkoittaa kommenttia, joten tuo kyselyn loppuosa eli salasanan kysyminen jäisi siitä kokonaan pois.
-- Kun pyynnön muokkaus Mitmproxyssä sen lähettäminen onnistuu ensin tallentamalla se esciä painamalla, ja sen jälkeen q q takaisin flow-ikkunaan, ja a flow-ikkunassa, joka lähettää pyynnön. 
+- Tuosta siis valitaan muokattava kohta, joka siis tässä tapauksessa oli tuo URLEncoded form, jonka jälkeen se avautuu tekstieditorissa ja sitä voidaan muokata. Tässä vaiheessa meni vähän arvalla tämä ratkaisu, eli koska tuossa aiemmassa Portswiggerin SQL-injektio materiaalissa oli esimerkkinä käytännössä sama skenaario. Siinä käyttäjänimen perään lisättiin **'--**, mikä siis SQL:ssä tarkoittaa kommentin alkua, joten tuo kyselyn loppuosa eli salasanan kysyminen jäisi siitä kokonaan pois.
+- Muokatun pyynnön lähettäminen Mitmproxyssä onnistuu ensin tallentamalla se **esciä** painamalla, ja sen jälkeen **q q** takaisin flow-ikkunaan, ja **a** flow-ikkunassa, joka lähettää pyynnön. 
 
     ![asdasdsadas](https://i.imgur.com/EmmEIR9.png)
 
     ![asdasasdasddsa](https://i.imgur.com/mClc9Tw.png)
   
 #### e) SQL injection attack, querying the database type and version on Oracle
+
+- Ideana tässä oli käyttää UNION-hyökkäystä, jolla siis voidaan suorittaa haku tietokannan muihinkin tauluihin. Tehtävänantona oli saada Oracle tietokannan tyyppi ja versio selville tälläistä hyökkäystä käyttämällä, ja haavoittuvuus löytyy 'product category filtteristä', joten aluksi proxyllä tarkastelemaan sitä.
+- Ensimmäinen ideani tietty on koittaa syöttää tuon haun perään tuolla UNION SELECT:llä tuosta [SQL Injection Cheatsheetistä](https://portswigger.net/web-security/sql-injection/cheat-sheet) löytyvä Oracle tietokannan versiohaku.
+
+    ![asdasd](https://i.imgur.com/p07jJ9y.png)
+
+- Eipä toiminut, vaan tarjoaa *HTTP/1.1 500 Internal Server Error*, eli jotain tuossa haussa on vialla. Aikani tätä pohdittuani päädyin kaivelemaan tuota dokumentaatiota, josta löytyi [linkki](https://portswigger.net/web-security/sql-injection/union-attacks) noihin UNION-hyökkäyksiin tarkemmin, jossa mainitaan että toimiakseen haussa täytyy olla oikea määrä sarakkeita, ja oikeat datatyypit, ja Oraclen tietokannoissa täytyy myös aina määrittää joku taulu, jota varten siellä on valmiiksi luotuna *dual*.
+- Samasta dokumentista löytyy myös ohje miten tuo tarvittujen sarakkeiden määrä voidaan tarkistaa, eli lisäämällä hakuun *' ORDER BY 1,2,3 etc.--*, kunnes vastauksena tulee jotain muuta kuin OK:ta. Tässä tapauksessa *'ORDER BY 3--* tuotti *Internal Server Errorin*, joten kaksi lienee oikea lukumäärä.
+- No tästä viisastuneena kokeilin tuota aiempaa hakua, mutta lisäten siihen toisen kentän (laitoin vaan 'asd' eli random stringin), ja sepä toimikin.
+
+    ![asdasd](https://i.imgur.com/okAZXXT.png)
 
 #### f) SQL injection attack, querying the database type and version on MySQL and Microsoft
 
