@@ -130,3 +130,18 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
 - ks. kohta d)
   
 ### l) Vapaaehtoinen: Attack lab. Asenna vapaavalintainen kone Vulnhubista ja murtaudu siihen.
+
+### Lähteet:
+
+https://www.cybertec-postgresql.com/en/error-permission-denied-schema-public/
+https://terokarvinen.com/2016/03/05/postgresql-install-and-one-table-database-sql-crud-tutorial-for-ubuntu/
+https://terokarvinen.com/2019/05/22/mitmproxy-on-kali-and-xubuntu-attack-and-testing/?fromSearch=mitmproxy
+https://portswigger.net/web-security/sql-injection/cheat-sheet
+https://portswigger.net/web-security/sql-injection
+https://portswigger.net/web-security/sql-injection/union-attacks
+https://owasp.org/www-project-top-ten/2017/A1_2017-Injection
+https://docs.mitmproxy.org/stable/concepts-certificates/
+https://docs.mitmproxy.org/stable/mitmproxytutorial-modifyrequests/
+https://quickref.me/mitmproxy.html
+
+
