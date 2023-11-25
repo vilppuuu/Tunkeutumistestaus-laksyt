@@ -78,7 +78,22 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
 
     ![as123414](https://i.imgur.com/vPmBZkV.png)
 
-- 
+- Tässä taas piti eka selvittää, että miten saada nuo haettua noi kaikki sarakkeet valitusta taulusta, niin tuli mieleen kysyä ChatGPT:ltä tätä ja vastaus tulikin kuin apteekin hyllyltä, eli `SELECT COLUMN_NAME
+FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = 'your_table_name'`, ja tuohon kun lisätään eteen UNION, ja tuo toinen kenttä, sekä taulun nimeksi tuolla aiemmalla haulla löytynyt *USERS_OXKMFF* saadaan haku ja tuloksena lupaavat salasana -ja käyttäjäsarakkeet.
+
+`'UNION SELECT column_name, 'asd' FROM all_tab_columns WHERE  table_name = 'USERS_OXKMFF'--`
+
+![asd124124314341](https://i.imgur.com/f2SBwrb.png)
+
+- Eli nyt meillä kaiken järjen mukaan on kaikki tarvittavat tiedot, että voidaan suorittaa ns. normaali haku näitä käyttäen.
+
+`'UNION SELECT USERNAME_UBAOAH, PASSWORD_SEJHCI FROM USERS_OXKMFF--`
+
+  ![asdasdsadassadasdadsdasdsadas](https://i.imgur.com/zZfe8TH.png)
+
+- Kokeillaan kirjautua admin-tunnareilla ja salasanalla, et voilà c'est magnifique.
+
+  ![asdasdsadasdas124123141245325r234](https://i.imgur.com/gNMlQgE.png)
 
 #### h) SQL injection UNION attack, determining the number of columns returned by the query
 
