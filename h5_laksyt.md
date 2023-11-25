@@ -63,7 +63,7 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
 - Samasta dokumentista löytyy myös ohje miten tuo tarvittujen sarakkeiden määrä voidaan tarkistaa, eli lisäämällä hakuun *' ORDER BY 1,2,3 etc.--*, kunnes vastauksena tulee jotain muuta kuin OK:ta. Tässä tapauksessa *'ORDER BY 3--* tuotti *Internal Server Errorin*, joten kaksi lienee oikea lukumäärä.
 - No tästä viisastuneena kokeilin tuota aiempaa hakua, mutta lisäten siihen toisen kentän (laitoin vaan 'asd' eli random stringin), ja sepä toimikin.
 
-    ![asdasd](https://i.imgur.com/okAZXXT.png)
+    ![asda1sd](https://i.imgur.com/okAZXXT.png)
 
 #### f) SQL injection attack, querying the database type and version on MySQL and Microsoft
 
