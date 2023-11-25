@@ -37,9 +37,7 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
 
     ![psqlll](https://i.imgur.com/tiUa5Wa.png)
 
-- Kun yrittää luoda taulua tuohon tietokantaan antaa *ERROR: permission denied for schema public*. Googlella löytyi ainakin tämä [artikkeli](https://www.cybertec-postgresql.com/en/error-permission-denied-schema-public/) ongelmaan liittyen, mutta ei nyt ainakaan tuonut nopeaa ratkaisua tähän, niin ei viitsi enempää aikaa käyttää tähän. Varmaan helpointa olisi ladata vanhempi versio tuosta Postgresql:stä, koska artikkelissa mainitaan että versioon 14 asti kuka tahansa on voinut luoda taulun tuohon public schemaan.
-
-
+- Kun yrittää luoda taulua tuohon tietokantaan antaa *ERROR: permission denied for schema public*. Googlella löytyi ainakin tämä [artikkeli](https://www.cybertec-postgresql.com/en/error-permission-denied-schema-public/) ongelmaan liittyen, mutta en nyt ainkaan nopeasti tuosta keksinyt ratkaisua tähän, joten antaa nyt ajankäytön vuoksi olla. Varmaan helpointa olisi ladata vanhempi versio tuosta Postgresql:stä, koska artikkelissa mainitaan että versioon 14 asti kuka tahansa on voinut luoda taulun tuohon public schemaan.
 
 ### b) SQLi me. Kuvaile yksinkertainen SQL-injektio, ja demonstroi se omaan tietokantaasi psql-komennolla. Selitä, mikä osa on käyttäjän syötettä ja mikä valmiina ohjelmassa. (Tässä harjoituksessa voit vain kertoa koodista, ei siis tarvitse välttämättä koodata sitä ohjelmaa, joka yhdistää käyttäjän syötteen SQL:n)
 
@@ -55,7 +53,7 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
 
     ![asdasd](https://i.imgur.com/YnFPYKJ.png)
 
-- Tuosta siis valitaan muokattava kohta, joka siis tässä tapauksessa oli tuo URLEncoded form, jonka jälkeen se avautuu tekstieditorissa ja sitä voidaan muokata. Tässä vaiheessa meni vähän arvalla tämä ratkaisu, eli koska tuossa aiemmassa [Portswiggerin SQL-injektio materiaalissa](https://portswigger.net/web-security/sql-injection) oli esimerkkinä käytännössä sama skenaario, niin kokeillaanpa sitä. Siinä käyttäjänimen perään lisättiin **'--**, mikä siis SQL:ssä tarkoittaa kommentin alkua, joten tuo kyselyn loppuosa eli salasanan kysyminen jäisi siitä kokonaan pois.
+- Tuosta siis valitaan muokattava kohta, joka siis tässä tapauksessa vissinkin oli tuo URLEncoded form, ainakin siellä näkyy tuo login, jonka perään tämä injektio tullee. Se siis avautuu tekstieditorissa ja sitä voidaan muokata. Tässä vaiheessa meni vähän arvalla tämä ratkaisu, eli koska tuossa aiemmassa [Portswiggerin SQL-injektio materiaalissa](https://portswigger.net/web-security/sql-injection) oli esimerkkinä käytännössä sama skenaario, niin kokeillaanpa sitä. Siinä käyttäjänimen perään lisättiin **'--**, mikä siis SQL:ssä tarkoittaa kommentin alkua, joten tuo kyselyn loppuosa eli salasanan kysyminen jäisi siitä kokonaan pois.
 - Muokatun pyynnön lähettäminen Mitmproxyssä onnistuu ensin tallentamalla se **esciä** painamalla, ja sen jälkeen **q q** takaisin flow-ikkunaan, ja **a** flow-ikkunassa, joka lähettää pyynnön. 
 
     ![asdasdsadas](https://i.imgur.com/EmmEIR9.png)
