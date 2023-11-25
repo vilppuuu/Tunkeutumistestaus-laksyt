@@ -47,7 +47,7 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
 
     ![asdasd](https://i.imgur.com/YnFPYKJ.png)
 
-- Tuosta siis valitaan muokattava kohta, joka siis tässä tapauksessa oli tuo URLEncoded form, jonka jälkeen se avautuu tekstieditorissa ja sitä voidaan muokata. Tässä vaiheessa meni vähän arvalla tämä ratkaisu, eli koska tuossa aiemmassa [Portswiggerin SQL-injektio materiaalissa](https://portswigger.net/web-security/sql-injection) oli esimerkkinä käytännössä sama skenaario. Siinä käyttäjänimen perään lisättiin **'--**, mikä siis SQL:ssä tarkoittaa kommentin alkua, joten tuo kyselyn loppuosa eli salasanan kysyminen jäisi siitä kokonaan pois.
+- Tuosta siis valitaan muokattava kohta, joka siis tässä tapauksessa oli tuo URLEncoded form, jonka jälkeen se avautuu tekstieditorissa ja sitä voidaan muokata. Tässä vaiheessa meni vähän arvalla tämä ratkaisu, eli koska tuossa aiemmassa [Portswiggerin SQL-injektio materiaalissa](https://portswigger.net/web-security/sql-injection) oli esimerkkinä käytännössä sama skenaario, niin kokeillaanpa sitä. Siinä käyttäjänimen perään lisättiin **'--**, mikä siis SQL:ssä tarkoittaa kommentin alkua, joten tuo kyselyn loppuosa eli salasanan kysyminen jäisi siitä kokonaan pois.
 - Muokatun pyynnön lähettäminen Mitmproxyssä onnistuu ensin tallentamalla se **esciä** painamalla, ja sen jälkeen **q q** takaisin flow-ikkunaan, ja **a** flow-ikkunassa, joka lähettää pyynnön. 
 
     ![asdasdsadas](https://i.imgur.com/EmmEIR9.png)
