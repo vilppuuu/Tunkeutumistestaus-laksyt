@@ -7,7 +7,7 @@
 
 **Karvinen 2016: PostgreSQL Install and One Table Database – SQL CRUD tutorial for Ubuntu (Virtuaaliympäristöä ei tarvita, voit aloittaa kohdasta "Three line install"**
 
-- 
+
 
 **OWASP 2017: A1:2017-Injection**
 
@@ -24,9 +24,7 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
 - Useimmat SQL-injektiot suoritetaan *SELECT*-kyselyn *WHERE*-osassa, jonka muokkaamisesta artikkelissa on muutama esimerkkikikka.
 - SQL-injektiolla voidaan saada selville tietoa, joka ei pitäisi olla saatavissa, tai sillä voidaan myös ohittaa ohjelman logiikka, tai suorittaa hakuja muihinkin tietokannan tauluihin.
 - Vaikkakin useat perustoiminnot on toteutettu erilaisissa SQL-tietokannoissa samoin, jonka johdosta myös haavoittuvuudetkin voivat usein olla samoja, on myös huomioitava että niissä on myös eroja syntaksin ym. suhteen.
-- 
   
-
 **Vapaaehtoinen: Karvinen 2019: MitmProxy on Kali and Xubuntu – attack and testing (Nykyisin asennus 'sudo apt-get install mitmproxy')**
 
 - Seurasin Teron [ohjetta](https://terokarvinen.com/2019/05/22/mitmproxy-on-kali-and-xubuntu-attack-and-testing/?fromSearch=mitmproxy), ja asennuksessa ei ollut mitään sen ihmeellisempää. Sertin asentamiseen löytyi nopealla googlellla [ohje](https://docs.mitmproxy.org/stable/concepts-certificates/) mitm-proxyn dokumentaatiosta, eli ~/.mitmproxy -kansiosta löytyy tuo tarvittava ca.cert -tiedosto, joka voidaan viedä selaimeen.
@@ -35,7 +33,17 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
 
 ### a) CRUD. Tee uusi PostgreSQL-tietokanta ja demonstroi sillä create, read, update, delete (CRUD). Keksi taulujen ja kenttien nimet itse. Taulujen nimet monikossa, kenttien nimet yksikössä, molemmat englanniksi.
 
+- Alkuun ylempänä olevaa Teron ohjetta seuraten apista install ja sen jälkeen käynnistys systemctl startilla, jonka jälkeen nuo tietokannan ja käyttäjän luominen. Molemmat noista komennoista antoi valituksen *could not change directory to "/home/vilppu": Permission denied*, mutta katsotaan vaikuttaako se mihinkään, eli psql auki ja yritetään yhdistää tuohon luomaamme tietokantaan *\c vilppu vilppu*, ja näemmä se oli sinne ihan oikein luotu.
+
+    ![psqlll](https://i.imgur.com/tiUa5Wa.png)
+
+- Kun yrittää luoda taulua tuohon tietokantaan antaa *ERROR: permission denied for schema public*. Googlella löytyi ainakin tämä [artikkeli](https://www.cybertec-postgresql.com/en/error-permission-denied-schema-public/) ongelmaan liittyen, mutta ei nyt ainakaan tuonut nopeaa ratkaisua tähän, niin ei viitsi enempää aikaa käyttää tähän. Varmaan helpointa olisi ladata vanhempi versio tuosta Postgresql:stä, koska artikkelissa mainitaan että versioon 14 asti kuka tahansa on voinut luoda taulun tuohon public schemaan.
+
+
+
 ### b) SQLi me. Kuvaile yksinkertainen SQL-injektio, ja demonstroi se omaan tietokantaasi psql-komennolla. Selitä, mikä osa on käyttäjän syötettä ja mikä valmiina ohjelmassa. (Tässä harjoituksessa voit vain kertoa koodista, ei siis tarvitse välttämättä koodata sitä ohjelmaa, joka yhdistää käyttäjän syötteen SQL:n)
+
+- ?
 
 ### PortSwigger Labs
 
@@ -63,14 +71,14 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
 
 - Eipä toiminut, vaan tarjoaa *HTTP/1.1 500 Internal Server Error*, eli jotain tuossa haussa on vialla. Aikani tätä pohdittuani päädyin kaivelemaan tuota dokumentaatiota, josta löytyi [linkki](https://portswigger.net/web-security/sql-injection/union-attacks) noihin UNION-hyökkäyksiin tarkemmin, jossa mainitaan että toimiakseen haussa täytyy olla oikea määrä sarakkeita, ja oikeat datatyypit, ja Oraclen tietokannoissa täytyy myös aina määrittää joku taulu, jota varten siellä on valmiiksi luotuna *dual*.
 - Samasta dokumentista löytyy myös ohje miten tuo tarvittujen sarakkeiden määrä voidaan tarkistaa, eli lisäämällä hakuun *' ORDER BY 1,2,3 etc.--*, kunnes vastauksena tulee jotain muuta kuin OK:ta. Tässä tapauksessa *'ORDER BY 3--* tuotti *Internal Server Errorin*, joten kaksi lienee oikea lukumäärä.
-- No tästä viisastuneena kokeilin tuota aiempaa hakua, mutta lisäten siihen toisen kentän (laitoin vaan 'asd' eli random stringin), ja sepä toimikin.
+- No tästä viisastuneena kokeilin tuota aiempaa hakua, mutta lisäten siihen toisen kentän (laitoin vaan 'asd' eli random merkkijonon), ja sepä toimikin.
 
     ![asda1sd](https://i.imgur.com/okAZXXT.png)
 
 #### f) SQL injection attack, querying the database type and version on MySQL and Microsoft
 
 - Tässä sama idea kuin edellisessäkin tehtävässä, mutta vaan eri tietokanta, eli jos vilkaistaan tuolta cheat-sheetistä, niin syntaksi MySQL & Microsoftiin olisi *@@version*, eli kokeillaan vaihtaa se tuohon aiemmin käytettyyn hakuun tuon *SELECT banner FROM v$version* tilalle, eli: `'UNION SELECT @@version, 'asd'--`.
-- Ei toiminut, joten takaisin dokumentaatiota tutkimaan, ja cheat-sheetistä löytyikin mainita, että MySQL:ssä jos käytettään tuota *--* kommentointiin, niin tarvitsee sen perään lisätä välilyönti, eli kokeillaan uudestaan sillä, ja se toimikin.
+- Ei toiminut, joten takaisin dokumentaatiota tutkimaan, ja cheatsheetistä löytyikin mainita, että MySQL:ssä jos käytettään tuota *--* kommentointiin, niin tarvitsee sen perään lisätä välilyönti, eli kokeillaan uudestaan sillä, ja se toimikin.
 
     ![asdasdasdsadasda213](https://i.imgur.com/se13Pj8.png)
 
@@ -80,16 +88,15 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
 
     ![as123414](https://i.imgur.com/vPmBZkV.png)
 
-- Tässä taas piti eka selvittää, että miten saada nuo haettua noi kaikki sarakkeet valitusta taulusta, niin tuli mieleen kysyä ChatGPT:ltä tätä ja vastaus tulikin kuin apteekin hyllyltä, eli `SELECT COLUMN_NAME
-FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = 'your_table_name'`, ja tuohon kun lisätään eteen UNION, ja tuo toinen kenttä, sekä taulun nimeksi tuolla aiemmalla haulla löytynyt *USERS_OXKMFF* saadaan hakutuloksena lupaavat salasana -ja käyttäjäsarakkeet.
+- Tässä taas piti eka selvittää, että miten saada nuo haettua noi kaikki sarakkeet valitusta taulusta, niin tuli mieleen kysyä ChatGPT:ltä tätä ja vastaus tulikin kuin apteekin hyllyltä, eli `SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = 'your_table_name'`, ja tuohon kun lisätään eteen UNION, ja tuo toinen kenttä, sekä taulun nimeksi tuolla aiemmalla haulla löytynyt *USERS_OXKMFF* saadaan hakutuloksena lupaavat salasana -ja käyttäjäsarakkeet.
 
-`'UNION SELECT column_name, 'asd' FROM all_tab_columns WHERE  table_name = 'USERS_OXKMFF'--`
+  `'UNION SELECT column_name, 'asd' FROM all_tab_columns WHERE  table_name = 'USERS_OXKMFF'--`
 
-![asd124124314341](https://i.imgur.com/f2SBwrb.png)
+  ![asd124124314341](https://i.imgur.com/f2SBwrb.png)
 
 - Eli nyt meillä kaiken järjen mukaan on kaikki tarvittavat tiedot, että voidaan suorittaa ns. normaali haku näitä käyttäen. 
 
-`'UNION SELECT USERNAME_UBAOAH, PASSWORD_SEJHCI FROM USERS_OXKMFF--`
+  `'UNION SELECT USERNAME_UBAOAH, PASSWORD_SEJHCI FROM USERS_OXKMFF--`
 
   ![asdasdsadassadasdadsdasdsadas](https://i.imgur.com/zZfe8TH.png)
 
