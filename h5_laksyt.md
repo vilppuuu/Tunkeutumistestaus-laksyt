@@ -67,12 +67,18 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
 
 #### f) SQL injection attack, querying the database type and version on MySQL and Microsoft
 
-- Tässä sama idea kuin edellisessäkin tehtävässä, mutta tietokanta vaan eri tietokanta, eli jos vilkaistaan tuolta cheat-sheetistä, niin syntaksi MySQL & Microsoftiin olisi *@@version*, eli kokeillaan vaihtaa se tuohon aiemmin käytettyyn hakuun tuon *SELECT banner FROM v$version* tilalle, eli: `'UNION SELECT @@version, 'asd'--`.
+- Tässä sama idea kuin edellisessäkin tehtävässä, mutta vaan eri tietokanta, eli jos vilkaistaan tuolta cheat-sheetistä, niin syntaksi MySQL & Microsoftiin olisi *@@version*, eli kokeillaan vaihtaa se tuohon aiemmin käytettyyn hakuun tuon *SELECT banner FROM v$version* tilalle, eli: `'UNION SELECT @@version, 'asd'--`.
 - Ei toiminut, joten takaisin dokumentaatiota tutkimaan, ja cheat-sheetistä löytyikin mainita, että MySQL:ssä jos käytettään tuota *--* kommentointiin, niin tarvitsee sen perään lisätä välilyönti, eli kokeillaan uudestaan sillä, ja se toimikin.
 
     ![asdasdasdsadasda213](https://i.imgur.com/se13Pj8.png)
 
 #### g) SQL injection attack, listing the database contents on non-Oracle databases
+
+- Taas koska varmaankin käytetään UNION hyökkäystä tarvitsee selvittää tuo kenttien määrä tuolla *ORDER BY --* jutulla, ja sehän oli taas kaksi kpl. Sitten pitäisi varmaankin ensinäkin keksiä miten saada nuo taulujen nimet haettua, ja googlella löytyi jonkinlainen [ohje](https://www.sqltutorial.org/sql-list-all-tables/), eli kokeillaan varmaankin *SELECT table_name FROM * all_tables*, paitsi että siihen tarvinnee lisätä myös toinen kenttä. Eli haulla `'UNION SELECT table_name, 'asd' FROM all_tables--` saadaan vastaukseksi pitkä lista tauluja, joista pitäisi seuraavaksi keksiä miten kaivaa tuon administator + salasana esiin.
+
+    ![as123414](https://i.imgur.com/vPmBZkV.png)
+
+- 
 
 #### h) SQL injection UNION attack, determining the number of columns returned by the query
 
