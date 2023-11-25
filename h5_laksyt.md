@@ -114,8 +114,14 @@ FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = 'your_table_name'`, ja tuohon kun lisät
 
 #### j) SQL injection UNION attack, retrieving multiple values in a single column
 
+- Tosiaan tuolla UNION-hyökkäysten dokumentaatiossa on kohta, jonka mukaan yhdistämällä merkkijonoja voidaan hakea useampia arvoja kerralla, eli se varmaankin tässä on ideana.
+- Ihan ensimmäiseksi taas katsotaan sarakkeiden määrä ORDER BY:llä, mikä oli taas kaksi. Seuraavaksi testiin, että josko tämä olisi niinkin helppo, että ratkeaisi suoraan tuolla dokumentaatiossa Oraclen tietokannoille annetulla rimpsulla (*' UNION SELECT username || '~' || password FROM users--*). Ei sentään ratkennut tuolla, mutta tuosta voidaan päätellä, että kyseessä ei ole Oraclen tietokanta, joten seuraavaksi testiin joku toinen keino.
+- Cheatsheetissä listalla seuraavana olisi Microsoft, jossa yhdistäminen tapahtuu näemmä vain *+* -merkkiä käyttämällä, eli `'UNION SELECT username + password FROM users--`, vaan eipä toiminut tuokaan. Eli jäljelle jäisi MySQL, ja `'UNION SELECT CONCAT(username, password) FROM users--`, mikä ei myöskään toimi xD.
+- Eli joko teen kokonaan jotain väärin, tai sitten ehkä todennäköisemmin jossain näissä on joku syntaksivirhe, mutta nyt kyllä cba alkaa niitä etsimään.
 
 
 ### k) Vapaaaehtoinen: Mitmproxy. Demonstroi mitmproxy:n käyttöä terminaalista (TUI tai CLI).
 
+- ks. kohta d)
+  
 ### l) Vapaaehtoinen: Attack lab. Asenna vapaavalintainen kone Vulnhubista ja murtaudu siihen.
