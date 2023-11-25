@@ -16,9 +16,8 @@
 - Seurauksten vakavuus injektiohyökkäyksissä vaihtelee, ja se on riippuvainen siitä kuinka kriittistä kohteena oleva data on.
 - Yleisesti ottaen sovellus on haavoittuvainen injektiolle, jos siihen syötettyä dataa ei validoida, filtteröidä, tai 'siivota' mitenkään. Tai jos ohjelma salii erilaisten hakujen suorittamisen konteksista riippumatta.
 
-**PortSwigger Academy: SQL injection**1
-*Kaikki muut luvut paitsi ei "Blind SQL injection"
-Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection cheat sheet*
+**PortSwigger Academy: SQL injection**
+*Kaikki muut luvut paitsi ei "Blind SQL injection" Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection cheat sheet*
 
 - SQL-injektiossa hyökkääjä käyttää sovelluksen tietokantahakuja 'epärehdillä' tavalla päästäkseen käsiksi tietoihin, jotka normaaleissa olosuhteissa olisivat saavuttamattomissa (esim. salasanat, käyttäjätiedot etc.). Joissain tapauksissa SQL-injektio voi johtaa palvelimen tai muun infran vaarantumiseen, ja se voi myös mahdollistaa palvelunestohyökkäyksiä.
 - Useimmat SQL-injektiot suoritetaan *SELECT*-kyselyn *WHERE*-osassa, jonka muokkaamisesta artikkelissa on muutama esimerkkikikka.
