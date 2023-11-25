@@ -81,7 +81,7 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
     ![as123414](https://i.imgur.com/vPmBZkV.png)
 
 - Tässä taas piti eka selvittää, että miten saada nuo haettua noi kaikki sarakkeet valitusta taulusta, niin tuli mieleen kysyä ChatGPT:ltä tätä ja vastaus tulikin kuin apteekin hyllyltä, eli `SELECT COLUMN_NAME
-FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = 'your_table_name'`, ja tuohon kun lisätään eteen UNION, ja tuo toinen kenttä, sekä taulun nimeksi tuolla aiemmalla haulla löytynyt *USERS_OXKMFF* saadaan haku ja tuloksena lupaavat salasana -ja käyttäjäsarakkeet.
+FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = 'your_table_name'`, ja tuohon kun lisätään eteen UNION, ja tuo toinen kenttä, sekä taulun nimeksi tuolla aiemmalla haulla löytynyt *USERS_OXKMFF* saadaan hakutuloksena lupaavat salasana -ja käyttäjäsarakkeet.
 
 `'UNION SELECT column_name, 'asd' FROM all_tab_columns WHERE  table_name = 'USERS_OXKMFF'--`
 
@@ -106,7 +106,15 @@ FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = 'your_table_name'`, ja tuohon kun lisät
   
 #### i) SQL injection UNION attack, retrieving data from other tables
 
+- Tämähän taas oli helpompi versio tuosta g-tehtävästä, kun tässä jo annettiin suoraan tietokannan ja sarakkeiden nimet, niin eipä tarvitse muuta kuin lisätä ne UNION kyselyyn, niin ja tarkastaa ORDER BY:llä sarakkeiden määrä.
+
+  `'UNION SELECT username, password FROM users--`
+
+  ![agdsbv](https://i.imgur.com/kmKHigq.png)
+
 #### j) SQL injection UNION attack, retrieving multiple values in a single column
+
+
 
 ### k) Vapaaaehtoinen: Mitmproxy. Demonstroi mitmproxy:n käyttöä terminaalista (TUI tai CLI).
 
