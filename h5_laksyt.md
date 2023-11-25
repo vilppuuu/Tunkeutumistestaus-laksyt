@@ -88,7 +88,7 @@ FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = 'your_table_name'`, ja tuohon kun lisät
 
 ![asd124124314341](https://i.imgur.com/f2SBwrb.png)
 
-- Eli nyt meillä kaiken järjen mukaan on kaikki tarvittavat tiedot, että voidaan suorittaa ns. normaali haku näitä käyttäen.
+- Eli nyt meillä kaiken järjen mukaan on kaikki tarvittavat tiedot, että voidaan suorittaa ns. normaali haku näitä käyttäen. 
 
 `'UNION SELECT USERNAME_UBAOAH, PASSWORD_SEJHCI FROM USERS_OXKMFF--`
 
@@ -100,6 +100,11 @@ FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = 'your_table_name'`, ja tuohon kun lisät
 
 #### h) SQL injection UNION attack, determining the number of columns returned by the query
 
+- Siis onkohan tämän tehtävän ideana nyt vaan selvittää tuo sarakkeiden määrä, mikä hoituu tuolla ORDER BY:llä ja oli näemmä tässä kolme. Ei vaan ainakaan muutu ratkaistuksi tuolla keinolla?
+- Jaa-a, katoin sitten tuota annettua ratkaisua, niin siinä oli että lisätään NULL:ia niin kauan, että saadaan tuo sama asia selville, ja tämän rimpsun jos tuonne lähetti, niin muuttui tuo labra myös solved muotoon, mutta en nyt tiedä onko tähän mitään järkevää selitystä, koska nähdäkseni tuo ORDER BY ajaa saman asian.
+
+  ![1ajjj](https://i.imgur.com/WMtnBa8.png)
+  
 #### i) SQL injection UNION attack, retrieving data from other tables
 
 #### j) SQL injection UNION attack, retrieving multiple values in a single column
