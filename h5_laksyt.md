@@ -43,7 +43,7 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
 
 #### d) SQL injection vulnerability allowing login bypass
 
-- Huvin ja urheilun vuoksi päätin kokeilla käyttää tuota mitmproxyä tässä, ja jotta siitä tulisi jotain kaivoin siihen jonkinlaisen [cheatsheetin](https://quickref.me/mitmproxy.html), ja [ohjeen](https://docs.mitmproxy.org/stable/mitmproxytutorial-modifyrequests/) pyyntöjen muokkaamiseen. Tehtävänannon mukaan pitäisi päästä kirjautumaan sisään adminina, niin jokseenkin järkevä paikka aloittaa on varmaankin tehdä kirjautumisyritys selaimella, ja pysäyttää se proxyyn. Mitmproxyssä i:tä (intercept) painamalla ja lisäämällä siihen ehto (laitoin tässä login siihen) voidaan liikennettä kaapata, ja sen jälkeen e:llä (edit) muokata pyyntöä.
+- Huvin ja urheilun vuoksi päätin kokeilla käyttää tuota mitmproxyä tässä, ja jotta siitä tulisi jotain kaivoin siihen jonkinlaisen [cheatsheetin](https://quickref.me/mitmproxy.html), ja [ohjeen](https://docs.mitmproxy.org/stable/mitmproxytutorial-modifyrequests/) pyyntöjen muokkaamiseen. Tehtävänannon mukaan pitäisi päästä kirjautumaan sisään adminina, niin jokseenkin järkevä paikka aloittaa on varmaankin tehdä kirjautumisyritys selaimella, ja pysäyttää se proxyyn. Mitmproxyssä **i**:tä (intercept) painamalla ja lisäämällä siihen ehto (laitoin tässä login siihen) voidaan liikennettä kaapata, ja sen jälkeen **e**:llä (edit) muokata pyyntöä.
 
     ![asdasd](https://i.imgur.com/YnFPYKJ.png)
 
