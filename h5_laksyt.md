@@ -45,7 +45,7 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
 
     ![asdasd](https://i.imgur.com/YnFPYKJ.png)
 
-- Tuosta siis valitaan muokattava kohta, joka siis tässä tapauksessa oli tuo URLEncoded form, jonka jälkeen se avautuu tekstieditorissa ja sitä voidaan muokata. Tässä vaiheessa meni vähän arvalla tämä ratkaisu, eli koska tuossa aiemmassa Portswiggerin SQL-injektio materiaalissa oli esimerkkinä käytännössä sama skenaario. Siinä käyttäjänimen perään lisättiin **'--**, mikä siis SQL:ssä tarkoittaa kommentin alkua, joten tuo kyselyn loppuosa eli salasanan kysyminen jäisi siitä kokonaan pois.
+- Tuosta siis valitaan muokattava kohta, joka siis tässä tapauksessa oli tuo URLEncoded form, jonka jälkeen se avautuu tekstieditorissa ja sitä voidaan muokata. Tässä vaiheessa meni vähän arvalla tämä ratkaisu, eli koska tuossa aiemmassa [Portswiggerin SQL-injektio materiaalissa](https://portswigger.net/web-security/sql-injection) oli esimerkkinä käytännössä sama skenaario. Siinä käyttäjänimen perään lisättiin **'--**, mikä siis SQL:ssä tarkoittaa kommentin alkua, joten tuo kyselyn loppuosa eli salasanan kysyminen jäisi siitä kokonaan pois.
 - Muokatun pyynnön lähettäminen Mitmproxyssä onnistuu ensin tallentamalla se **esciä** painamalla, ja sen jälkeen **q q** takaisin flow-ikkunaan, ja **a** flow-ikkunassa, joka lähettää pyynnön. 
 
     ![asdasdsadas](https://i.imgur.com/EmmEIR9.png)
@@ -66,6 +66,11 @@ Tämä kappale kannattaa pitää näkyvissä injektioita tehdessä SQL injection
     ![asda1sd](https://i.imgur.com/okAZXXT.png)
 
 #### f) SQL injection attack, querying the database type and version on MySQL and Microsoft
+
+- Tässä sama idea kuin edellisessäkin tehtävässä, mutta tietokanta vaan eri tietokanta, eli jos vilkaistaan tuolta cheat-sheetistä, niin syntaksi MySQL & Microsoftiin olisi *@@version*, eli kokeillaan vaihtaa se tuohon aiemmin käytettyyn hakuun tuon *SELECT banner FROM v$version* tilalle, eli: `'UNION SELECT @@version, 'asd'--`.
+- Ei toiminut, joten takaisin dokumentaatiota tutkimaan, ja cheat-sheetistä löytyikin mainita, että MySQL:ssä jos käytettään tuota *--* kommentointiin, niin tarvitsee sen perään lisätä välilyönti, eli kokeillaan uudestaan sillä, ja se toimikin.
+
+    ![asdasdasdsadasda213](https://i.imgur.com/se13Pj8.png)
 
 #### g) SQL injection attack, listing the database contents on non-Oracle databases
 
