@@ -37,6 +37,7 @@
     ![psqlll](https://i.imgur.com/tiUa5Wa.png)
 
 - Kun yrittää luoda taulua tuohon tietokantaan antaa *ERROR: permission denied for schema public*. Googlella löytyi ainakin tämä [artikkeli](https://www.cybertec-postgresql.com/en/error-permission-denied-schema-public/) ongelmaan liittyen, mutta en nyt ainkaan nopeasti tuosta keksinyt ratkaisua tähän, joten antaa nyt ajankäytön vuoksi olla. Varmaan helpointa olisi ladata vanhempi versio tuosta Postgresql:stä, koska artikkelissa mainitaan että versioon 14 asti kuka tahansa on voinut luoda taulun tuohon public schemaan.
+- **Maantantai 27. 11 edit:** 
 
 ### b) SQLi me. Kuvaile yksinkertainen SQL-injektio, ja demonstroi se omaan tietokantaasi psql-komennolla. Selitä, mikä osa on käyttäjän syötettä ja mikä valmiina ohjelmassa. (Tässä harjoituksessa voit vain kertoa koodista, ei siis tarvitse välttämättä koodata sitä ohjelmaa, joka yhdistää käyttäjän syötteen SQL:n)
 
