@@ -142,5 +142,6 @@
 - https://docs.mitmproxy.org/stable/concepts-certificates/
 - https://docs.mitmproxy.org/stable/mitmproxytutorial-modifyrequests/
 - https://quickref.me/mitmproxy.html
+- https://openai.com/chatgpt
 
 
