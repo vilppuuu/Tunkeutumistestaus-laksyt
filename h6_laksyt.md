@@ -6,15 +6,34 @@
 **€ Yehoshua and Kosayev 2021: Antivirus Bypass Techniques, luku:
 Chapter 1: Introduction to the Security Landscape**
 
+- Alussa perus liibalaabaa siitä minkä takia kyberrikollisuutta ylipäätään on, ja syy tähän tietysti on raha, eli koska paljon arvokasta tietoa käsitellään digitaalisesti luo se rikollisille taloudelliset motiivit koittaa päästä hyödyntämään tätä esim. varastamalla maksutietoja, käyttäjätietoja, dataa jne.
+- Malware määritellään yleistermiksi (portmanteau=matkalaukku, fancy sana ranskaa :D) haitallisille ohjelmille, joiden tehtävänä on mm. saada pääsy kohteeseen, varastaa tietoa, salata tiedostoja, käyttää kohdetta osana bottiverkkoa etc.
+- Antivirus-ohjelma on yleisin/simppelein tapa suojautua uhilta, mutta nykyään AV:n lisäksi ja tueksi on käytössä muitakin eri tuotteita (IDS/IPS, NAC, Tulimuurit, DLP=DataLossPrevention, EDR=EndpointDetection&Response), jotka toimivat hieman eri tavoilla ja eri osissa järjestelmää.
+- Antivirus-ohjelmia on erilaisia tapoja havaita haitallisia tiedostoja, ja tässä ne on jaoteltu neljään yleisimpään kategoriaan toimintatavan perusteella (staattinen, dynaaminen, 'heuristic', 'unpacking').
+- Yksinkertaistettuna staattinen skannaus vertaa tiedoston 'signaturea' tietokantaan, jossa on haittaohjelmia kirjattuna (suhteellisen hyödytön tapa, kun muutos tiedostoon muuttaa signaturea, ja saattaa ohittaa tämän tarkastuksen kokonaan).
+- Dynaaminen skannaus taas käyttää API-kutsujen tarkastelua ja sandboxausta tunnistaakseen ajaako tiedosto haitallista koodia.
+- Heuristinen skannaus on edistyneempi tapa, ja se käyttää aiemmin mainittuja metodeja ja tilastollista analyysiä havaitakseen haitallisia ohjelmia.
+- Yleinen tapa piiloutua AV:lta on pakata haittaohjelma jollain tapaa, jolloin AV:n täytyy ensiksi osata purkaa (unpack) se. Tähän sisältyy sellainen ongelma, että saadakseen automatisoitua purkamisen AV:n täytyy tietää pakkaustapa, mikä tarkoittaa sitä että kaikki pakkaukset on ensiksi purettava käsin.
+- Lopussa todetaan, että AV ei ole mikäään täydellinen suoja, vaan sen ohittaminen on hyvinkin mahdollista, mutta modernissa ympäristössä se ei välttämättä myöskään takaa hyökkääjälle automaattista voittoa.
+
 **Halonen, Rajala ja Ollikainen 2023: PhishSticks Youtube Channel, kahdeksan videota, yhteensä noin 15 min**
 
 **Halonen, Rajala ja Ollikainen 2023: PhishSticks Git Repository, sivut:**
 
 **README.md (Aikajärjestyksessä, jos aloitat pohjalta. Kuvailee, miten näitä tekniikoita opeteltiin ja kehitettiin)**
 
+- Kuvailee PhistSticks projektin tavoitteita ja edistymistä syksyn aloituspäivästä tähän päivään asti.
+- Alussa määritellään tavoiteeksi USB-hyökkäystikun luominen, joka sisältäisi keyloggerin, ransomwaren, sekä reverse shellin.
+- Kehitystyön edistymisen kuvausta vaihe vaiheelta, alkaen tikkuun tarvittavan hardwaren hankinnasta ja jatkuen siitä eri payloadien kehittämiseen ja testaamiseen, ja loppuen toimivan prototyypin valmistumiseen.
+  
 **Revshell**
 
+- Kun tikulla sijaitsevaa 'raport' -fileä (ei ole oikeasti txt-file, Windowsia vaan pystyy jekuttamaan näyttämään väärän kuvakkkeen) klikataan avaa se oikeasti vsb-skriptin, joka lataa Netcutin ja laittaa sen toimimaan piilotetussa PowerShell -ikkunassa, sekä ottamaan yhteyden määriteltyyn ip-osoitteeseen ja porttiin.
+
 **Mitigations**
+
+- Sisältää valikoiman keinoja, joilla kyseinen hyökkäys voitaisiin estää. Näihin kuuluu mm. powershellin kieletäminen käyttäjältä kokonaan, powershellin blokkaaminen muurilta, win runin kieltäminen käyttäjältä, ja 'Controlled folder accessin' päälle laittaminen Windows Securitystä (estää tiedostojen salakirjoituksen).
+- Myös jos palomuurisäännöt olisivat tiukemmat, eli oletuksena kaikki paitsi etukäteen määritellyt portit kielletty niin sisään kuin ulospäin ei reverse shell saisi yhteyttä. Mutta joo oletuksena, että kaikki liikenne ulospäin on sallittu on yleinen asetus, ja etenkin tilanteessa mitä simuloidaan, eli yrityksessä missä nollat taulussa tökitään random USB-tikkuja kiinni koneeseen tuskin on kovinkaan tarkasti mietitty palomuurisääntöjä. Muistaakseni myös keyloggerin olisi ollut mahdollista lähettää tietoja sähköpostilla, mikä tälläisessa tapauksessa olisi kuitenkin toiminut.
 
 **Installing Windows 10 on a virtual machine**
 
