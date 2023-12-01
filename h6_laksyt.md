@@ -37,8 +37,17 @@ Chapter 1: Introduction to the Security Landscape**
 
 **Installing Windows 10 on a virtual machine**
 
+- Muuten perus Windowsin asennusohje paitsi, että sisältää linkin tuohon tarvittavaan .iso-filuun, josta voidaan asentaa VM:lle, ja näemmä painamalla tuota Domain joinia ei tarvitse kirjautua Microsoft-tilillä.
+- Kone myös liitetään VirtualBoxissa luotuuun host-verkkoon, jolloin se on irti interwebsistä ja sitä voidaan käyttää testaukseen yhdessä esim. aiemmin asennetun Kalin kanssa.
+
 **MITRE Att&ck Frequently Asked Questions: Part 1. General.**
 Erityisesti kehikon omat määritelmät termeille tactics, techniques and procedures
+
+- Mitre ATT&CK on kyberhyökkääjien toiminnan, käytäntöjen, ja käytöksen seurantaan ja analysointiin tarkoitettu viitekehys.
+- Tässä viitekehyksessä hyökkääjien tavoitteet ja toiminta on jaoteltu kolmeen eri vaiheeseen: taktiikoihin, tekniikoihin ja proseduureihin.
+- Taktiikka tässä yhteydessä hieman paradoksaalisesti tarkoittaa hyökkääjän tavoitetta laajassa mittakaavassa, eli minkä takia hyökkäys tehdään (esim. halutaan saada pääsy tiettyyn dataan).
+- Tekniikka taas tässä yhteydessä tarkoittaa sitä miten tähän tavoitteeseen voidaan päästä (jos termit olisivat loogisia tämä vaihe olisi taktiikka xD). Mutta siis tekniikat ovat käytännössä hyökkäystapoja (esim. bruteforce, phishing etc.) ja valitusta tekniikasta voidaan eritellä vielä tarkempi tekniikka (sub-technique, esim. Spearphishing Attachment olisi alitekniikka phishingiin).
+- Proseduurit taas
 
 **MITRE Att&ck Enterprise Matrix**
 Silmäile, poimi muutama esimerkki. Koko kehikko on laaja, eikä sitä tarvitse lukea tässä kokonaan.
