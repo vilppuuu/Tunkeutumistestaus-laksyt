@@ -95,6 +95,24 @@ Voit käyttää kurssilla jo opeteltuja työkaluja (helpompaa) tai kokeilla uusi
 Mikäli haluat tehtävästä helpon version, tekniikoiden valinta auttaa. Tuolta löytyy myös tuttuja ja helppoja tekniikoita.
 Selitä, mitä esimerkissä tapahtuu.
 Nimeä käytetyt taktiikat, tekniikat ja alitekniikat. Merkitse myös numerot T0123.456.
+
+- Valitaan tässä ensimmäiseksi joku helppo, eli kun aiemmalla viikolla asennettiin tuota Metasploitable, niin sieltä voisi kokeilla jotain silloin havaittua, mutta silloin testaamatta jäänyttä haavoittuvuutta. Laitetaan alkuun tuoa Metasploitable päälle, ja suoritetaan porttiskannaus nmapilla (porttiskannauskin menisi kyllä tässä tuonne tiedustelun alle taktiikoissa, ja tekniikoissa varmaankin active scanning alle, mutta ei nyt tässä lasketa niitä).
+- Se mihin olin silloin aiemmin kiinnittänyt huomion olivat nuo porteista 512, 513, 514 löytyvät palvelut, eli valitsin niistä tuon lupaavimmalta kuulostavan eli *514 shell Netkit rshd:n*. Googlettamalla tämän löytyi [artikkeli](https://www.hackercoolmagazine.com/hacking-rexec-and-rlogin-services-on-ports-512-513-and-514/), jossa etenkin seuraava tieto käytännössä avasi meille oven.
+
+*Rsh or Remote shell is a remote access service that allows users a shell on the target system. Authentication is not required for this service. By default it runs on port 514. Although Rsh doesn’t require a password, it requires the username belonging to the remote system.*
+
+- Eli tarvitaan ainostaan tuo rsh-client, jonka saa aptista asennettua (*apt install rsh-client*), ja validi käyttäjänimi (kokeillaanpa rootilla), ja voidaan kokeilla yhdistää ja sehän toimii.
+
+    ![as1234235r](https://i.imgur.com/9fzFE4T.png)
+
+- Jos tätä hyökkäystä tarkastellaan tuon Mittre ATT&CK:n kehyksen kautta, niin tavoitehan tässä on päästä järjestelmään sisään, eli taktiikkana tässä on Initial Access, ja käytetty tekniikka hyödynsi ulospäin näkyvää palvelua, eli Exploit Public-Facing Application. Tietty myös tekniikkana oli ainakin tietyllä tapaa tuo Valid Accounts, kun tarvittiin käyttäjätunnus, mutta se nyt oli tässä tapauksessa enemmänkin sivujuonne.
+
+- No seuraavaksi ajattelin, että koska otin tuolta Metasploitablesta talteen tuon etc/shadow:n, eli käyttäjät ja salasanahashit, niin niiden kanssa voisi kokeilla tehdä jotain. 
+
+
+
+
+  
 d) Vapaaehtoinen: Total attak! Demonstroi yksi tekniikka jokaisesta MITRE Attack -taktiikasta. (Noista aiemmin tehdystä viidestä ei tarvitse tehdä uutta demonstraatiota.) MITRE Attack Enterprise Matrix
 e) Vapaaehtoinen: Kokeile jokin toinen hyökkäystekniikka PhishSticks-projektista.
 f) Vapaaehtoinen, vaikea: Tee oma RAT tai malware ja testaa sitä. Miten tunnistaisit oman haittaohjelmasi ja estäisit sen toiminnan? (Kotitehtävissä ei tehdä matoja tai muita itsestään leviäviä ohjelmia. Katso turvallisuusvinkit alta).
