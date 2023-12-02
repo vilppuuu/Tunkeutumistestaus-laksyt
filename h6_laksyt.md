@@ -105,9 +105,24 @@ Nimeä käytetyt taktiikat, tekniikat ja alitekniikat. Merkitse myös numerot T0
 
     ![as1234235r](https://i.imgur.com/9fzFE4T.png)
 
-- Jos tätä hyökkäystä tarkastellaan tuon Mittre ATT&CK:n kehyksen kautta, niin tavoitehan tässä on päästä järjestelmään sisään, eli taktiikkana tässä on Initial Access, ja käytetty tekniikka hyödynsi ulospäin näkyvää palvelua, eli Exploit Public-Facing Application. Tietty myös tekniikkana oli ainakin tietyllä tapaa tuo Valid Accounts, kun tarvittiin käyttäjätunnus, mutta se nyt oli tässä tapauksessa enemmänkin sivujuonne.
+- Jos tätä hyökkäystä tarkastellaan tuon Mittre ATT&CK:n kehyksen kautta, niin tavoitehan tässä on päästä järjestelmään sisään, eli taktiikkana tässä on Initial Access, ja käytetty tekniikka hyödynsi ulospäin näkyvää palvelua, eli Exploit Public-Facing Application (T1190), mielestäni tähän nyt ei tarkempaa ali-tekniikkaa tai proseduuria löytynyt. Tietty myös tekniikkana oli ainakin tietyllä tapaa tuo Valid Accounts, kun tarvittiin käyttäjätunnus, mutta se nyt oli tässä tapauksessa enemmänkin sivujuonne.
+- No seuraavaksi ajattelin, että koska otin tuolta Metasploitablesta talteen tuon etc/shadow:n, eli käyttäjät ja salasana-hashit, niin niiden kanssa voisi kokeilla tehdä jotain. Periaatteessa jo tuon salasanojen talteen ottamisen voisi myös määritellä tuon Mitre ATT&CK -kehyksen mukaan (Taktiikka -> Exfiltration, Tekniikka -> Exfiltration Over C2 Channel, Procedure -> ei löytynyt copy/pastelle omaa numeroa :p).
+- Tuohon matriisin tämä salasanojen hashien murtaminen asettuu tuonne Credential Accessiin, ja siellä varmaankin lähimpänä on Brute Force, ja sieltä löytyisi Password Cracking (T1110.002).
+- Mutta siis joskus aiemmin, kun vähän tutustuin tuohon Kaliin, niin selvisi että sieltä löytyy työkalu nimeltä hashcat, jolla siis voidaan noita salasana-hashejä murtaa. Tämän käyttöä siis aloin tutkia, ja nopeasti löytyikin ihan hyvännäköinen [ohje](https://www.freecodecamp.org/news/hacking-with-hashcat-a-practical-guide/), eli käytännössä Hashcatilla voidaan sanalistoja käyttäen koittaa löytää vastine hallusamme olevalle hashille, ja siten murrettua salasana.
+- Toisinsanoen helppoa ja hauskaa, eli sen suurempia miettimättä latasin komennon `hashcat -m 0  -a 0 -o salaiset.txt etcshadow /usr/share/seclists/Passwords/500-worst-passwords.txt
+` tulille. Tuossa komennossa sis *-m 0* merkkaa käytettyä salausalgoritmiä (MD5), ja *-a 0* hyökkäyksen tyyppiä (sanakirja), *-o* output-tiedostoa, ja seuraavana hashit sisältävä tiedosto, sekä käytetty sanakirja. Lopputulos oli se, että mitään ei saatu tehtyä, koska tokenit ovat väärän pituisia, eli oletettavasti yritetään murtaa väärällä algoritmillä.
 
-- No seuraavaksi ajattelin, että koska otin tuolta Metasploitablesta talteen tuon etc/shadow:n, eli käyttäjät ja salasanahashit, niin niiden kanssa voisi kokeilla tehdä jotain. 
+  ![2345sdgsdfXDD](https://i.imgur.com/TzffE45.png)
+
+- Seuraava kysymys olikin, että miten sitten voi tietää mitä algoritmiä käyttäen salaus on tehty, ja tähän vastaus vissinkin oli, että ei välttämättä mitenkään jos hallussa on pelkkä hash. Pelkkä trial & errorkaan ei välttämättä huvita, kun tarkastelee tuota Hashcatin sivuilta löytyvää [listaa](https://hashcat.net/wiki/doku.php?id=example_hashes). Tietty realistisessa skenaariossa tätä voisi varmaan automatisoida, ja testata sellaisessa järjestyksessä että käy ensiksi käytetyimmät läpi.
+- Mutta koska hallussamme on etc/shadow -filu löytyy siitä käytetty [algoritmi](https://www.cyberciti.biz/faq/understanding-etcshadow-file/) (`root:$1$/avpfBJ1$x0z8w5UF9Iv./DR9E9Lid`) ennen häshin alkua,  eli tässä tapauksessa *$1€*.
+- Tätä kun verrataan tuohon Hashcatin dokumentaatioon löytyy se sieltä numerolla 500 (Unix MD5 nimellä), eli jos tuohon aiemmin ajettuun komentoon vaihdetaan *-m 500* pitäisi sen ainakin yrittää testata jotain tuota sanalistaa vastaan.
+- Tosiaan näin kävi, eli tuosta tiedostosta löytyi seitsemän tätä algoritmiä käyttävää hashiä, joista näemmä yksi onnistuttiin myös murtamaan käyttäen tuota 500-worst-passwords -listaa.
+
+  ![vsvsbsb](https://i.imgur.com/x6QRu1a.png)
+
+  ![batman](https://i.imgur.com/KIp9TrI.png)
+    
 
 
 
