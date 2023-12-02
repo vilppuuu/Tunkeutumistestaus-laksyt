@@ -47,12 +47,17 @@ Erityisesti kehikon omat määritelmät termeille tactics, techniques and proced
 - Tässä viitekehyksessä hyökkääjien tavoitteet ja toiminta on jaoteltu kolmeen eri vaiheeseen: taktiikoihin, tekniikoihin ja proseduureihin.
 - Taktiikka tässä yhteydessä hieman paradoksaalisesti tarkoittaa hyökkääjän tavoitetta laajassa mittakaavassa, eli minkä takia hyökkäys tehdään (esim. halutaan saada pääsy tiettyyn dataan).
 - Tekniikka taas tässä yhteydessä tarkoittaa sitä miten tähän tavoitteeseen voidaan päästä (jos termit olisivat loogisia tämä vaihe olisi taktiikka xD). Mutta siis tekniikat ovat käytännössä hyökkäystapoja (esim. bruteforce, phishing etc.) ja valitusta tekniikasta voidaan eritellä vielä tarkempi tekniikka (sub-technique, esim. Spearphishing Attachment olisi alitekniikka phishingiin).
-- Proseduurit taas
+- Proseduurit taas ovat tekniikoiden ja alitekniikoiden käytännöllisiä/teknisiä toteutustapoja, joita tiettyjen hyökkääjien on dokumentoitu käyttäneen. Lisäksi yksi tekniikka tai alitekniikka voi käyttää useampaa proseduuria kerralla.
 
 **MITRE Att&ck Enterprise Matrix**
 Silmäile, poimi muutama esimerkki. Koko kehikko on laaja, eikä sitä tarvitse lukea tässä kokonaan.
 
+- Tuossa matriisin ylätasolla esitellyt taktiikat etenevät pitkälti samaan tapaan kuin kybertappoketju, eli aloitetaan tiedustelusta ja päätepisteenä on toimenpiteet kohteessa. Väliin vaan on mahdutetu huomattavasti yksityiskohtaisemmin tavaraa, liittyen etenkin kohteessa suoritettaviin toimenpiteisiin initial accessin jälkeen.
+- Mielestäni juuri näiden taktiikoiden ja tekniikoiden suuri määrä kiinnittää huomion tässä Mitre ATT&CK:n matriisissa, eli pelkän haitallisen koodin ajamisen, ja C&C:n lisäksi hyökkääjällä on iso työkalupakki käytettävissään. Eli mm. käyttöoikeuksien laajennus, piiloutuminen puolustajilta, lisäkohteiden tunnistaminen, sivuttaisliike, tietojen kerääminen, sekä näihin liittyvät tekniikat ja alitekniikat sisältävät valtavan määrän erilaisia uhkia (tai mahdollisuuksia).
+
 ### a) The OS pwns you. Asenna Windows virtuaalikoneeseen samaan verkkoon hyökkäyskoneen (esim. Kali, Debian) kanssa. Kokeile, että saat koneen irrotettua Internetistä.
+
+- Eli tuota yltä löytyvää sawulohen [ohjetta](https://github.com/therealhalonen/PhishSticks/blob/master/notes/ollikainen/windows.md) seuraten ensin tuo Win10-image lataukseen, ja seuraavaksi ohjeen mukaan VirtualBoxiin kliksuttelemaan asennusta.
 
 ### b) Trustme.lnk. Kokeile PhishSticksin revshell vihamielistä tiedostoa, joka avaa käänteisen shellin hyökkääjän koneelle. Selitä, mitä tapahtuu ja miksi. Testaa, että pysyt antamaan kohdekoneelle komentoja reverse shellin kautta.
 
