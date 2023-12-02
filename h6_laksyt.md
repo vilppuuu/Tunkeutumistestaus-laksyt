@@ -145,7 +145,12 @@ Nimeä käytetyt taktiikat, tekniikat ja alitekniikat. Merkitse myös numerot T0
 
 
 
-  
-d) Vapaaehtoinen: Total attak! Demonstroi yksi tekniikka jokaisesta MITRE Attack -taktiikasta. (Noista aiemmin tehdystä viidestä ei tarvitse tehdä uutta demonstraatiota.) MITRE Attack Enterprise Matrix
-e) Vapaaehtoinen: Kokeile jokin toinen hyökkäystekniikka PhishSticks-projektista.
-f) Vapaaehtoinen, vaikea: Tee oma RAT tai malware ja testaa sitä. Miten tunnistaisit oman haittaohjelmasi ja estäisit sen toiminnan? (Kotitehtävissä ei tehdä matoja tai muita itsestään leviäviä ohjelmia. Katso turvallisuusvinkit alta).
+### Lähteet:
+
+- https://attack.mitre.org/
+- https://www.cyberciti.biz/faq/understanding-etcshadow-file/
+- https://cs.stackexchange.com/questions/68070/given-a-string-is-it-possible-to-determine-which-hashing-algorithm-has-produced
+- https://docs.djangoproject.com/en/4.2/ref/templates/builtins/
+- https://github.com/therealhalonen/PhishSticks/tree/master
+- https://hashcat.net/wiki/doku.php?id=example_hashes
+- https://www.freecodecamp.org/news/hacking-with-hashcat-a-practical-guide/
