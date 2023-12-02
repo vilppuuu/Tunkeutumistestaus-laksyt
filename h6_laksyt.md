@@ -114,7 +114,7 @@ Nimeä käytetyt taktiikat, tekniikat ja alitekniikat. Merkitse myös numerot T0
 
   ![2345sdgsdfXDD](https://i.imgur.com/TzffE45.png)
 
-- Seuraava kysymys olikin, että miten sitten voi tietää mitä algoritmiä käyttäen salaus on tehty, ja tähän vastaus vissinkin oli, että ei välttämättä mitenkään jos hallussa on pelkkä hash. Pelkkä trial & errorkaan ei välttämättä huvita, kun tarkastelee tuota Hashcatin sivuilta löytyvää [listaa](https://hashcat.net/wiki/doku.php?id=example_hashes). Tietty realistisessa skenaariossa tätä voisi varmaan automatisoida, ja testata sellaisessa järjestyksessä että käy ensiksi käytetyimmät läpi.
+- Seuraava kysymys olikin, että miten sitten voi tietää mitä algoritmiä käyttäen salaus on tehty, ja tähän vastaus vissinkin oli, että ei välttämättä mitenkään jos hallussa on pelkkä hash. Pelkkä trial & errorkaan ei välttämättä huvita, kun tarkastelee tuota Hashcatin sivuilta löytyvää [listaa](https://hashcat.net/wiki/doku.php?id=example_hashes). Tietty realistisessa skenaariossa tätä voisi varmaan automatisoida, ja testata sellaisessa järjestyksessä että käy ensiksi yleisimmin käytetyt algoritmit läpi.
 - Mutta koska hallussamme on etc/shadow -filu löytyy siitä käytetty [algoritmi](https://www.cyberciti.biz/faq/understanding-etcshadow-file/) (`root:$1$/avpfBJ1$x0z8w5UF9Iv./DR9E9Lid`) ennen häshin alkua,  eli tässä tapauksessa *$1€*.
 - Tätä kun verrataan tuohon Hashcatin dokumentaatioon löytyy se sieltä numerolla 500 (Unix MD5 nimellä), eli jos tuohon aiemmin ajettuun komentoon vaihdetaan *-m 500* pitäisi sen ainakin yrittää testata jotain tuota sanalistaa vastaan.
 - Tosiaan näin kävi, eli tuosta tiedostosta löytyi seitsemän tätä algoritmiä käyttävää hashiä, joista näemmä yksi onnistuttiin myös murtamaan käyttäen tuota 500-worst-passwords -listaa.
@@ -122,6 +122,8 @@ Nimeä käytetyt taktiikat, tekniikat ja alitekniikat. Merkitse myös numerot T0
   ![vsvsbsb](https://i.imgur.com/x6QRu1a.png)
 
   ![batman](https://i.imgur.com/KIp9TrI.png)
+
+- 
     
 
 
