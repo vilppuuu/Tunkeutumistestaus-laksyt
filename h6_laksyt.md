@@ -1,4 +1,4 @@
-## h6 Attaaack
+f## h6 Attaaack
 **Tämä läksy sisältää PhishSticks-tiimin (Halonen, Rajala ja Ollikainen) ehdotusten pohjalta tehtyjä läksyjä.*
 
 ### x) Lue/katso/kuuntele ja tiivistä. (Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva.)
@@ -58,8 +58,31 @@ Silmäile, poimi muutama esimerkki. Koko kehikko on laaja, eikä sitä tarvitse 
 ### a) The OS pwns you. Asenna Windows virtuaalikoneeseen samaan verkkoon hyökkäyskoneen (esim. Kali, Debian) kanssa. Kokeile, että saat koneen irrotettua Internetistä.
 
 - Eli tuota yltä löytyvää sawulohen [ohjetta](https://github.com/therealhalonen/PhishSticks/blob/master/notes/ollikainen/windows.md) seuraten ensin tuo Win10-image lataukseen, ja seuraavaksi ohjeen mukaan VirtualBoxiin kliksuttelemaan asennusta.
+- Asennuksen suorittaminen loppuun sujui ongelmitta, ja sammuttamisen ja host-adapterin määrittelyn jälkeen kone sujahti myös oikeaan verkkoon, josta ei yhteyttä internettiin.
+
+    ![cmdd](https://i.imgur.com/B10zvhv.png)
 
 ### b) Trustme.lnk. Kokeile PhishSticksin revshell vihamielistä tiedostoa, joka avaa käänteisen shellin hyökkääjän koneelle. Selitä, mitä tapahtuu ja miksi. Testaa, että pysyt antamaan kohdekoneelle komentoja reverse shellin kautta.
+
+- Varmaankin ihan alkuun on hyvä avata hyökkäyskoneelle tuo revshellin tarvitsema portti 9001.
+
+    ![ufwf](https://i.imgur.com/fMNUAt4.png)
+
+- Seuraavaksi tuo revshell-skripti tuonne kohdekoneelle, ja sinne määritetään oikea ip-osoite ja portti, johon reverse shelli sitten ottaa yhteyttä. Edge alkoi jo heti epäilemään, että kannattaako tälläisiä latailla koneelle :).
+
+    ![edge](https://i.imgur.com/xYwLQL5.png)
+
+    ![skript](https://i.imgur.com/x67jgC1.png)
+
+- Seuraavana tuonne hyökkäyskoneelle laittelin nuo tarvittavat setit, eli latasin tuon Netcutin exen, ja loin sinne tuon raport.txt -tiedoston, ja loin niille oman kansion. Seuraava steppi herätti hieman ihmetystä itsessäni, koska tuossa revshell-skriptissä ei määritetä mitään polkua, ja itsellä ei ollut käsitystä miten tuo python3 http-server sen myöskään katsoo. [Demovideossa](https://www.youtube.com/watch?v=ll4ojo6q-rM) tuota komentoa ajetaan samassa kansiossa, jossa payloadit sijaitsevat, ja se käy myöskin järkeen joten tehdään niin.
+- Eli tuolla luomassani phish-kansiossa komennolla `python3 -m http.server 80` saadaan web-palvelin päälle, josta tuo revshell-skripti saa ladattua setit. Tämän jälkeen voidaan myös netcut laittaa päälle ja kuuntelemaan tuota määriteltyä porttia komennolla: `nc -lvnp 9001`.
+- Nyt kun ajetaan tuo revshell-skripti tuolta kohdekoneelta pitäisi sen ensinäkin ladata nc64.exe ja raport.txt, sekä käynnistää Netcut piilotetussa Powershell-ikkunassa, ja ottaa yhteys hyökkäyskoneelle, sekä tuon raport.txt -tiedoston pitäisi aueta käyttäjälle.
+- Ja homma toimii, eli revshell-yhteys on auki ja sieltä saa komentoja ajettua, ja käyttäjälle aukesi näkyviin vain tuo tyhjä raport.txt -tiedosto.
+
+![asdasasd](https://i.imgur.com/A3m7bLf.png)
+
+![214asfa](https://i.imgur.com/aqKCQE9.png)
+
 
 ### d) PageRank. Laita linkki raporttiisi kurssisivun kommentiksi.
 Kannattaa mainita URL sekä leipätekstissä ("Comment") että kotisivun osoitteessa ("Homepage"), jotta sitä on helppo klikata.
