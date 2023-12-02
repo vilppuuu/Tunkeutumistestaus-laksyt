@@ -41,7 +41,7 @@ Chapter 1: Introduction to the Security Landscape**
 - Kone myös liitetään VirtualBoxissa luotuuun host-verkkoon, jolloin se on irti interwebsistä ja sitä voidaan käyttää testaukseen yhdessä esim. aiemmin asennetun Kalin kanssa.
 
 **MITRE Att&ck Frequently Asked Questions: Part 1. General.**
-Erityisesti kehikon omat määritelmät termeille tactics, techniques and procedures
+*Erityisesti kehikon omat määritelmät termeille tactics, techniques and procedures*
 
 - Mitre ATT&CK on kyberhyökkääjien toiminnan, käytäntöjen, ja käytöksen seurantaan ja analysointiin tarkoitettu viitekehys.
 - Tässä viitekehyksessä hyökkääjien tavoitteet ja toiminta on jaoteltu kolmeen eri vaiheeseen: taktiikoihin, tekniikoihin ja proseduureihin.
@@ -50,7 +50,7 @@ Erityisesti kehikon omat määritelmät termeille tactics, techniques and proced
 - Proseduurit taas ovat tekniikoiden ja alitekniikoiden käytännöllisiä/teknisiä toteutustapoja, joita tiettyjen hyökkääjien on dokumentoitu käyttäneen. Lisäksi yksi tekniikka tai alitekniikka voi käyttää useampaa proseduuria kerralla.
 
 **MITRE Att&ck Enterprise Matrix**
-Silmäile, poimi muutama esimerkki. Koko kehikko on laaja, eikä sitä tarvitse lukea tässä kokonaan.
+*Silmäile, poimi muutama esimerkki. Koko kehikko on laaja, eikä sitä tarvitse lukea tässä kokonaan.*
 
 - Tuossa matriisin ylätasolla esitellyt taktiikat etenevät pitkälti samaan tapaan kuin kybertappoketju, eli aloitetaan tiedustelusta ja päätepisteenä on toimenpiteet kohteessa. Väliin vaan on mahdutetu huomattavasti yksityiskohtaisemmin tavaraa, liittyen etenkin kohteessa suoritettaviin toimenpiteisiin initial accessin jälkeen.
 - Mielestäni juuri näiden taktiikoiden ja tekniikoiden suuri määrä kiinnittää huomion tässä Mitre ATT&CK:n matriisissa, eli pelkän haitallisen koodin ajamisen, ja C&C:n lisäksi hyökkääjällä on iso työkalupakki käytettävissään. Eli mm. käyttöoikeuksien laajennus, piiloutuminen puolustajilta, lisäkohteiden tunnistaminen, sivuttaisliike, tietojen kerääminen, sekä näihin liittyvät tekniikat ja alitekniikat sisältävät valtavan määrän erilaisia uhkia (tai mahdollisuuksia).
