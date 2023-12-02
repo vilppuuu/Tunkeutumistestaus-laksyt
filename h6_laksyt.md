@@ -85,18 +85,20 @@ Silmäile, poimi muutama esimerkki. Koko kehikko on laaja, eikä sitä tarvitse 
 
 
 ### d) PageRank. Laita linkki raporttiisi kurssisivun kommentiksi.
-Kannattaa mainita URL sekä leipätekstissä ("Comment") että kotisivun osoitteessa ("Homepage"), jotta sitä on helppo klikata.
-Yksikin lause sisällöstä tai jostain kiinostavasta huomiosta lisännee klikkauksia
+*Kannattaa mainita URL sekä leipätekstissä ("Comment") että kotisivun osoitteessa ("Homepage"), jotta sitä on helppo klikata.
+Yksikin lause sisällöstä tai jostain kiinostavasta huomiosta lisännee klikkauksia*
 
 ### c) Attaaack! MITRE Attack Enterprise Matrix: Demonstroi viisi tekniikkaa viidestä eri taktiikasta.
-Tekniikkaa tulee kokeilla käytännössä, kuvailu ei riitä.
+*Tekniikkaa tulee kokeilla käytännössä, kuvailu ei riitä.
 Asenna tarvittaessa omat harjoitusmaalit. Eristä tarvittaessa koneet Internetistä harjoittelun ajaksi.
 Voit käyttää kurssilla jo opeteltuja työkaluja (helpompaa) tai kokeilla uusia. Aiemminkin käytetyistä tekniikoista pitää tehdä uusi demonstraatio tässä tehtävässä.
 Mikäli haluat tehtävästä helpon version, tekniikoiden valinta auttaa. Tuolta löytyy myös tuttuja ja helppoja tekniikoita.
 Selitä, mitä esimerkissä tapahtuu.
-Nimeä käytetyt taktiikat, tekniikat ja alitekniikat. Merkitse myös numerot T0123.456.
+Nimeä käytetyt taktiikat, tekniikat ja alitekniikat. Merkitse myös numerot T0123.456.*
 
-- Valitaan tässä ensimmäiseksi joku helppo, eli kun aiemmalla viikolla asennettiin tuota Metasploitable, niin sieltä voisi kokeilla jotain silloin havaittua, mutta silloin testaamatta jäänyttä haavoittuvuutta. Laitetaan alkuun tuoa Metasploitable päälle, ja suoritetaan porttiskannaus nmapilla (porttiskannauskin menisi kyllä tässä tuonne tiedustelun alle taktiikoissa, ja tekniikoissa varmaankin active scanning alle, mutta ei nyt tässä lasketa niitä).
+#### Initial Access & Exploit Public-Facing Application (T1190)
+
+- Valitaan tässä ensimmäiseksi joku helppo, eli kun aiemmalla viikolla asennettiin tuota Metasploitable, niin sieltä voisi kokeilla jotain silloin havaittua, mutta silloin testaamatta jäänyttä haavoittuvuutta. Laitetaan alkuun tuoa Metasploitable päälle, ja suoritetaan porttiskannaus nmapilla (porttiskannauskin menisi kyllä tässä tuonne Discoveryn alle taktiikoissa, ja tekniikoissa varmaankin Network Service Discoveryn (T1046) alle, mutta ei nyt tässä lasketa niitä).
 - Se mihin olin silloin aiemmin kiinnittänyt huomion olivat nuo porteista 512, 513, 514 löytyvät palvelut, eli valitsin niistä tuon lupaavimmalta kuulostavan eli *514 shell Netkit rshd:n*. Googlettamalla tämän löytyi [artikkeli](https://www.hackercoolmagazine.com/hacking-rexec-and-rlogin-services-on-ports-512-513-and-514/), jossa etenkin seuraava tieto käytännössä avasi meille oven.
 
 *Rsh or Remote shell is a remote access service that allows users a shell on the target system. Authentication is not required for this service. By default it runs on port 514. Although Rsh doesn’t require a password, it requires the username belonging to the remote system.*
@@ -106,6 +108,9 @@ Nimeä käytetyt taktiikat, tekniikat ja alitekniikat. Merkitse myös numerot T0
     ![as1234235r](https://i.imgur.com/9fzFE4T.png)
 
 - Jos tätä hyökkäystä tarkastellaan tuon Mittre ATT&CK:n kehyksen kautta, niin tavoitehan tässä on päästä järjestelmään sisään, eli taktiikkana tässä on Initial Access, ja käytetty tekniikka hyödynsi ulospäin näkyvää palvelua, eli Exploit Public-Facing Application (T1190), mielestäni tähän nyt ei tarkempaa ali-tekniikkaa tai proseduuria löytynyt. Tietty myös tekniikkana oli ainakin tietyllä tapaa tuo Valid Accounts, kun tarvittiin käyttäjätunnus, mutta se nyt oli tässä tapauksessa enemmänkin sivujuonne.
+
+#### Credential Access, Brute Force & Password Cracking (T1110.002)
+
 - No seuraavaksi ajattelin, että koska otin tuolta Metasploitablesta talteen tuon etc/shadow:n, eli käyttäjät ja salasana-hashit, niin niiden kanssa voisi kokeilla tehdä jotain. Periaatteessa jo tuon salasanojen talteen ottamisen voisi myös määritellä tuon Mitre ATT&CK -kehyksen mukaan (Taktiikka -> Exfiltration, Tekniikka -> Exfiltration Over C2 Channel, Procedure -> ei löytynyt copy/pastelle omaa numeroa :p).
 - Tuohon matriisin tämä salasanojen hashien murtaminen asettuu tuonne Credential Accessiin, ja siellä varmaankin lähimpänä on Brute Force, ja sieltä löytyisi Password Cracking (T1110.002).
 - Mutta siis joskus aiemmin, kun vähän tutustuin tuohon Kaliin, niin selvisi että sieltä löytyy työkalu nimeltä hashcat, jolla siis voidaan noita salasana-hashejä murtaa. Tämän käyttöä siis aloin tutkia, ja nopeasti löytyikin ihan hyvännäköinen [ohje](https://www.freecodecamp.org/news/hacking-with-hashcat-a-practical-guide/), eli käytännössä Hashcatilla voidaan sanalistoja käyttäen koittaa löytää vastine hallusamme olevalle hashille, ja siten murrettua salasana.
@@ -123,9 +128,20 @@ Nimeä käytetyt taktiikat, tekniikat ja alitekniikat. Merkitse myös numerot T0
 
   ![batman](https://i.imgur.com/KIp9TrI.png)
 
-- 
-    
+#### Defence Evasion & Template Injection
 
+- Seuraavaksi voisi kokeilla tehdä aiempana viikkona tekemättä jääneen *Portswigger Lab: Server-side template injection with information disclosure via user-supplied objects*, joka siis on Template Injection ja sopii tuossa kehyksessä Defence Evasionin ja Template Injectionin (T1221) alle. Itseasiassa tämä tehtävä on ehkä vähän huono esimerkki näistä, koska nuo esimerkkiproseduurit tuolla keskittyvät enemmänkin esim. Office-templateihin, joita käytetään haitallisen koodin ajamiseen käyttäjällä. Toisaalta luulisi, että tässäkin olisi teoriassa sellaiseen mahdollisuus, vaikkei tämä tehtävä sellaista kuvaakaan.
+- Sen verran muistin tästä, että ratkaisu liittyi jotenkin siihen, että käytössä oli Django-template, ja sen dokumentaatiosta löytyi jollain tapaa vastaukset. Koitin tutkia [dokumentaatiota](https://docs.djangoproject.com/en/4.2/ref/templates/builtins/), mutta ei kyllä senkään perusteella vielä oikein auennut, joten jouduin kurkkaamaan tuota ratkaisua tuolta labrasivulta.
+- Tosiaan siellä maininta, että syöttämällä Djangon sisäänrakennettu *{% debug %}* -komento templateen edit-kohdassa saadaan näkyviin objektilista, johon meillä on pääsy. Tuolta olisi vielä pitänyt keksiä, että koska päästään käsiksi settings-objektiin sieltä voidaan pyytää secret key komennolla *{{settings.SECRET_KEY}}*. Syöttämällä tuon komennon templateen editissä sai tuon labran tosiaan ratkaistua, mutta joo ehkä turhan vaikea esimerkki tästä tekniikasta, vaikka itsessään se ei varsinaisesti ole mitään rakettitiedettä, mutta tässä tapauksessa kun kyseessä täysin uusi asia, niin vähän vaikeaa tajuta miten lähteä ratkaisemaan.
+
+    ![asdasd](https://i.imgur.com/ak6QL0Q.png)
+
+#### Discovery & File and Directory Discovery (T1083)
+
+- Tässä päätin vähän palauttaa mieleen tuota fussaamista, eli nähdäkseni se kuuluu tuonne Discoveryn alle, ja tekniikoista File and Directory Discoveryyn, koska kansioitahan tässä nimenomaan etsiään web-palvelimelta. Proseduureja tähän en kyllä tuolta nopeasti löydä, kun nuo näkyvät keskittyvän webin sijasta enemmän hostin tiedostojen listaamiseen. Liekö niin, että tämä sopisi paremmin jonkun noista network-tekniikoista alle, mutta sielläkään ei sellaista 1:1 sopivaa kuvausta löydy.
+- Anywho ajetaan nyt tuota FFUF:ia tuota Metasploitablea vastaan käyttäen sanalistana directory-list-2.3-mediumia `ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -u http://192.168.99.4:80/FUZZ -v`. 
+
+  ![asdasdad](https://i.imgur.com/NXJuEnD.png)
 
 
 
