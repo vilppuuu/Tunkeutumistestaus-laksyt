@@ -1,6 +1,6 @@
 ### h3 Lab kid
 
-Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
+*Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.*
 
 #### x) Lue/katso ja tiivistä. (Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva.)
 
@@ -26,8 +26,6 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 
 <p>Tästä sitten normaali käynnistys ja varmaan perus enterin hakkaamista, kunnes päästiin kirjautumisruutuun eli tarvittiin salasana ja käyttäjänimi, jotka jouduin googlettamaan, ja ne olivat niinkin ovelat kuin kali & kali (nämä olisivat olleet myös näkyvissä Machine Descriptionissa VirtualBoxissa). Muistaakseni perus update & upgraden lisäksi ainakin näppiksen layouttia piti vaihtaa, että käytöstä tuli yhtään mitään, ja taisin VirtualBoxin asetuksista myös käydä laittamassa lisää RAM:ia ja Video Memoryä.</p>
 
-
-
 #### b) Asenna Metasploitable 2 virtuaalikoneeseen
 
 <p>Tässäkään ei varsinaisesti ollut mitään ihmeellistä, eli aloitin lataamalla tuon Metasploitable 2 VM:n(https://sourceforge.net/projects/metasploitable/), ja purkamalla sen. Tämän jälkeen VirtualBoxista New machine -> Type: Linux, Version: Other Linux (64-bit) -> RAM:it + CPU:t -> Virtual Hard Diskiin valitetaan käytettävän olemassa olevaa tiedostoa, johon siis laitetaan tuolta aiemmin puretusta kansiosta tuo Metasploitable, jonka jälkeen next ja finish, ja kone voidaan käynnistää.</p>
@@ -42,7 +40,7 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 
 **Kalin ja Metasploitablen välillä on host-only network, niin että porttiskannatessa ym. koneet on eristetty intenetistä, mutta ne saavat yhteyden toisiinsa**
 
-- Tässä siis laitetaan molemmissa koneissa tuo Host-only adapteri tulille, ja irroitetaan NAT-adapteri, jolloin ne ovat samassa verkossa, ja ilman pääsyä interwebziin. Kuten kuvista näkyy pingit eivät mene läpi muualle, kuin noihin 192.168 alkuisiin osoitteisiin, jotka siis kuuluvat yksityisiin ip-avaruuksiin (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) joita ei reititetä internettiin.
+- Tässä siis laitetaan molemmissa koneissa tuo Host-only adapteri tulille, ja irroitetaan NAT-adapteri, jolloin ne ovat samassa verkossa, ja ilman pääsyä interwebziin. Kuten kuvista näkyy pingit eivät mene läpi muualle, kuin noihin 192.168 -alkuisiin osoitteisiin, jotka siis kuuluvat yksityisiin ip-avaruuksiin (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), joita ei reititetä internettiin.
   
   ![hostadapter](https://i.imgur.com/RasDJxy.png)
   
@@ -67,7 +65,7 @@ Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.
 
 <p>Avoimia portteja, ja niissä olevia palveluita löytyi melkoinen määrä, mikä on melko epätavallista, kun otetaan huomioon että skannasimme vain yhden IP:n. Kun palveluita ja niiden versioita hieman tutkii, niin huomataan, että useat niistä ovat vanhoja ja haavoittuvia versioita esim. OpenSSH 4.7p1 & Apache 2.2.8 ovat tällaisiä.</p> 
 
-<p>Myös jo ihan pelkistä palveluista löytyy mielenkiintoa herättäviä tapauksia esim. porteissa 512, 513, 514 on auki palvelut nimillä exec, login, ja shell, mikä kuulostaa kohtalaisen lupaavalta. Tai portissa 1542 näkyy olevan bindhsell, jonka nmap kertoo suoraan olevan 'Metasploitable root shell'. Sitten tuolta löytyy myös noita sertejä, jotka on salattu 1024 bittisellä sha1WithRSAEncryption algoritmillä, mikä ei nyt nopean googlen perusteella ole mikään turvallisin vaihtoehto, ja myöskin nykyään noiden pituudeksi taidetaan suositellaan minimissään 2048 bittiä. </p>
+<p>Myös jo ihan pelkistä palveluista löytyy mielenkiintoa herättäviä tapauksia esim. porteissa 512, 513, 514 on auki palvelut nimillä **exec, login, ja shell,** mikä kuulostaa kohtalaisen lupaavalta. Tai portissa 1542 näkyy olevan **bindhsell**, jonka nmap kertoo suoraan olevan 'Metasploitable root shell'. Sitten tuolta löytyy myös noita sertejä, jotka on salattu 1024 bittisellä sha1WithRSAEncryption algoritmillä, mikä ei nyt nopean googlen perusteella ole mikään turvallisin vaihtoehto, ja myöskin nykyään noiden pituudeksi taidetaan suositellaan minimissään 2048 bittiä. </p>
 
 ![nmapA](https://i.imgur.com/9MuTZH7.png)
 
@@ -140,19 +138,19 @@ msf6 >
 - Eli yksinkertaisesti muokkaamalla 'subfolderin' urlia, niin että siinä on kaksi kauttaviivaa yhden sijaan, ja urlin lopusta otetaan kauttaviiva pois saadaan ohjelma suorittamaan uudelleenohjaus.
 - Toteutustapa sinäänsä taas harvinaisen simppeli, mutta vaatii tietysti pääsyn ja oikeuksia kohdekoneelle.
 
-
 #### j) Kokeile vapaavalintaista haavoittuvuusskanneria johonkin Metasploitablen palveluun. (Esim. nikto, wpscan, openvas, nessus, nucleus tai joku muu)
 
 - Valitsin tässä tuon Nikton, jolla siis skannataan web-palvelimia, ja se olikin jo valmiiksi asennettu Kaliin.
 - Skannauksen suorittaminen ei varsinaisesti ollut mitään rakettitiedettä, eli komennolla *nikto -h 192.168.56.103* suoritettiin oletusskannaus tuolle Metasploitable koneelle, joka etsii ainakin palvelinohjelmiston, version, oletushakemistojen- ja tiedostojen, security headereitten, ja php-scriptien perusteella haavoittuvuuksia kohteesta.
 - Kohteesta löytyi vino pino kaikenlaisia haavoittuvuuksia, ja tuossa Nikton tuloksessa näkyy olevan suoria linkkejä niiden hyödyntämiseen.
+
   ![nikto](https://i.imgur.com/iH6vj12.png)
 
 #### k) Kokeile jotain itsellesi uutta työkalua, joka mainittiin x-kohdan läpikävelyohjeessa.
 
 - Tuossa 0xdf:n Red Panda läpikävelyssä käytettiin Feroxbusteria, jolla voidaan sanalistoja käyttämällä etsiä piilotettuja hakemistoja web-palvelimelta (samaan tapaan kuin fuff:ila).
 - Itseasiassa nopean tutustumisen perusteella näyttäisi siltä, että yleisimmät käyttötapaukset tässä ovat toteutettavissa myös fuff:ill, eli haku tiedostopäätteiden perusteella, headereistä, ja rekursiivinen skannaus. Tuossa on myös edistyneempiä ominaisuuksia, mutta en nyt ajan puutteen vuoksi kerkeä niihin paremmin tutustumaan.
-- Skannauksen suorittaminen tuolla Feroxbusterilla on melko samanlainen FUFF:in kanssa, eli määritellään kohde URL, käytettävä sanalista, ja muut parametrit. Itse päätin tässä käyttää -x php,class parametriä, joka siis etsii tiedostopäätteen mukaan php-tiedostoja, ja sanalistan valitsin myös sen mukaan.
+- Skannauksen suorittaminen tuolla Feroxbusterilla on melko samanlainen FUFF:in kanssa, eli määritellään kohde-URL, käytettävä sanalista, ja muut parametrit. Itse päätin tässä käyttää -x php,class parametriä, joka siis etsii tiedostopäätteen mukaan php-tiedostoja, ja sanalistan valitsin myös sen mukaan.
   
   ```feroxbuster -u http://192.168.56.103:80 -x php,class -w /usr/share/seclists/Discovery/Web-Content/PHP.fuzz.txt```
   
