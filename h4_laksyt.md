@@ -1,8 +1,7 @@
 ### h4 Totally Legit Sertificate
 
-Opit murtautumaan weppiin. Nyt päästään kokeilemaan niitä hyökkäyksiä, joita päivällä opittiin. Paljon uusia tehtäviä!
-
-Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. Jos joku aiheuttaa pulmia, ratkaise se viimeisenä. Käytä työkaluja vain harjoitusmaaleihin, ei muiden ihmisten koneisiin.
+*Opit murtautumaan weppiin. Nyt päästään kokeilemaan niitä hyökkäyksiä, joita päivällä opittiin. Paljon uusia tehtäviä!
+Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. Jos joku aiheuttaa pulmia, ratkaise se viimeisenä. Käytä työkaluja vain harjoitusmaaleihin, ei muiden ihmisten koneisiin.*
 
 #### x) Lue/katso ja tiivistä. (Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva.)
 
@@ -18,7 +17,7 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
   - Tämä oli laitettu listalle, koska se oli noussut ykköseksi käyttäjäkyselyssä. SSRF tarkoittaa siis sitä, että käyttäjä pyytää palvelimelta/web-sovellukselta pääsyä johonkin resurssiin, ja palvelin/web-sovellus ei varmista pyyntöä oikein, jolloin päästään lähettämään pyyntöjä sellaisiin kohteisiin, joiden pitäisi olla saavuttamattomissa (esim. muurin, VPN:n, tai muun ACL:n takana).
   - Esimerkkejä tällaisista haavoittuvuuksistusista ovat mm. pääsy sensitiivisen datan luo, pääsy metadataan pilvitallennuspalveluissa, sisäiten palvelinten porttiskannaus, DoS, tai jopa RCE.
-  - Ennaltaehkäisyyn tässä ehdotetaan aika perus toimenpiteitä eli mm. verkon segementointia, VPN:ää, ja'deny by default' palomuuri policyjä, mitkä nyt sinällään ovat itsestäänselvyyksiä, mutta niistä saattaa löytyä parannettavaa senkin takia, että arkkitehtuurit alkavat olla aika monimutkaisia useissa ympäristöissä.
+  - Ennaltaehkäisyyn tässä ehdotetaan aika perus toimenpiteitä eli mm. verkon segementointia, VPN:ää, ja'deny by default' palomuuri-policyjä, mitkä nyt sinällään ovat itsestäänselvyyksiä, mutta niistä saattaa löytyä parannettavaa senkin takia, että arkkitehtuurit alkavat olla aika monimutkaisia useissa ympäristöissä.
   - Sovelluspuolella taas käyttäjältä tuleva data tulisi validoida ja 'puhdistaa', URL:ien muoto, portti ja lähde tulisi mätsätä ACL:ään, tarpeettomat HTTP-uudelleenohjaukset tulisi poistaa jne.
 
 **PortSwigget Academy:**
@@ -71,9 +70,9 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
   #### d) Insecure direct object references
 
- - Tuossa labran kuvauksessa mainitaan, että palvelun chat-lokit tallentuvat suoraan palvelimelle, ja niihin ne käyttävät staattisia osoitteita, joten looginen aloituspaikka oli lähteä tutkailemaan miltä se näyttää. Avataan siis tuo chat, ja lähetetään sinne joku viesti, jonka jälkeen 'trankskriptio' siitä voidaaan hakea painamalla View transcript, ja kun samaan aikaan katsomme selaimen developer-työkaluilla (f12) network-välilehteä näemme, että sieltä lähetetään http GET-pyyntö osoitteeseen, josta lokit haetaan.
+ - Tuossa labran kuvauksessa mainitaan, että palvelun chat-lokit tallentuvat suoraan palvelimelle, ja niihin ne käyttävät staattisia osoitteita, joten looginen aloituspaikka oli lähteä tutkailemaan miltä se näyttää. Avataan siis tuo chat, ja lähetetään sinne joku viesti, jonka jälkeen 'transkriptio' siitä voidaaan hakea painamalla View transcript, ja kun samaan aikaan katsomme selaimen developer-työkaluilla (f12) network-välilehteä näemme, että sieltä lähetetään http GET-pyyntö osoitteeseen, josta lokit haetaan.
  - Osoitteen lopusta '3.txt' voidaan myös tehdä sellainen oletus, että lokissa ei ihan hirveästi tavaraa ole, kun itse lähetimme sinne kaksi viestiä, joten meidän kannattanee kokeilla muuttaa osoitekenttään tuohon loppuun '1.txt' ja katsoa tuottaako se mitään.
- - No sieltähän löytyi keskustelu, jossa joku oli kadottanut salasanansa, ja ystävällinen chat-henkilö sen hänelle sielä antoi takaisin, eli olisiko kyseessä Carlos ja hänen salasanansa. Testataan kirjautua tunnuksella Carlos ja chatistä löytyneellä salasanalla, ja bingobangobongo.
+ - No sieltähän löytyi keskustelu, jossa joku oli kadottanut salasanansa, ja ystävällinen chat-henkilö sen hänelle sielä antoi takaisin, eli olisiko kyseessä Carlos ja hänen salasanansa. Testataan kirjautua tunnuksella Carlos ja chat-lokista löytyneellä salasanalla, ja bingobangobongo.
     
     ![asdasd](https://i.imgur.com/hEvimif.png)
 
@@ -148,7 +147,7 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
 #### k) Asenna Webgoat 2023.4
 
-- Webgoat on siis web-sovellus harjoitusmaali, jossa on Java-pohjaisia haavoittuvuuksia joka lähtöön.
+- Webgoat on siis web-sovellus ja harjoitusmaali, jossa on Java-pohjaisia haavoittuvuuksia joka lähtöön.
 - Päätin asentaa tuon docker-kontin, kun se nyt varmaankin on helpoin tapa. Eli seurasin WebGoatin sivuilta (https://owasp.org/www-project-webgoat/) downloads-kohdan alta löytyvää linkkiä, josta löytyi komennot docker-imagen lataamiseen ja käynnistämiseen. Asennuksessa ja käynnistämisessä ei sinällään mitään ongelmaa, paitsi että asennnuksen jälkeen WebGoat ei suostunut aukeamaan Zaproxyllä.
   
    ![tllls](https://i.imgur.com/TVzDkvB.png)
