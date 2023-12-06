@@ -4,6 +4,10 @@
 
 **Karvinen 2022: Cracking Passwords with Hashcat**
 
+- Alussa asennellaan aptista ihan normaalisti hashcat & hashid, sekä ladataan tuolta SecLististä salasanalista.
+- Seuraavaksi on tuota hashid:n käyttöä, jolla voidaan ainakin jotenkuten tunnistaa tiivisteessä käytetty algoritmi, ja se myös antaa hashcatiin murtamisessa tarvittavan 'moden' numeron. En kyllä ymmärrä millä perusteella tämä näitä tunnistaa, muuten kuin merkkijonon pituuden perusteella (esim. MD5 32 vs SHA1 40)? Ei varmaan mitenkään muuten, eli loppujenlopuksi sopivin algoritmi täytyy valita yleisyyden ja kontekstin perusteella.
+- Loppuartikkeli kuvaa tuota hashcatin käyttöä, jota setvin jo tarkemmin tuossa alapuolella ja viime viikon [tehtävissä](https://github.com/vilppuuu/tunkeutumistestaus/blob/main/h6_laksyt.md#credential-access-brute-force--password-cracking-t1110002), joten skipedi skip tähän, ettei tule turhaa toistoa.
+
 **Karvinen 2023: Crack File Password With John**
 
 ### a) Hashcat. Asenna Hashcat ja testaa sen toimivuus ratkaisemalla tiiviste.
