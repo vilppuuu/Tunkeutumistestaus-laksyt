@@ -10,6 +10,8 @@
 
 **Karvinen 2023: Crack File Password With John**
 
+- 
+
 ### a) Hashcat. Asenna Hashcat ja testaa sen toimivuus ratkaisemalla tiiviste.
 
 - Kerkesin jo viime viikolla tuossa [c-tehtävässä](https://github.com/vilppuuu/tunkeutumistestaus/blob/main/h6_laksyt.md#credential-access-brute-force--password-cracking-t1110002) testailla tätä jo Linuxilla, niin tällä kertaa voisi kokeilla käyttää Windowsissa, jolloin saa näyttiksellä murrettua tiivisteitä, mikä on huomattavasti tehokkaampaa.
