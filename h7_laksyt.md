@@ -33,7 +33,23 @@
   ![asfag235](https://i.imgur.com/eBYxn3D.png)
 
   ![asdasdad](https://i.imgur.com/ymmDAbJ.png)
-  
+
+- Testasin ensiksi toimivuutta luomallani salasanasuojatulla zipillä. Ilmeisestikin tuo johnin toimintaperiaate on sellainen, että ensiksi valitusta tiedostosta/tiedostotyypistä kaivetaan tiiviste, joka tallennetaan tiedostoon, ja jota vastaan sitten suoritetaan sanakirjahyökkäys, ja sehän näköjään toimii.
+
+  ![asdsa22](https://i.imgur.com/ZELGRNq.png)
+
+- Huvikseni ajattelin vielä testata jotain muutakin tiedostotyyppiä, ja tuolta listalta pisti silmään pdf, jota on ainakin helppo testata ja yleisyytensä vuoksi myös ihan mielenkiintoinen tapaus. Eli loin salasanasuojatun pdf-tiedoston, ja nopeasti googletin miten sen murtaminen johnilla toimii, ja siihen löytyikin [hyvät vinkit](https://security.stackexchange.com/questions/82222/how-can-i-extract-the-hash-inside-an-encrypted-pdf-file).
+- Eli tarvisee ajaa tuo pdf2john.pl -skripti, joka tosiaan on perlillä kirjoitettu, joten se täytynee olla asennettu, mutta ainakin Debianissa löytyi oletuksena. Tuolla tosiaan saatiin tuon pdf:n tiiviste selville, jota voidaan sitten koittaa murtaa vapaasti valitulla tavalla.
+
+  ![as561das](https://i.imgur.com/2Batkrk.png)
+
+- Kokeillaanpa huvikseen saako tätä tiivistettä bruteforcattua yhtä helposti hashcatilla, eli etsitään tuolle pdf:lle oikea mode, ja laitetaan hashcat rullaamaan.
+
+  `./hashcat -a 3 -m 10500 -o pdf.txt '$pdf$4*4*128*-1060*1*16*4a913eeaf18b9247a5110d5cd2a15b8d*32*a784cd4fd8096166c276442aee9749c600000000000000000000000000000000*32*cc8d78d9ffc684f83b46aa836a2e6894cff794c50c3832b21aba41785b361214'
+hashcat (v6.2.6) starting`
+
+- Tässä vierähti jo hieman enemmän aikaa, vaikka tuo salasana oli vain seitsemän merkkiä, ja ehkä huomionarvoista on kun tuota tulosteen **Progress** -kohtaa tarkastelee, niin huomataan että vajaassa kahdeksassa minuutissa tälläinen keskiluokan näyttis kerkesi käydä reilu 19 miljardia vaihtoehtoa läpi.
+
 ### c) f5bc7fcc7f5b3b6af7ff79e0feafad6d1a948b6a2c18de414993c1226be48c1f on erään tällä tehtäväsivulla olevan yksittäisen sanan tiiviste. Käytin hyvin yleistä ja tunnettua tiivistealgoritmia. Sanassa voi olla isoja kirjaimia, mutta ei erikoismerkkejä. Minkä sanan tiiviste on kyseessä?
 
 - Hashid:llä kun tsekkaa tuon tiivisteen, niin antaa alla olevan listan algoritmejä. Jos kerran kyseessä on yleisesti käytetty tiivistealgoritmi, niin voisi veikata sen olevan tuo **SHA-256**, koska se nyt on ainoa mikä noista itsellä soittaa mitään kelloja, ja eipä tuolla listallakaan ole kuin kahdelle muulle algoritmille edes tuota hashcat-modea.
@@ -52,3 +68,5 @@
 - https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
 - https://terokarvinen.com/2023/crack-file-password-with-john/
 - https://terokarvinen.com/2022/cracking-passwords-with-hashcat/
+- https://nicholaslyz.com/blog/2021/07/23/cracking-pdf-hashes-with-hashcat/
+- https://security.stackexchange.com/questions/82222/how-can-i-extract-the-hash-inside-an-encrypted-pdf-file
