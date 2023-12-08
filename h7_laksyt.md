@@ -50,7 +50,7 @@ hashcat (v6.2.6) starting`
 
 - Tässä vierähti jo hieman enemmän aikaa, vaikka tuo salasana oli vain seitsemän merkkiä, ja ehkä huomionarvoista on kun tuota tulosteen **Progress** -kohtaa tarkastelee, niin huomataan että vajaassa kahdeksassa minuutissa tälläinen keskiluokan näyttis kerkesi käydä reilu 19 miljardia vaihtoehtoa läpi.
 
-    ![asdas2323asdd]( ![asdads129](https://i.imgur.com/Q01zq6X.png))
+    ![juuuuuuh](https://i.imgur.com/Q01zq6X.png)
 
 ### c) f5bc7fcc7f5b3b6af7ff79e0feafad6d1a948b6a2c18de414993c1226be48c1f on erään tällä tehtäväsivulla olevan yksittäisen sanan tiiviste. Käytin hyvin yleistä ja tunnettua tiivistealgoritmia. Sanassa voi olla isoja kirjaimia, mutta ei erikoismerkkejä. Minkä sanan tiiviste on kyseessä?
 
