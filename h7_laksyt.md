@@ -26,7 +26,14 @@
   ![crackkkk](https://i.imgur.com/vMOgzxN.png)
 
 ### b) John. Asenna Jumbo John ja testaa sen toimivuus murtamalla jonkin tiedoston salasana.
+- Alkuun tuon ylhäällä olevan [Teron artikkelin](https://terokarvinen.com/2023/crack-file-password-with-john/l) mukaisesti aloin asentelemaan noita tarvittavia riippuvuuksia, ja koska copy/paste VM:lle ei toiminut asentelin manuaalisesti vain nuo välttämättömät build-essential, libssl-dev, ja zlib1g zlib1g-dev zlib1g-gst (git, wget & bash-completion olivat muutenkin jo asennettuina).
+- Seuraavaksi saman ohjeen mukaisesti kloonasin tuon 'johnin' gitillä, ja siellä suuntasin john/src- hakemistoon, jossa ajoin tuon ./configure-komennon. Tämä itseasiassa antoi pari valitusta puuttuvista riippuvuuksista, eli 7z ei tue BZIP2:sta koska unohdin asentaa libbz2 tuossa aiemmin, ja myös useampi rivi valitusta liittyen pkcs12-tiedostoihin. Tuo configure kuitenkin näytti menevän läpi ihan ok, joten päätin olla välittämättä noista virheistä. Lähinnä siksi, että en ajatellut tehdä nyt mitään pkcs12 liittyvää ja tuo 7z virhe ei myöskään vaikuta tähän. Muistaakseni noihin pkcs12-tiedostoihin voidaan tallentaa sertifikaatteja ja avaimia samaan tiedostoon (joskus piti töissä purkaa tuollainen OpenSSL:llä, että sai sertifikaatin sieltä kaivettua).
+- Eli ajoin tuon make-komennon, ja se meni läpi ilman valituksia, ja tuo john:kin toimii.
 
+  ![asfag235](https://i.imgur.com/eBYxn3D.png)
+
+  ![asdasdad](https://i.imgur.com/ymmDAbJ.png)
+  
 ### c) f5bc7fcc7f5b3b6af7ff79e0feafad6d1a948b6a2c18de414993c1226be48c1f on erään tällä tehtäväsivulla olevan yksittäisen sanan tiiviste. Käytin hyvin yleistä ja tunnettua tiivistealgoritmia. Sanassa voi olla isoja kirjaimia, mutta ei erikoismerkkejä. Minkä sanan tiiviste on kyseessä?
 
 - Hashid:llä kun tsekkaa tuon tiivisteen, niin antaa alla olevan listan algoritmejä. Jos kerran kyseessä on yleisesti käytetty tiivistealgoritmi, niin voisi veikata sen olevan tuo **SHA-256**, koska se nyt on ainoa mikä noista itsellä soittaa mitään kelloja, ja eipä tuolla listallakaan ole kuin kahdelle muulle algoritmille edes tuota hashcat-modea.
@@ -38,3 +45,10 @@
 ### d) Cheatsheet. Kerää kurssilaisten raporteista käteviä tekniikoita. Kerää itse tekniikat ja komennot, älä pelkästään kuvaile. Muista lähdeviitteet. Tee tiivis ja selkeä cheatsheet, josta löydät tarvittavat tiedot lipunryöstössä. (Tässä alatehtävässä ei tarvitse tehdä testejä koneella)
 
 ### e) Viittaa. Tarkista, että jokaisessa raportissasi on lähdeviitteet kunnossa. Jokaisen raportin tulee viitata ainakin kurssiin / tehtäväsivuun. Kaikkiin muihinkin käytettyihin lähteisiin tulee viitata, kuten kurssikavereiden raportteihin, weppisivuihin, man-sivuihin... (Tässä alatehtävässä ei tarvitse tehdä testejä koneella).
+
+
+### Lähteet:
+
+- https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
+- https://terokarvinen.com/2023/crack-file-password-with-john/
+- https://terokarvinen.com/2022/cracking-passwords-with-hashcat/
