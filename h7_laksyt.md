@@ -33,8 +33,8 @@
   ![crackkkk](https://i.imgur.com/vMOgzxN.png)
 
 ### b) John. Asenna Jumbo John ja testaa sen toimivuus murtamalla jonkin tiedoston salasana.
-- Alkuun tuon ylhäällä olevan [Teron artikkelin](https://terokarvinen.com/2023/crack-file-password-with-john/l) mukaisesti aloin asentelemaan noita tarvittavia riippuvuuksia, ja koska copy/paste VM:lle ei toiminut asentelin manuaalisesti vain nuo välttämättömät build-essential, libssl-dev, ja zlib1g zlib1g-dev zlib1g-gst (git, wget & bash-completion olivat muutenkin jo asennettuina).
-- Seuraavaksi saman ohjeen mukaisesti kloonasin tuon 'johnin' gitillä, ja siellä suuntasin john/src- hakemistoon, jossa ajoin tuon ./configure-komennon. Tämä itseasiassa antoi pari valitusta puuttuvista riippuvuuksista, eli 7z ei tue BZIP2:sta koska unohdin asentaa libbz2 tuossa aiemmin, ja myös useampi rivi valitusta liittyen pkcs12-tiedostoihin. Tuo configure kuitenkin näytti menevän läpi ihan ok, joten päätin olla välittämättä noista virheistä. Lähinnä siksi, että en ajatellut tehdä nyt mitään pkcs12 liittyvää ja tuo 7z virhe ei myöskään vaikuta tähän. Muistaakseni noihin pkcs12-tiedostoihin voidaan tallentaa sertifikaatteja ja avaimia samaan tiedostoon (joskus piti töissä purkaa tuollainen OpenSSL:llä, että sai sertifikaatin sieltä kaivettua).
+- Alkuun tuon ylhäällä olevan [Teron artikkelin](https://terokarvinen.com/2023/crack-file-password-with-john/l) mukaisesti aloin asentelemaan noita tarvittavia riippuvuuksia, ja koska copy/paste VM:lle ei toiminut asentelin manuaalisesti vain nuo välttämättömät riippuvuudet eli: build-essential, libssl-dev, ja zlib1g zlib1g-dev zlib1g-gst (git, wget & bash-completion olivat muutenkin jo asennettuina).
+- Seuraavaksi saman ohjeen mukaisesti kloonasin tuon 'johnin' gitillä, ja siellä suuntasin john/src- hakemistoon, jossa ajoin tuon ./configure-komennon. Tämä itseasiassa antoi pari valitusta puuttuvista riippuvuuksista, eli 7z ei tue BZIP2:sta koska unohdin asentaa libbz2 tuossa aiemmin, ja myös useampi rivi valitusta liittyen pkcs12-tiedostoihin. Tuo configure kuitenkin näytti menevän läpi ihan ok, joten päätin olla välittämättä noista virheistä. Lähinnä siksi, että en ajatellut tehdä nyt mitään pkcs12 liittyvää ja oletin että tuo 7z virhe ei myöskään vaikuta pahemmin mihinkään. Muistaakseni noihin pkcs12-tiedostoihin voidaan tallentaa sertifikaatteja ja avaimia samaan tiedostoon (joskus piti töissä purkaa tuollainen OpenSSL:llä, että sai sertifikaatin sieltä kaivettua).
 - Eli ajoin tuon make-komennon, ja se meni läpi ilman valituksia, ja tuo john:kin toimii.
 
   ![asfag235](https://i.imgur.com/eBYxn3D.png)
@@ -50,7 +50,7 @@
 
   ![as561das](https://i.imgur.com/2Batkrk.png)
 
-- Kokeillaanpa huvikseen saako tätä tiivistettä bruteforcattua yhtä helposti hashcatilla, eli etsitään tuolle pdf:lle oikea mode, ja laitetaan hashcat rullaamaan.
+- Kokeillaanpa huvikseen saako tätä tiivistettä bruteforcattua helposti hashcatilla, eli etsitään tuolle pdf:lle oikea mode, ja laitetaan hashcat rullaamaan.
 
   `./hashcat -a 3 -m 10500 -o pdf.txt '$pdf$4*4*128*-1060*1*16*4a913eeaf18b9247a5110d5cd2a15b8d*32*a784cd4fd8096166c276442aee9749c600000000000000000000000000000000*32*cc8d78d9ffc684f83b46aa836a2e6894cff794c50c3832b21aba41785b361214'
 hashcat (v6.2.6) starting`
