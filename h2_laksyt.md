@@ -1,5 +1,7 @@
 ### H2 Läksyt - Sniff-n-Scan
 
+*Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit valvomaan hyökkäystyökalujen toimintaa snifferillä, ja tutustut Wiresharkiin. Wireshark osaa myös analysoida paketit automaattisesti. Weppiin murtautumista auttaa suomalainen, fuzzereiden huipulle noussut ffuf. Harjoitusmaalien asentamisesta kokeillaan paikallisia binäärejä (by yours truly) ja Dockeria.*
+
 - Tehtävät suoritettu käyttäen seuraavaa kokoonpanoa:
     - Hardware: AMD Ryzen 5 5600X, Nvidia GeForce RTX 3070, 32 GB RAM
     - Host OS: Windows 11 Home 22H2
@@ -7,8 +9,6 @@
     - VMs Used: Debian 12, Kali Linux 2023.3
 
 **Edit: Sunnuntaiaamuna (5.11.2023) klo. 10:25 täytetty c)-kohtaan 'alakohdat' 3-7**
-
-*Sniff-n-scan tutustuttaa uuteen lähteeseen, hakkeritapahtumien nauhoihin. Opit valvomaan hyökkäystyökalujen toimintaa snifferillä, ja tutustut Wiresharkiin. Wireshark osaa myös analysoida paketit automaattisesti. Weppiin murtautumista auttaa suomalainen, fuzzereiden huipulle noussut ffuf. Harjoitusmaalien asentamisesta kokeillaan paikallisia binäärejä (by yours truly) ja Dockeria.*
 
 #### x) Lue/katso ja tiivistä. (Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva.
    
