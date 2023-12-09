@@ -82,6 +82,11 @@ hashcat (v6.2.6) starting`
 
 ### e) Viittaa. Tarkista, että jokaisessa raportissasi on lähdeviitteet kunnossa. Jokaisen raportin tulee viitata ainakin kurssiin / tehtäväsivuun. Kaikkiin muihinkin käytettyihin lähteisiin tulee viitata, kuten kurssikavereiden raportteihin, weppisivuihin, man-sivuihin... (Tässä alatehtävässä ei tarvitse tehdä testejä koneella).
 
+- Lisätty h4:seen kokonaan puuttuneet lähteet, sekä yhdenmukaistettu muiden viikkojen lähdeviitteitä.
+
+### f) Vapaaehtoinen: Kertaa. Harjoittele. Kannattaa kerrata tai täydentää eritoten h4 Totally Legit Sertificate.
+
+- Täytyy katsoa, jos myöhemmin tänään (9.12) tai huomenna sunnuntaina kerkeää täydentää, etenkin tuota h4:sta, mutta palautetaan nyt ilman näitä (klo. 13:05).
 
 ### Lähteet:
 
