@@ -1,5 +1,12 @@
 ## h7 Hash
 
+- Tehtävät suoritettu käyttäen seuraavaa kokoonpanoa:
+    - Hardware: AMD Ryzen 5 5600X, Nvidia GeForce RTX 3070, 32 GB RAM
+    - Host OS: Windows 11 Home 22H2
+    - Virtualization Software: Oracle VM VirtualBox Version 7.0.12 r159484 (Qt5.15.2)
+    - VMs Used: Debian 12, Kali Linux 2023.3
+
+
 ### x) Lue/katso/kuuntele ja tiivistä. (Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva.)
 
 **Karvinen 2022: Cracking Passwords with Hashcat**
