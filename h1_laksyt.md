@@ -1,12 +1,12 @@
 ## h1 Hacker Warmup
 
+*Tässä harjoituksessa on tiedustelua ja lämmittelyä. Pääset lukemaan sen kuuluisan paperin kybertappoketjusta. Tutustut O'Reilly Learning -alustan videokursseihin. Kokeilet montaa harjoitusympäristöä. Jos hakkerointi sujuu jo, näillä samoilla alustoilla voit harjoitella myös kurssin ulkopuolella.*
+
 - Tehtävät suoritettu käyttäen seuraavaa kokoonpanoa:
     - Hardware: AMD Ryzen 5 5600X, Nvidia GeForce RTX 3070, 32 GB RAM
     - Host OS: Windows 11 Home 22H2
     - Virtualization Software: Oracle VM VirtualBox Version 7.0.12 r159484 (Qt5.15.2)
     - VMs Used: Debian 12, Kali Linux 2023.3
-
-*Tässä harjoituksessa on tiedustelua ja lämmittelyä. Pääset lukemaan sen kuuluisan paperin kybertappoketjusta. Tutustut O'Reilly Learning -alustan videokursseihin. Kokeilet montaa harjoitusympäristöä. Jos hakkerointi sujuu jo, näillä samoilla alustoilla voit harjoitella myös kurssin ulkopuolella.*
 
 ### x) Lue/katso ja tiivistä. (Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva.)
 
