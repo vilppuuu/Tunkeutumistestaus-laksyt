@@ -2,6 +2,12 @@
 
 *Irroita koneet Internetistä harjoittelun ajaksi. Ole huolellinen.*
 
+- Tehtävät suoritettu käyttäen seuraavaa kokoonpanoa:
+    - Hardware: AMD Ryzen 5 5600X, Nvidia GeForce RTX 3070, 32 GB RAM
+    - Host OS: Windows 11 Home 22H2
+    - Virtualization Software: Oracle VM VirtualBox Version 7.0.12 r159484 (Qt5.15.2)
+    - VMs Used: Debian 12, Kali Linux 2023.3
+
 #### x) Lue/katso ja tiivistä. (Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva.)
 
 *€ Velu 2022: Mastering Kali Linux for Advanced Penetration Testing 4ed: Chapter 10 - Exploitation: kappaleet "The Metasploit Framework", "The exploitation of targets using Metasploit" ja "Using public exploits". Eli ei enää kappaletta "Developing a Windows exploit" ja siitä eteenpäin.*
@@ -170,3 +176,5 @@ msf6 >
 - https://null-byte.wonderhowto.com/how-to/scan-for-vulnerabilities-any-website-using-nikto-0151729/
 - https://infosecwriteups.com/metasploit-upgrade-normal-shell-to-meterpreter-shell-2f09be895646
 - https://www.offsec.com/metasploit-unleashed/meterpreter-basics/
+- https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
+
