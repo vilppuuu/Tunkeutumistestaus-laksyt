@@ -63,7 +63,9 @@ hashcat (v6.2.6) starting`
 
     ![asdasdasdasdasdasdasd](https://i.imgur.com/hZEPTIh.png)
 
-- Seuraavaksi voidaankin hashcatilla ajaa tuo luomamme lista tuota tiivistettä vastaan, eli **-a 0** määrittää hyökkäyksen tyypiksi sanakirjahyökkäyksen **-m 1400** algoritmiksi tuon SHA2-256, ja komennon lopussa annetaan käytettävä sanakirja. `.\hashcat -a 0 -m 1400 -o asddas.txt 'f5bc7fcc7f5b3b6af7ff79e0feafad6d1a948b6a2c18de414993c1226be48c1f' lista.txt`
+- Seuraavaksi voidaankin hashcatilla ajaa tuo luomamme lista tuota tiivistettä vastaan, eli **-a 0** määrittää hyökkäyksen tyypiksi sanakirjahyökkäyksen **-m 1400** algoritmiksi tuon SHA2-256, ja komennon lopussa annetaan käytettävä sanakirja. 
+
+`.\hashcat -a 0 -m 1400 -o asddas.txt 'f5bc7fcc7f5b3b6af7ff79e0feafad6d1a948b6a2c18de414993c1226be48c1f' lista.txt`
 
     ![asdasdasdaasd124](https://i.imgur.com/Clx5qaO.png)
 
