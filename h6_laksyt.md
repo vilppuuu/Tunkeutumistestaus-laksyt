@@ -1,5 +1,12 @@
 ## h6 Attaaack
+
 *Tämä läksy sisältää PhishSticks-tiimin (Halonen, Rajala ja Ollikainen) ehdotusten pohjalta tehtyjä läksyjä.*
+
+- Tehtävät suoritettu käyttäen seuraavaa kokoonpanoa:
+    - Hardware: AMD Ryzen 5 5600X, Nvidia GeForce RTX 3070, 32 GB RAM
+    - Host OS: Windows 11 Home 22H2
+    - Virtualization Software: Oracle VM VirtualBox Version 7.0.12 r159484 (Qt5.15.2)
+    - VMs Used: Debian 12, Kali Linux 2023.3
 
 ### x) Lue/katso/kuuntele ja tiivistä. (Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva.)
 
@@ -154,3 +161,5 @@ Nimeä käytetyt taktiikat, tekniikat ja alitekniikat. Merkitse myös numerot T0
 - https://github.com/therealhalonen/PhishSticks/tree/master
 - https://hashcat.net/wiki/doku.php?id=example_hashes
 - https://www.freecodecamp.org/news/hacking-with-hashcat-a-practical-guide/
+- https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
+
