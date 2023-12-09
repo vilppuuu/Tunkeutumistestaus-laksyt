@@ -43,7 +43,6 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
   - Kuten haavoittuvuuden nimestäkin voi päätellä SSRF:n toimintaperiaate on sellainen, että palvelimelle lähetetään väärennetty pyyntö, jossa viitataan johonkin sisäiseen resurssiin, ja koska pyyntö tulee palvelimen kautta ohittaa se normaalit pääsynhallintatoimet.
   - Yleisiä tapoja käyttää tätä on käyttää sisäisiä ip-osoitteita ja localhostia väärennetyissä pyynnöissä.
 
-  
   **Cross-site scripting**
 
 **Karvinen 2020: Using New Webgoat 2023.4 to Try Web Hacking**
@@ -56,9 +55,9 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
   
   ![zap](https://i.imgur.com/GC4sTK7.png)
 
-![ffproxy](https://i.imgur.com/xPhHaT5.png)kali
+  ![ffproxy](https://i.imgur.com/xPhHaT5.png)kali
 
-![httppss](https://i.imgur.com/KxQB5Ko.png)
+  ![httppss](https://i.imgur.com/KxQB5Ko.png)
 
 - Jotta https toimisi täytyy sitä varten luoda CA-sertifikaatti, ja lisätä se selaimessa luotettuihin serteihin. Sertin hakeminen/luominen Zapissa on simppeliä, eli mennään *Options -> Network -> Server Certificates* ja avautuvassa ikkunassa *Save* ja valitsemaamme paikkaan.
 - Tämän jälkeen luotu serti voidaan tuoda Firefoxiin, joka tapahtuu Firefoxin asetuksissa: *Certificates -> View Certificates -> Import* ja etsitään juuri generoimamme serti ja lisätään se, ja raksit ruutuun, että luotamme siihen.
@@ -113,7 +112,8 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
   #### g) Server-side template injection with information disclosure via user-supplied objects (Tämä on merkitty hieman vaikeammaksi, jätä viimeiseksi jos näyttää hankalalta)
 
-- 
+**Edit 9.12**
+- Käytin tätä tehtävää yhtenä esimerkkinä viikon 6 läksyissä [Mitren tekniikoita demonstroidessa](https://github.com/vilppuuu/tunkeutumistestaus/blob/main/h6_laksyt.md#defence-evasion--template-injection)
 
   #### h) Basic SSRF against the local server
   
@@ -175,7 +175,6 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
      ![asdasd](https://i.imgur.com/1PzOAPa.png)
 
-
    - **Edit: Su 19.11** Jatkuu yhtä hyvällä menestyksellä kuin eilen, eli tuossahan tarvitut infot näkyy, mutta ei hyväksy :(.
      
      ![ASD143124](https://i.imgur.com/kOIdCxv.png)
@@ -190,9 +189,6 @@ Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. J
 
 **Spoofing an Authentication Cookie (1)**
 
-- 
-
-
 #### n) (A7) Identity & Auth Failure (WebGoat 2023.4)
 Authentication Bypasses (1)
 Insecure Login (1)
@@ -200,9 +196,15 @@ Insecure Login (1)
 #### o) (A10) Server-side Request Forgery (WebGoat 2023.4)
 Server-Side Request Forgery (2)
 
-![tom](https://i.imgur.com/UySNU6R.png)
-
 #### p) Client side (WebGoat 2023.4)
 Bypass front-end restrictions (2)
 
-   ![asdas](https://i.imgur.com/a05wuDX.png)
+### Lähteet
+- https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
+- https://portswigger.net/web-security/file-path-traversal#what-is-path-traversal
+- https://terokarvinen.com/2023/webgoat-2023-4-ethical-web-hacking/
+- https://owasp.org/www-project-webgoat/
+- https://portswigger.net/web-security/access-control
+- https://owasp.org/Top10/A01_2021-Broken_Access_Control/
+- https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/
+
