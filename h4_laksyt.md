@@ -3,6 +3,12 @@
 *Opit murtautumaan weppiin. Nyt päästään kokeilemaan niitä hyökkäyksiä, joita päivällä opittiin. Paljon uusia tehtäviä!
 Tässä läksyssä on monta uudistettua tehtävää, joita en ehtinyt testata. Jos joku aiheuttaa pulmia, ratkaise se viimeisenä. Käytä työkaluja vain harjoitusmaaleihin, ei muiden ihmisten koneisiin.*
 
+- Tehtävät suoritettu käyttäen seuraavaa kokoonpanoa:
+    - Hardware: AMD Ryzen 5 5600X, Nvidia GeForce RTX 3070, 32 GB RAM
+    - Host OS: Windows 11 Home 22H2
+    - Virtualization Software: Oracle VM VirtualBox Version 7.0.12 r159484 (Qt5.15.2)
+    - VMs Used: Debian 12, Kali Linux 2023.3
+
 #### x) Lue/katso ja tiivistä. (Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva.)
 
 **OWASP 2021: OWASP Top 10:2021**
