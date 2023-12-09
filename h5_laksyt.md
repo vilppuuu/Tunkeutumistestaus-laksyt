@@ -1,7 +1,12 @@
 ## h5 Injected Sequel
+
 *Nyt olisi tarjolla OWASP 2017 numero uno, SQL injektio. Kannattaa aloittaa saman tien, niin ehdit ratkoa tehtäviä monena päivänä.*
 
-
+- Tehtävät suoritettu käyttäen seuraavaa kokoonpanoa:
+    - Hardware: AMD Ryzen 5 5600X, Nvidia GeForce RTX 3070, 32 GB RAM
+    - Host OS: Windows 11 Home 22H2
+    - Virtualization Software: Oracle VM VirtualBox Version 7.0.12 r159484 (Qt5.15.2)
+    - VMs Used: Debian 12, Kali Linux 2023.3
 
 ### x) Lue/katso/kuuntele ja tiivistä. (Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva.)
 
@@ -144,5 +149,7 @@
 - https://docs.mitmproxy.org/stable/mitmproxytutorial-modifyrequests/
 - https://quickref.me/mitmproxy.html
 - https://openai.com/chatgpt
+- https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
+
 
 
