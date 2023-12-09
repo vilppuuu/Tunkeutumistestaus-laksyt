@@ -54,11 +54,18 @@ hashcat (v6.2.6) starting`
 
 ### c) f5bc7fcc7f5b3b6af7ff79e0feafad6d1a948b6a2c18de414993c1226be48c1f on erään tällä tehtäväsivulla olevan yksittäisen sanan tiiviste. Käytin hyvin yleistä ja tunnettua tiivistealgoritmia. Sanassa voi olla isoja kirjaimia, mutta ei erikoismerkkejä. Minkä sanan tiiviste on kyseessä?
 
-- Hashid:llä kun tsekkaa tuon tiivisteen, niin antaa alla olevan listan algoritmejä. Jos kerran kyseessä on yleisesti käytetty tiivistealgoritmi, niin voisi veikata sen olevan tuo **SHA-256**, koska se nyt on ainoa mikä noista itsellä soittaa mitään kelloja, ja eipä tuolla listallakaan ole kuin kahdelle muulle algoritmille edes tuota hashcat-modea.
+- Hashid:llä kun tsekkaa tuon tiivisteen, niin antaa alla olevan listan algoritmejä. Jos kerran kyseessä on yleisesti käytetty tiivistealgoritmi, niin voisi veikata sen olevan tuo **SHA-256**, koska se on noista itselle vähänkään tutulta kuulostava, ja eipä tuolla listallakaan ole kuin kahdelle muulle algoritmille edes tuota hashcat-modea.
 
     ![hasdasdas](https://i.imgur.com/scIt4R3.png)
 
-- 
+- Seuraavaksi varmaankin tarvitaan sanalista sivun sanoista, sillä jos sanan pituus alkaa olla kymmenen merkin tienoilla muuttuu brute forcaaminen suht aikaa vieväksi, tai sitten täytyy hankkia lisää computea. Tähän tarkoitukseen ehkä helppkäyttöisin työkalu on tuo [Cewl](https://github.com/digininja/CeWL), joka siis Github-kuvauksen mukaan on: *CeWL is a ruby app which spiders a given URL to a specified depth, optionally following external links, and returns a list of words which can then be used for password crackers such as John the Ripper.*
+- Cewlin asennus ainakin Debianille onnistui suoraan aptista, ja sen käyttöönkään ei tarvinnut sen suuremmin perehtyä, muuten kuin nopeasti lukaisemalla helpin (*cewl -h*). Komennolla *cewl -d 0 -m 5 -with-numbers <kohde-url> -w <output.txt>* tuo siis kerää annetusta osoitteesta kaikki sanat, jotka ovat yli viisi merkkiä pitkiä (**m -5**), ja tuolla **-d 0** määritetään syvyys, eli tässä tapauksessa ei seurata sivun linkkejä ja kerätä niistä tietoja, **with-numbers** ottaa mukaan merkkijonot, joissa myös numeroita seassa, ja **-w** kirjoitetaan output tiedostoon.
+
+    ![asdasdasdasdasdasdasd](https://i.imgur.com/hZEPTIh.png)
+
+- Seuraavaksi voidaankin hashcatilla ajaa tuo luomamme lista tuota tiivistettä vastaan, eli **-a 0** määrittää hyökkäyksen tyypiksi sanakirjahyökkäyksen **-m 1400** algoritmiksi tuon SHA2-256, ja komennon lopussa annetaan käytettävä sanakirja. `.\hashcat -a 0 -m 1400 -o asddas.txt 'f5bc7fcc7f5b3b6af7ff79e0feafad6d1a948b6a2c18de414993c1226be48c1f' lista.txt`
+
+    ![asdasdasdaasd124](https://i.imgur.com/Clx5qaO.png)
 
 ### d) Cheatsheet. Kerää kurssilaisten raporteista käteviä tekniikoita. Kerää itse tekniikat ja komennot, älä pelkästään kuvaile. Muista lähdeviitteet. Tee tiivis ja selkeä cheatsheet, josta löydät tarvittavat tiedot lipunryöstössä. (Tässä alatehtävässä ei tarvitse tehdä testejä koneella)
 
