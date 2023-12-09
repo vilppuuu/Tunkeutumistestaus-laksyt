@@ -11,3 +11,5 @@ Kun olet palauttanut työn Laksuun, rinnakkaisarvioi kaksi työtä.*
 - Jos alla olevan kuvan liikennettä tarkastellaan, niin ensimmäiseksi riviltä löytyy timestamp, verkkointerface, liikenteen tyyppi (sisään/ulos), ip-osoitteet ja käytetty portti, lopussa noita tcp-settejä syn/ack jne.
   
 ![Screenshot 2023-10-23 120209](https://github.com/vilppuuu/tunkeutumistestaus/assets/103587907/bc6f2a4d-2ef5-480a-a31f-e21f251c56bb)
+
+- Lähde: https://www.tcpdump.org/manpages/tcpdump.1.html
