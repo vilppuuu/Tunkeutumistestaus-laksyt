@@ -6,12 +6,11 @@
     - Virtualization Software: Oracle VM VirtualBox Version 7.0.12 r159484 (Qt5.15.2)
     - VMs Used: Debian 12, Kali Linux 2023.3
 
-
 ### x) Lue/katso/kuuntele ja tiivistä. (Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva.)
 
 **Karvinen 2022: Cracking Passwords with Hashcat**
 
-- Alussa asennellaan aptista ihan normaalisti hashcat & hashid, sekä ladataan tuolta SecLististä salasanalista.
+- Ártikkelin alussa asennellaan aptista ihan normaalisti hashcat & hashid, sekä ladataan tuolta SecLististä salasanalista.
 - Seuraavaksi on tuota hashid:n käyttöä, jolla voidaan ainakin jotenkuten tunnistaa tiivisteessä käytetty algoritmi, ja se myös antaa hashcatiin murtamisessa tarvittavan 'moden' numeron. En kyllä ymmärrä millä perusteella tämä näitä tunnistaa, muuten kuin merkkijonon pituuden perusteella (esim. MD5 32 vs SHA1 40)? Ei varmaan mitenkään muuten, eli loppujenlopuksi sopivin algoritmi täytyy valita yleisyyden ja kontekstin perusteella.
 - Loppuartikkeli kuvaa tuota hashcatin käyttöä, jota setvin jo tarkemmin tuossa alapuolella ja viime viikon [tehtävissä](https://github.com/vilppuuu/tunkeutumistestaus/blob/main/h6_laksyt.md#credential-access-brute-force--password-cracking-t1110002), joten skipedi skip tähän, ettei tule turhaa toistoa.
 
@@ -77,6 +76,10 @@ hashcat (v6.2.6) starting`
 
 ### d) Cheatsheet. Kerää kurssilaisten raporteista käteviä tekniikoita. Kerää itse tekniikat ja komennot, älä pelkästään kuvaile. Muista lähdeviitteet. Tee tiivis ja selkeä cheatsheet, josta löydät tarvittavat tiedot lipunryöstössä. (Tässä alatehtävässä ei tarvitse tehdä testejä koneella)
 
+- [Metasploitin](https://github.com/jjenska/PenTest/blob/main/h3/h3.md#f-murtaudu-metasploitablen-vsftpd-palveluun-metasploitilla-search-vsftpd-use-0-set-rhosts---varmista-osoite-huolella-exploit-id) ja [FUFF:in](https://github.com/jjenska/PenTest/blob/main/h2/h2.md#b-asenna-ffufme-harjoitusmaali-paikallisesti-omalle-koneellesi-ratkaise-teht%C3%A4v%C3%A4t-paitsi-content-discovery---pipes) käyttöä à la Jenni.
+- Janalta vähän [ZAP:ia](https://github.com/JanaHalt/Ethical-Hacking-2023/blob/main/h4%20Totally%20Legit%20Sertificate.md#portswigger-labs), ja muutenkin hyvää oppia rauhallisesta, selkeästä, ja vaihe-vaiheelta tapahtuvasta ongelmanratkaisusta ja raportoinnista.
+- 
+
 ### e) Viittaa. Tarkista, että jokaisessa raportissasi on lähdeviitteet kunnossa. Jokaisen raportin tulee viitata ainakin kurssiin / tehtäväsivuun. Kaikkiin muihinkin käytettyihin lähteisiin tulee viitata, kuten kurssikavereiden raportteihin, weppisivuihin, man-sivuihin... (Tässä alatehtävässä ei tarvitse tehdä testejä koneella).
 
 
@@ -88,4 +91,5 @@ hashcat (v6.2.6) starting`
 - https://nicholaslyz.com/blog/2021/07/23/cracking-pdf-hashes-with-hashcat/
 - https://security.stackexchange.com/questions/82222/how-can-i-extract-the-hash-inside-an-encrypted-pdf-file
 - https://github.com/digininja/CeWL
-- 
+- https://github.com/jjenska/PenTest/blob/main/h3/h3.md
+- https://github.com/JanaHalt/Ethical-Hacking-2023
