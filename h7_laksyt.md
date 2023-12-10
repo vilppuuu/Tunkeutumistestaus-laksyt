@@ -27,7 +27,7 @@
 
   ![errrr](https://i.imgur.com/Bj8olxp.png)
 
-- Tämä tosiaankin toimi, ja eipä tuollaisen kahdeksan merkkiä pitkän salasanan murtamisen aikana turhan paljon kerennyt vanhenemaan.
+- Tämä tosiaankin toimi, ja eipä tuollaisen kahdeksan merkkiä pitkän salasanan murtamisen aikana turhan paljon kerennyt vanhenemaan (MD5 ei vissiinkään ole erityisen hyvä tiivistealgoritmi).
 
   ![crackkkk](https://i.imgur.com/vMOgzxN.png)
 
